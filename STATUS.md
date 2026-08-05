@@ -8,13 +8,21 @@ Dernière mise à jour : 2026-08-05
 - Node.js installé sur la machine
 - Scaffold Next.js 16 + TypeScript + Tailwind + Framer Motion, en place dans ce dossier
 - PWA de base : `src/app/manifest.ts` + `public/sw.js` (service worker minimal, cache basique)
-- Modèle de données : `src/types/` (content, profile, progress) + `src/content/themes/` (3 thèmes d'exemple : animaux, couleurs, nombres)
+- Modèle de données : `src/types/` (content, profile, progress) + `src/content/themes/` (3 thèmes d'exemple : animaux, couleurs, nombres), chaque mot a maintenant un `emoji` placeholder (visuel par mot en attendant les vraies illustrations)
 - Répétition espacée (boîtes Leitner) implémentée : `src/lib/leitner.ts`
 - **Écran de sélection de profil fonctionnel** (`src/app/page.tsx`) : création de profil (nom, âge 6/9, mascotte parmi 4 emojis placeholder), sélection — testé dans le navigateur, ça marche
 - **Comptes Supabase créés** : `compagnon-anglais-dev` et `compagnon-anglais-prod`
 - **Supabase dev branché** : schéma appliqué (`supabase/schema.sql` : tables `profiles`, `word_progress`, `attempts`, RLS activé avec accès public — pas d'auth utilisateur prévue), client dans `src/lib/supabase.ts`, `.env.local` configuré (non commité)
 - Profils maintenant lus/écrits directement dans Supabase (`src/lib/profiles.ts`) — testé de bout en bout (créé un profil, rechargé la page, toujours là)
 - `scripts/run-sql.mjs` : utilitaire pour exécuter du SQL contre une base via `DATABASE_URL` (utilisé pour appliquer le schéma ; connexion via le **pooler** Supabase, la connexion directe ne passe pas sur ce réseau — IPv6 uniquement)
+- **Routing complet** : sélection profil → `/play/[profileId]` (suggestion de thème + choix du mode) → `/play/[profileId]/[themeId]/[mode]` (l'écran de jeu)
+- **Les 4 modes de jeu sont construits et testés** :
+  - Flashcards (découverte) — mot, emoji, traduction, phrase, écoute
+  - Quiz (reconnaissance) — questions traduction/écoute alternées, feedback correctif
+  - Memory (rappel) — association emoji/mot, jusqu'à 6 paires
+  - Répète-et-vérifie (production) — reconnaissance vocale native, gère proprement le cas où le micro n'est pas dispo/autorisé
+  - Les 3 derniers modes enregistrent chaque tentative dans Supabase et mettent à jour la progression Leitner (vérifié en base : boîte qui monte/descend, `success_modes` qui s'accumule)
+  - ⚠️ **Reconnaissance vocale non testable dans cet environnement de dev** (pas de vrai micro dans le navigateur de prévisualisation) — le fallback "micro refusé" a été vérifié, mais un vrai test avec la voix nécessite la tablette Android
 - Tout est commité et poussé sur `main` (https://github.com/misroi-stack/compagnon-anglais)
 
 ## Décisions clés à retenir
@@ -28,11 +36,11 @@ Dernière mise à jour : 2026-08-05
 
 ## Prochaines étapes (dans l'ordre)
 
-1. Construire les 4 écrans de jeu : Flashcards, Quiz, Memory, Répète-et-vérifie
-2. **Action utilisateur requise** : créer un compte Vercel — voir PLAN.md
-3. Appliquer `supabase/schema.sql` sur le projet **prod** au moment du déploiement (même méthode que dev, avec le mot de passe/pooler de prod)
-4. Mettre en place le pipeline CI/CD GitHub Actions (branche `production`)
-5. Premier déploiement de test sur la tablette Android
+1. **Action utilisateur requise** : créer un compte Vercel — voir PLAN.md
+2. Appliquer `supabase/schema.sql` sur le projet **prod** au moment du déploiement (même méthode que dev, avec le mot de passe/pooler de prod)
+3. Mettre en place le pipeline CI/CD GitHub Actions (branche `production`)
+4. Premier déploiement de test sur la tablette Android — **notamment pour valider la reconnaissance vocale en conditions réelles**
+5. Reste à faire pour un vrai V1 complet : mode parent (dashboard stats), suggestion de thème plus visible/expliquée à l'enfant, sons d'interface (clic/transition), mascotte animée (en attente des images), gestion du cas "aucun mot" si un thème est vide pour un âge donné
 
 ## Pour relancer le développement local
 
