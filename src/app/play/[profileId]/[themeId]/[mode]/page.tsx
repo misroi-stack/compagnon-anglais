@@ -60,8 +60,8 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
     };
   }, [profileId, themeId, isValidMode, router]);
 
-  function exitToThemeSelection() {
-    router.push(`/play/${profileId}`);
+  function exitToThemeHub() {
+    router.push(`/play/${profileId}/${themeId}`);
   }
 
   if (loading || !profile || !theme) {
@@ -74,14 +74,14 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
 
   switch (mode as GameMode) {
     case "flashcards":
-      return <Flashcards theme={theme} words={words} onExit={exitToThemeSelection} />;
+      return <Flashcards theme={theme} words={words} onExit={exitToThemeHub} />;
     case "quiz":
       return (
-        <Quiz profileId={profileId} theme={theme} words={words} onExit={exitToThemeSelection} />
+        <Quiz profileId={profileId} theme={theme} words={words} onExit={exitToThemeHub} />
       );
     case "associe":
       return (
-        <Associe profileId={profileId} theme={theme} words={words} onExit={exitToThemeSelection} />
+        <Associe profileId={profileId} theme={theme} words={words} onExit={exitToThemeHub} />
       );
     case "repete":
       return (
@@ -89,7 +89,7 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
           profileId={profileId}
           theme={theme}
           words={words}
-          onExit={exitToThemeSelection}
+          onExit={exitToThemeHub}
         />
       );
     default:
@@ -98,7 +98,7 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
           <p className="text-violet-500">Ce mode arrive très bientôt 🚧</p>
           <button
             type="button"
-            onClick={exitToThemeSelection}
+            onClick={exitToThemeHub}
             className="rounded-full bg-violet-600 px-6 py-3 font-bold text-white shadow"
           >
             Retour
