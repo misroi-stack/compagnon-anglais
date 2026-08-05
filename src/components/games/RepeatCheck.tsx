@@ -92,6 +92,12 @@ export function RepeatCheck({ profileId, theme, words, onExit }: RepeatCheckProp
     setIndex((i) => i + 1);
   }
 
+  function retry() {
+    setStatus("idle");
+    setHeard(null);
+    setStartTime(Date.now());
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
       <GameHeader
@@ -137,16 +143,50 @@ export function RepeatCheck({ profileId, theme, words, onExit }: RepeatCheckProp
           </button>
         )}
 
-        {answered && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
-            <p className={`font-semibold ${status === "correct" ? "text-emerald-600" : "text-rose-500"}`}>
-              {status === "correct" ? "Parfait ! 🎉" : `J'ai entendu "${heard}"`}
+        {status === "correct" && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="font-semibold text-emerald-600"
+          >
+            Parfait ! 🎉
+          </motion.p>
+        )}
+
+        {status === "incorrect" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="rounded-2xl bg-rose-50 px-4 py-3 text-center"
+          >
+            <p className="font-semibold text-rose-500">Presque ! Essaie encore 💪</p>
+            <p className="mt-1 text-sm text-rose-400">
+              J&apos;ai entendu &quot;{heard}&quot;, le mot est &quot;{word.en}&quot;
             </p>
           </motion.div>
         )}
       </motion.div>
 
-      {(answered || status === "unsupported" || status === "mic-error") && (
+      {status === "incorrect" && (
+        <div className="flex gap-4">
+          <button
+            type="button"
+            onClick={retry}
+            className="rounded-full bg-violet-600 px-8 py-3 font-bold text-white shadow"
+          >
+            🔁 Réessayer
+          </button>
+          <button
+            type="button"
+            onClick={next}
+            className="rounded-full bg-white px-6 py-3 font-bold text-violet-600 shadow"
+          >
+            Passer →
+          </button>
+        </div>
+      )}
+
+      {(status === "correct" || status === "unsupported" || status === "mic-error") && (
         <button
           type="button"
           onClick={next}
