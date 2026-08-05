@@ -8,7 +8,7 @@ App pour aider deux enfants (6 ans et 9 ans) à apprendre l'anglais, construite 
 - **Parcours en 4 étapes par mot** (pas des modes indépendants) :
   1. **Découverte** (Flashcards) — recognition passive, mot + image + traduction + audio
   2. **Reconnaissance** (Quiz) — recognition active, choix parmi plusieurs options
-  3. **Rappel** (Memory) — recall actif sans indice de traduction visible
+  3. **Rappel** (Associe) — recall actif sans indice de traduction visible
   4. **Production** (Répète-et-vérifie) — l'enfant produit le mot à l'oral
   - Un mot n'est marqué **"maîtrisé"** qu'après réussite dans au moins 3 des 4 étapes, à des sessions différentes (pas un coup de chance ponctuel)
 - **Contenu ancré sur un référentiel reconnu** : vocabulaire et structures inspirés des listes **Cambridge English Qualifications for Young Learners** (Starters ≈ 6-8 ans, Movers ≈ 8-10 ans) plutôt qu'une liste de mots inventée — garantit un contenu réellement adapté à l'âge et utile.
@@ -28,7 +28,7 @@ App pour aider deux enfants (6 ans et 9 ans) à apprendre l'anglais, construite 
 
 1. **Flashcards** — mot + image + traduction + écoute
 2. **Quiz** — QCM (image→mot, mot→traduction, écoute→choix), inclut quelques mini-phrases à trous pour le profil 9 ans
-3. **Memory** — associer image et mot anglais, sans traduction affichée
+3. **Associe** — relier chaque image à son mot anglais (deux colonnes visibles, on touche une image puis un mot), sans traduction affichée. Remplace l'idée initiale de jeu "Memory" (cartes cachées) : testé avec un vrai enfant, ça évaluait surtout la mémoire de position plutôt que le vocabulaire anglais.
 4. **Répète-et-vérifie** — l'enfant prononce le mot/la mini-phrase, reconnaissance vocale valide (V1 : API native navigateur)
 
 Chaque mode aura, à terme, **plusieurs variantes de mécanique** (voir "Qualité de jeu" ci-dessous) pour éviter la monotonie — la V1 livre une variante solide par mode, les variantes additionnelles viennent en V2.
@@ -59,7 +59,7 @@ Un exercice bien dessiné reste un exercice — ce qui fait un vrai jeu, c'est l
 
 ## Son & Immersion
 
-- **Effets sonores courts** à chaque interaction : clic, carte qui se retourne (memory), transition d'écran, petit son positif à la bonne réponse, son doux/neutre (jamais punitif) à une mauvaise réponse
+- **Effets sonores courts** à chaque interaction : clic, carte qui se retourne (Flashcards), sélection/connexion (Associe), transition d'écran, petit son positif à la bonne réponse, son doux/neutre (jamais punitif) à une mauvaise réponse
 - Pas de musique de fond continue en V1
 - Icône son/muet **visible sur chaque écran**, accessible directement par l'enfant ou le parent
 - Sourcing : bibliothèque de sons libres de droits, cohérente avec le style coloré/doux de l'app

@@ -10,6 +10,6 @@ export interface ModeInfo {
 export const MODES: ModeInfo[] = [
   { id: "flashcards", label: "Flashcards", emoji: "🃏", description: "Découvre les mots" },
   { id: "quiz", label: "Quiz", emoji: "❓", description: "Teste-toi" },
-  { id: "memory", label: "Memory", emoji: "🧠", description: "Associe les cartes" },
+  { id: "associe", label: "Associe", emoji: "🔗", description: "Relie l'image au mot" },
   { id: "repete", label: "Répète", emoji: "🎤", description: "Prononce le mot" },
 ];

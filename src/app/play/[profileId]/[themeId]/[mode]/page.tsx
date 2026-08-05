@@ -5,14 +5,14 @@ import { useRouter } from "next/navigation";
 import { getTheme, wordsForAge } from "@/content";
 import { Flashcards } from "@/components/games/Flashcards";
 import { Quiz } from "@/components/games/Quiz";
-import { Memory } from "@/components/games/Memory";
+import { Associe } from "@/components/games/Associe";
 import { RepeatCheck } from "@/components/games/RepeatCheck";
 import { getProfile } from "@/lib/profiles";
 import type { Theme, Word } from "@/types/content";
 import type { Profile } from "@/types/profile";
 import type { GameMode } from "@/types/progress";
 
-const VALID_MODES: GameMode[] = ["flashcards", "quiz", "memory", "repete"];
+const VALID_MODES: GameMode[] = ["flashcards", "quiz", "associe", "repete"];
 
 interface RouteParams {
   profileId: string;
@@ -79,9 +79,9 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
       return (
         <Quiz profileId={profileId} theme={theme} words={words} onExit={exitToThemeSelection} />
       );
-    case "memory":
+    case "associe":
       return (
-        <Memory profileId={profileId} theme={theme} words={words} onExit={exitToThemeSelection} />
+        <Associe profileId={profileId} theme={theme} words={words} onExit={exitToThemeSelection} />
       );
     case "repete":
       return (
