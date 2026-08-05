@@ -1,31 +1,51 @@
-import type { Profile } from "@/types/profile";
+import { supabase } from "@/lib/supabase";
+import type { AgeGroup } from "@/types/content";
+import type { MascotId, Profile } from "@/types/profile";
 
-const STORAGE_KEY = "compagnon-anglais:profiles";
-
-/**
- * Stockage local temporaire le temps de brancher Supabase (voir PLAN.md).
- * À remplacer par des appels Supabase une fois les projets dev/prod créés.
- */
-export function getProfiles(): Profile[] {
-  if (typeof window === "undefined") return [];
-  const raw = window.localStorage.getItem(STORAGE_KEY);
-  if (!raw) return [];
-  try {
-    return JSON.parse(raw) as Profile[];
-  } catch {
-    return [];
-  }
+interface ProfileRow {
+  id: string;
+  name: string;
+  age: string;
+  mascot: string;
+  created_at: string;
 }
 
-export function saveProfile(profile: Profile): Profile[] {
-  const profiles = getProfiles().filter((p) => p.id !== profile.id);
-  const updated = [...profiles, profile];
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-  return updated;
+function fromRow(row: ProfileRow): Profile {
+  return {
+    id: row.id,
+    name: row.name,
+    age: row.age as AgeGroup,
+    mascot: row.mascot as MascotId,
+    createdAt: row.created_at,
+  };
 }
 
-export function deleteProfile(profileId: string): Profile[] {
-  const updated = getProfiles().filter((p) => p.id !== profileId);
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-  return updated;
+export async function getProfiles(): Promise<Profile[]> {
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("*")
+    .order("created_at", { ascending: true });
+
+  if (error) throw error;
+  return (data as ProfileRow[]).map(fromRow);
+}
+
+export async function createProfile(input: {
+  name: string;
+  age: AgeGroup;
+  mascot: MascotId;
+}): Promise<Profile> {
+  const { data, error } = await supabase
+    .from("profiles")
+    .insert({ name: input.name, age: input.age, mascot: input.mascot })
+    .select()
+    .single();
+
+  if (error) throw error;
+  return fromRow(data as ProfileRow);
+}
+
+export async function deleteProfile(profileId: string): Promise<void> {
+  const { error } = await supabase.from("profiles").delete().eq("id", profileId);
+  if (error) throw error;
 }

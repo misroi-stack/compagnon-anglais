@@ -1,6 +1,6 @@
 # État d'avancement — Compagnon Anglais
 
-Dernière mise à jour : 2026-08-04
+Dernière mise à jour : 2026-08-05
 
 ## Fait
 
@@ -11,7 +11,10 @@ Dernière mise à jour : 2026-08-04
 - Modèle de données : `src/types/` (content, profile, progress) + `src/content/themes/` (3 thèmes d'exemple : animaux, couleurs, nombres)
 - Répétition espacée (boîtes Leitner) implémentée : `src/lib/leitner.ts`
 - **Écran de sélection de profil fonctionnel** (`src/app/page.tsx`) : création de profil (nom, âge 6/9, mascotte parmi 4 emojis placeholder), sélection — testé dans le navigateur, ça marche
-- Profils stockés en `localStorage` pour l'instant (`src/lib/profiles.ts`) — **temporaire**, à remplacer par Supabase
+- **Comptes Supabase créés** : `compagnon-anglais-dev` et `compagnon-anglais-prod`
+- **Supabase dev branché** : schéma appliqué (`supabase/schema.sql` : tables `profiles`, `word_progress`, `attempts`, RLS activé avec accès public — pas d'auth utilisateur prévue), client dans `src/lib/supabase.ts`, `.env.local` configuré (non commité)
+- Profils maintenant lus/écrits directement dans Supabase (`src/lib/profiles.ts`) — testé de bout en bout (créé un profil, rechargé la page, toujours là)
+- `scripts/run-sql.mjs` : utilitaire pour exécuter du SQL contre une base via `DATABASE_URL` (utilisé pour appliquer le schéma ; connexion via le **pooler** Supabase, la connexion directe ne passe pas sur ce réseau — IPv6 uniquement)
 - Tout est commité et poussé sur `main` (https://github.com/misroi-stack/compagnon-anglais)
 
 ## Décisions clés à retenir
@@ -20,15 +23,16 @@ Dernière mise à jour : 2026-08-04
 - Mascottes = emojis placeholder pour l'instant (🦊🦉🐉🐼) ; les vraies images seront fournies par l'utilisateur (voir PLAN.md section "Contenu visuel")
 - Pas de système de récompense/points — feedback qualitatif seulement
 - Tout gratuit pour la V1 (voir PLAN.md section "Coûts"), sauf la conversation IA vocale (V2, optionnelle, payante)
+- Mots de passe/secrets gérés via le gestionnaire de mots de passe Chrome ; jamais commités (`.env.local` et `.env*` sont dans `.gitignore`)
+- Connexion Postgres directe (`db.<ref>.supabase.co`) ne fonctionne pas sur ce réseau (IPv6 requis) → toujours utiliser le **connection pooler** (`Settings → Database → Connect → Transaction pooler`)
 
 ## Prochaines étapes (dans l'ordre)
 
 1. Construire les 4 écrans de jeu : Flashcards, Quiz, Memory, Répète-et-vérifie
-2. **Action utilisateur requise** : créer 2 comptes Supabase (dev + prod) — voir PLAN.md
-3. **Action utilisateur requise** : créer un compte Vercel — voir PLAN.md
-4. Brancher Supabase (remplacer le localStorage temporaire)
-5. Mettre en place le pipeline CI/CD GitHub Actions (branche `production`)
-6. Premier déploiement de test sur la tablette Android
+2. **Action utilisateur requise** : créer un compte Vercel — voir PLAN.md
+3. Appliquer `supabase/schema.sql` sur le projet **prod** au moment du déploiement (même méthode que dev, avec le mot de passe/pooler de prod)
+4. Mettre en place le pipeline CI/CD GitHub Actions (branche `production`)
+5. Premier déploiement de test sur la tablette Android
 
 ## Pour relancer le développement local
 

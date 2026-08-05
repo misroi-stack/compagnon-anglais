@@ -4,20 +4,26 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MascotPicker } from "@/components/MascotPicker";
 import { ProfileCard } from "@/components/ProfileCard";
-import { getProfiles, saveProfile } from "@/lib/profiles";
+import { getProfiles, createProfile } from "@/lib/profiles";
 import type { AgeGroup } from "@/types/content";
 import type { MascotId, Profile } from "@/types/profile";
 
 export default function Home() {
   const [profiles, setProfiles] = useState<Profile[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<Profile | null>(null);
   const [isCreating, setIsCreating] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [age, setAge] = useState<AgeGroup>("6");
   const [mascot, setMascot] = useState<MascotId | null>(null);
 
   useEffect(() => {
-    setProfiles(getProfiles());
+    getProfiles()
+      .then(setProfiles)
+      .catch(() => setError("Impossible de charger les profils."))
+      .finally(() => setLoading(false));
   }, []);
 
   function resetForm() {
@@ -27,17 +33,18 @@ export default function Home() {
     setIsCreating(false);
   }
 
-  function handleCreate() {
+  async function handleCreate() {
     if (!name.trim() || !mascot) return;
-    const profile: Profile = {
-      id: crypto.randomUUID(),
-      name: name.trim(),
-      age,
-      mascot,
-      createdAt: new Date().toISOString(),
-    };
-    setProfiles(saveProfile(profile));
-    resetForm();
+    setIsSaving(true);
+    try {
+      const profile = await createProfile({ name: name.trim(), age, mascot });
+      setProfiles((prev) => [...prev, profile]);
+      resetForm();
+    } catch {
+      setError("Impossible de créer le profil, réessaie.");
+    } finally {
+      setIsSaving(false);
+    }
   }
 
   return (
@@ -51,22 +58,30 @@ export default function Home() {
       </motion.h1>
       <p className="-mt-6 text-center text-lg text-violet-500">Qui joue aujourd&apos;hui ?</p>
 
-      <div className="flex flex-wrap items-center justify-center gap-6">
-        {profiles.map((profile) => (
-          <ProfileCard key={profile.id} profile={profile} onSelect={setSelected} />
-        ))}
+      {error && (
+        <p className="rounded-full bg-rose-100 px-4 py-2 text-sm text-rose-600">{error}</p>
+      )}
 
-        <motion.button
-          type="button"
-          onClick={() => setIsCreating(true)}
-          whileTap={{ scale: 0.95 }}
-          whileHover={{ scale: 1.03 }}
-          className="flex h-[168px] w-[168px] flex-col items-center justify-center gap-2 rounded-3xl border-4 border-dashed border-violet-300 text-violet-400 hover:border-violet-400 hover:text-violet-500"
-        >
-          <span className="text-5xl">+</span>
-          <span className="text-sm font-semibold">Nouveau profil</span>
-        </motion.button>
-      </div>
+      {loading ? (
+        <p className="text-violet-400">Chargement des profils…</p>
+      ) : (
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          {profiles.map((profile) => (
+            <ProfileCard key={profile.id} profile={profile} onSelect={setSelected} />
+          ))}
+
+          <motion.button
+            type="button"
+            onClick={() => setIsCreating(true)}
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.03 }}
+            className="flex h-[168px] w-[168px] flex-col items-center justify-center gap-2 rounded-3xl border-4 border-dashed border-violet-300 text-violet-400 hover:border-violet-400 hover:text-violet-500"
+          >
+            <span className="text-5xl">+</span>
+            <span className="text-sm font-semibold">Nouveau profil</span>
+          </motion.button>
+        </div>
+      )}
 
       {selected && (
         <motion.p
@@ -134,10 +149,10 @@ export default function Home() {
               <button
                 type="button"
                 onClick={handleCreate}
-                disabled={!name.trim() || !mascot}
+                disabled={!name.trim() || !mascot || isSaving}
                 className="mt-2 rounded-xl bg-violet-600 py-3 font-bold text-white disabled:opacity-40"
               >
-                Créer le profil
+                {isSaving ? "Création…" : "Créer le profil"}
               </button>
             </motion.div>
           </motion.div>
