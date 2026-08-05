@@ -21,6 +21,12 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
   const [themeStats, setThemeStats] = useState<ThemeStats[]>([]);
   const [selectedThemeId, setSelectedThemeId] = useState<string | null>(null);
   const [selectedMode, setSelectedMode] = useState<GameMode | null>(null);
+  const [showAllThemes, setShowAllThemes] = useState(false);
+
+  const THEME_PREVIEW_COUNT = 8;
+  const visibleThemeStats = showAllThemes
+    ? themeStats
+    : themeStats.slice(0, THEME_PREVIEW_COUNT);
 
   useEffect(() => {
     let cancelled = false;
@@ -74,7 +80,7 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
           Les thèmes les moins avancés sont proposés en premier ✨
         </p>
         <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
-          {themeStats.map((stats, i) => {
+          {visibleThemeStats.map((stats, i) => {
             const isSuggested = i === 0;
             const isSelected = stats.theme.id === selectedThemeId;
             const percent = Math.round(stats.masteryPercent * 100);
@@ -115,6 +121,20 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
             );
           })}
         </div>
+
+        {themeStats.length > THEME_PREVIEW_COUNT && (
+          <div className="mt-3 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllThemes((v) => !v)}
+              className="text-sm font-semibold text-violet-500 underline"
+            >
+              {showAllThemes
+                ? "Réduire ↑"
+                : `Voir tous les thèmes (${themeStats.length}) ↓`}
+            </button>
+          </div>
+        )}
       </section>
 
       {selectedThemeId && (
