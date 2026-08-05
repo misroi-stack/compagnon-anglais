@@ -17,7 +17,7 @@ Dernière mise à jour : 2026-08-05
 - `scripts/run-sql.mjs` : utilitaire pour exécuter du SQL contre une base via `DATABASE_URL` (utilisé pour appliquer le schéma ; connexion via le **pooler** Supabase, la connexion directe ne passe pas sur ce réseau — IPv6 uniquement)
 - **Routing complet** : sélection profil → `/play/[profileId]` (suggestion de thème + choix du mode) → `/play/[profileId]/[themeId]/[mode]` (l'écran de jeu)
 - **Les 4 modes de jeu sont construits et testés** :
-  - Flashcards (découverte) — mot, emoji, traduction, phrase, écoute
+  - Flashcards (découverte) — carte qui se retourne (clic) pour révéler mot/traduction/phrase/écoute
   - Quiz (reconnaissance) — questions traduction/écoute alternées, feedback correctif
   - Memory (rappel) — association emoji/mot, jusqu'à 6 paires
   - Répète-et-vérifie (production) — reconnaissance vocale native, gère proprement le cas où le micro n'est pas dispo/autorisé
@@ -33,6 +33,7 @@ Dernière mise à jour : 2026-08-05
 - Tout gratuit pour la V1 (voir PLAN.md section "Coûts"), sauf la conversation IA vocale (V2, optionnelle, payante)
 - Mots de passe/secrets gérés via le gestionnaire de mots de passe Chrome ; jamais commités (`.env.local` et `.env*` sont dans `.gitignore`)
 - Connexion Postgres directe (`db.<ref>.supabase.co`) ne fonctionne pas sur ce réseau (IPv6 requis) → toujours utiliser le **connection pooler** (`Settings → Database → Connect → Transaction pooler`)
+- ⚠️ **Framer Motion `animate={{...}}` ne se met pas à jour de façon fiable dans cette combo Next.js 16 / React 19 / framer-motion 12** quand la valeur change après le montage (testé et confirmé cassé sur `AnimatePresence` exit ET sur un `rotateY` piloté par state, ex: Flashcards/Memory). Le state React se met à jour correctement, mais le style ne suit pas. **Solution qui marche** : transitions CSS pures (classe Tailwind `transition-transform` + `style={{transform: ...}}` conditionnel sur le state), utilisée dans Flashcards et Memory. Framer Motion reste fiable pour les animations au montage (`initial`→`animate` une fois) et les gestes (`whileTap`/`whileHover`) — évite `animate` piloté par state ailleurs dans le code.
 
 ## Prochaines étapes (dans l'ordre)
 

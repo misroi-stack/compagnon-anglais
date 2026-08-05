@@ -121,14 +121,12 @@ export function Memory({ profileId, theme, words, onExit }: MemoryProps) {
           {deck.map((card) => {
             const isFlipped = flipped.includes(card.cardId) || matched.has(card.wordId);
             return (
-              <motion.button
+              <button
                 key={card.cardId}
                 type="button"
                 onClick={() => handleFlip(card)}
-                whileTap={{ scale: 0.95 }}
-                animate={{ rotateY: isFlipped ? 0 : 180 }}
-                transition={{ duration: 0.3 }}
-                className={`flex h-24 items-center justify-center rounded-2xl p-2 text-center shadow-md ${
+                style={{ transform: isFlipped ? "rotateY(0deg) scale(1)" : "rotateY(180deg) scale(1)" }}
+                className={`flex h-24 items-center justify-center rounded-2xl p-2 text-center shadow-md transition-transform duration-300 ease-in-out active:scale-95 ${
                   matched.has(card.wordId)
                     ? "bg-emerald-200"
                     : isFlipped
@@ -143,7 +141,7 @@ export function Memory({ profileId, theme, words, onExit }: MemoryProps) {
                 ) : (
                   <span className="text-2xl">❓</span>
                 )}
-              </motion.button>
+              </button>
             );
           })}
         </div>
