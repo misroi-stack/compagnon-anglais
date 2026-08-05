@@ -4,10 +4,10 @@
   "icon": "🧸",
   "words": [
     { "id": "teddy-bear", "en": "teddy bear", "fr": "ours en peluche", "image": "/images/vocabulary/jouets/teddy-bear.svg", "emoji": "🧸", "ageGroups": ["6", "9"], "phrases": [{ "en": "I love my teddy bear.", "fr": "J'aime mon ours en peluche." }] },
-    { "id": "doll", "en": "doll", "fr": "poupée", "image": "/images/vocabulary/jouets/doll.svg", "emoji": "🪆", "ageGroups": ["6", "9"] },
-    { "id": "kite", "en": "kite", "fr": "cerf-volant", "image": "/images/vocabulary/jouets/kite.svg", "emoji": "🪁", "ageGroups": ["9"] },
-    { "id": "blocks", "en": "blocks", "fr": "blocs", "image": "/images/vocabulary/jouets/blocks.svg", "emoji": "🧱", "ageGroups": ["6", "9"] },
-    { "id": "puzzle", "en": "puzzle", "fr": "puzzle", "image": "/images/vocabulary/jouets/puzzle.svg", "emoji": "🧩", "ageGroups": ["6", "9"] },
-    { "id": "robot", "en": "robot", "fr": "robot", "image": "/images/vocabulary/jouets/robot.svg", "emoji": "🤖", "ageGroups": ["9"] }
+    { "id": "doll", "en": "doll", "fr": "poupée", "image": "/images/vocabulary/jouets/doll.svg", "emoji": "🪆", "ageGroups": ["6", "9"], "phrases": [{ "en": "She has a doll.", "fr": "Elle a une poupée." }] },
+    { "id": "kite", "en": "kite", "fr": "cerf-volant", "image": "/images/vocabulary/jouets/kite.svg", "emoji": "🪁", "ageGroups": ["9"], "phrases": [{ "en": "I fly a kite.", "fr": "Je fais voler un cerf-volant." }] },
+    { "id": "blocks", "en": "blocks", "fr": "blocs", "image": "/images/vocabulary/jouets/blocks.svg", "emoji": "🧱", "ageGroups": ["6", "9"], "phrases": [{ "en": "I build with blocks.", "fr": "Je construis avec des blocs." }] },
+    { "id": "puzzle", "en": "puzzle", "fr": "puzzle", "image": "/images/vocabulary/jouets/puzzle.svg", "emoji": "🧩", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like this puzzle.", "fr": "J'aime ce puzzle." }] },
+    { "id": "robot", "en": "robot", "fr": "robot", "image": "/images/vocabulary/jouets/robot.svg", "emoji": "🤖", "ageGroups": ["9"], "phrases": [{ "en": "The robot can walk.", "fr": "Le robot peut marcher." }] }
   ]
 }

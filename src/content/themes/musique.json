@@ -3,11 +3,11 @@
   "name": "Musique",
   "icon": "🎵",
   "words": [
-    { "id": "guitar", "en": "guitar", "fr": "guitare", "image": "/images/vocabulary/musique/guitar.svg", "emoji": "🎸", "ageGroups": ["6", "9"] },
-    { "id": "drum", "en": "drum", "fr": "tambour", "image": "/images/vocabulary/musique/drum.svg", "emoji": "🥁", "ageGroups": ["6", "9"] },
+    { "id": "guitar", "en": "guitar", "fr": "guitare", "image": "/images/vocabulary/musique/guitar.svg", "emoji": "🎸", "ageGroups": ["6", "9"], "phrases": [{ "en": "I play the guitar.", "fr": "Je joue de la guitare." }] },
+    { "id": "drum", "en": "drum", "fr": "tambour", "image": "/images/vocabulary/musique/drum.svg", "emoji": "🥁", "ageGroups": ["6", "9"], "phrases": [{ "en": "I play the drum.", "fr": "Je joue du tambour." }] },
     { "id": "piano", "en": "piano", "fr": "piano", "image": "/images/vocabulary/musique/piano.svg", "emoji": "🎹", "ageGroups": ["6", "9"], "phrases": [{ "en": "I play the piano.", "fr": "Je joue du piano." }] },
-    { "id": "violin", "en": "violin", "fr": "violon", "image": "/images/vocabulary/musique/violin.svg", "emoji": "🎻", "ageGroups": ["9"] },
-    { "id": "trumpet", "en": "trumpet", "fr": "trompette", "image": "/images/vocabulary/musique/trumpet.svg", "emoji": "🎺", "ageGroups": ["9"] },
-    { "id": "microphone", "en": "microphone", "fr": "micro", "image": "/images/vocabulary/musique/microphone.svg", "emoji": "🎤", "ageGroups": ["6", "9"] }
+    { "id": "violin", "en": "violin", "fr": "violon", "image": "/images/vocabulary/musique/violin.svg", "emoji": "🎻", "ageGroups": ["9"], "phrases": [{ "en": "She plays the violin.", "fr": "Elle joue du violon." }] },
+    { "id": "trumpet", "en": "trumpet", "fr": "trompette", "image": "/images/vocabulary/musique/trumpet.svg", "emoji": "🎺", "ageGroups": ["9"], "phrases": [{ "en": "He plays the trumpet.", "fr": "Il joue de la trompette." }] },
+    { "id": "microphone", "en": "microphone", "fr": "micro", "image": "/images/vocabulary/musique/microphone.svg", "emoji": "🎤", "ageGroups": ["6", "9"], "phrases": [{ "en": "I sing in the microphone.", "fr": "Je chante dans le micro." }] }
   ]
 }

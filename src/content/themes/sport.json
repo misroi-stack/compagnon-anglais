@@ -3,11 +3,11 @@
   "name": "Sport",
   "icon": "⚽",
   "words": [
-    { "id": "ball", "en": "ball", "fr": "ballon", "image": "/images/vocabulary/sport/ball.svg", "emoji": "⚽", "ageGroups": ["6", "9"] },
-    { "id": "racket", "en": "racket", "fr": "raquette", "image": "/images/vocabulary/sport/racket.svg", "emoji": "🎾", "ageGroups": ["9"] },
+    { "id": "ball", "en": "ball", "fr": "ballon", "image": "/images/vocabulary/sport/ball.svg", "emoji": "⚽", "ageGroups": ["6", "9"], "phrases": [{ "en": "I kick the ball.", "fr": "Je tape dans le ballon." }] },
+    { "id": "racket", "en": "racket", "fr": "raquette", "image": "/images/vocabulary/sport/racket.svg", "emoji": "🎾", "ageGroups": ["9"], "phrases": [{ "en": "I hold the racket.", "fr": "Je tiens la raquette." }] },
     { "id": "swim", "en": "swim", "fr": "nager", "image": "/images/vocabulary/sport/swim.svg", "emoji": "🏊", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like to swim.", "fr": "J'aime nager." }] },
-    { "id": "run", "en": "run", "fr": "courir", "image": "/images/vocabulary/sport/run.svg", "emoji": "🏃", "ageGroups": ["6", "9"] },
-    { "id": "jump", "en": "jump", "fr": "sauter", "image": "/images/vocabulary/sport/jump.svg", "emoji": "🤸", "ageGroups": ["6", "9"] },
-    { "id": "skate", "en": "skate", "fr": "patiner", "image": "/images/vocabulary/sport/skate.svg", "emoji": "🛹", "ageGroups": ["9"] }
+    { "id": "run", "en": "run", "fr": "courir", "image": "/images/vocabulary/sport/run.svg", "emoji": "🏃", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like to run.", "fr": "J'aime courir." }] },
+    { "id": "jump", "en": "jump", "fr": "sauter", "image": "/images/vocabulary/sport/jump.svg", "emoji": "🤸", "ageGroups": ["6", "9"], "phrases": [{ "en": "I can jump high.", "fr": "Je peux sauter haut." }] },
+    { "id": "skate", "en": "skate", "fr": "patiner", "image": "/images/vocabulary/sport/skate.svg", "emoji": "🛹", "ageGroups": ["9"], "phrases": [{ "en": "I like to skate.", "fr": "J'aime patiner." }] }
   ]
 }

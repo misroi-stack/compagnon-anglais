@@ -4,10 +4,10 @@
   "icon": "🍎",
   "words": [
     { "id": "apple", "en": "apple", "fr": "pomme", "image": "/images/vocabulary/fruits-legumes/apple.svg", "emoji": "🍎", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like apples.", "fr": "J'aime les pommes." }] },
-    { "id": "banana", "en": "banana", "fr": "banane", "image": "/images/vocabulary/fruits-legumes/banana.svg", "emoji": "🍌", "ageGroups": ["6", "9"] },
-    { "id": "carrot", "en": "carrot", "fr": "carotte", "image": "/images/vocabulary/fruits-legumes/carrot.svg", "emoji": "🥕", "ageGroups": ["6", "9"] },
-    { "id": "potato", "en": "potato", "fr": "pomme de terre", "image": "/images/vocabulary/fruits-legumes/potato.svg", "emoji": "🥔", "ageGroups": ["9"] },
-    { "id": "tomato", "en": "tomato", "fr": "tomate", "image": "/images/vocabulary/fruits-legumes/tomato.svg", "emoji": "🍅", "ageGroups": ["6", "9"] },
+    { "id": "banana", "en": "banana", "fr": "banane", "image": "/images/vocabulary/fruits-legumes/banana.svg", "emoji": "🍌", "ageGroups": ["6", "9"], "phrases": [{ "en": "The monkey eats a banana.", "fr": "Le singe mange une banane." }] },
+    { "id": "carrot", "en": "carrot", "fr": "carotte", "image": "/images/vocabulary/fruits-legumes/carrot.svg", "emoji": "🥕", "ageGroups": ["6", "9"], "phrases": [{ "en": "The rabbit eats a carrot.", "fr": "Le lapin mange une carotte." }] },
+    { "id": "potato", "en": "potato", "fr": "pomme de terre", "image": "/images/vocabulary/fruits-legumes/potato.svg", "emoji": "🥔", "ageGroups": ["9"], "phrases": [{ "en": "I like potatoes.", "fr": "J'aime les pommes de terre." }] },
+    { "id": "tomato", "en": "tomato", "fr": "tomate", "image": "/images/vocabulary/fruits-legumes/tomato.svg", "emoji": "🍅", "ageGroups": ["6", "9"], "phrases": [{ "en": "The tomato is red.", "fr": "La tomate est rouge." }] },
     { "id": "strawberry", "en": "strawberry", "fr": "fraise", "image": "/images/vocabulary/fruits-legumes/strawberry.svg", "emoji": "🍓", "ageGroups": ["6", "9"], "phrases": [{ "en": "She has a strawberry.", "fr": "Elle a une fraise." }] }
   ]
 }

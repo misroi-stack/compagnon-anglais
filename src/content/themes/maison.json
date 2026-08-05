@@ -3,11 +3,11 @@
   "name": "Maison",
   "icon": "🏠",
   "words": [
-    { "id": "kitchen", "en": "kitchen", "fr": "cuisine", "image": "/images/vocabulary/maison/kitchen.svg", "emoji": "🍳", "ageGroups": ["6", "9"] },
-    { "id": "bedroom", "en": "bedroom", "fr": "chambre", "image": "/images/vocabulary/maison/bedroom.svg", "emoji": "🛏️", "ageGroups": ["6", "9"] },
-    { "id": "bathroom", "en": "bathroom", "fr": "salle de bain", "image": "/images/vocabulary/maison/bathroom.svg", "emoji": "🛁", "ageGroups": ["9"] },
-    { "id": "door", "en": "door", "fr": "porte", "image": "/images/vocabulary/maison/door.svg", "emoji": "🚪", "ageGroups": ["6", "9"] },
-    { "id": "window", "en": "window", "fr": "fenêtre", "image": "/images/vocabulary/maison/window.svg", "emoji": "🪟", "ageGroups": ["6", "9"] },
+    { "id": "kitchen", "en": "kitchen", "fr": "cuisine", "image": "/images/vocabulary/maison/kitchen.svg", "emoji": "🍳", "ageGroups": ["6", "9"], "phrases": [{ "en": "Mom cooks in the kitchen.", "fr": "Maman cuisine dans la cuisine." }] },
+    { "id": "bedroom", "en": "bedroom", "fr": "chambre", "image": "/images/vocabulary/maison/bedroom.svg", "emoji": "🛏️", "ageGroups": ["6", "9"], "phrases": [{ "en": "I sleep in my bedroom.", "fr": "Je dors dans ma chambre." }] },
+    { "id": "bathroom", "en": "bathroom", "fr": "salle de bain", "image": "/images/vocabulary/maison/bathroom.svg", "emoji": "🛁", "ageGroups": ["9"], "phrases": [{ "en": "I wash in the bathroom.", "fr": "Je me lave dans la salle de bain." }] },
+    { "id": "door", "en": "door", "fr": "porte", "image": "/images/vocabulary/maison/door.svg", "emoji": "🚪", "ageGroups": ["6", "9"], "phrases": [{ "en": "Close the door.", "fr": "Ferme la porte." }] },
+    { "id": "window", "en": "window", "fr": "fenêtre", "image": "/images/vocabulary/maison/window.svg", "emoji": "🪟", "ageGroups": ["6", "9"], "phrases": [{ "en": "Open the window.", "fr": "Ouvre la fenêtre." }] },
     { "id": "garden", "en": "garden", "fr": "jardin", "image": "/images/vocabulary/maison/garden.svg", "emoji": "🌳", "ageGroups": ["6", "9"], "phrases": [{ "en": "We play in the garden.", "fr": "On joue dans le jardin." }] }
   ]
 }

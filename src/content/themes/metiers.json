@@ -3,11 +3,11 @@
   "name": "Métiers",
   "icon": "👷",
   "words": [
-    { "id": "doctor", "en": "doctor", "fr": "docteur", "image": "/images/vocabulary/metiers/doctor.svg", "emoji": "🧑‍⚕️", "ageGroups": ["6", "9"] },
+    { "id": "doctor", "en": "doctor", "fr": "docteur", "image": "/images/vocabulary/metiers/doctor.svg", "emoji": "🧑‍⚕️", "ageGroups": ["6", "9"], "phrases": [{ "en": "The doctor helps me.", "fr": "Le docteur m'aide." }] },
     { "id": "firefighter", "en": "firefighter", "fr": "pompier", "image": "/images/vocabulary/metiers/firefighter.svg", "emoji": "🧑‍🚒", "ageGroups": ["6", "9"], "phrases": [{ "en": "He is a firefighter.", "fr": "Il est pompier." }] },
-    { "id": "police-officer", "en": "police officer", "fr": "policier", "image": "/images/vocabulary/metiers/police-officer.svg", "emoji": "👮", "ageGroups": ["6", "9"] },
-    { "id": "chef", "en": "chef", "fr": "cuisinier", "image": "/images/vocabulary/metiers/chef.svg", "emoji": "🧑‍🍳", "ageGroups": ["9"] },
-    { "id": "farmer", "en": "farmer", "fr": "fermier", "image": "/images/vocabulary/metiers/farmer.svg", "emoji": "🧑‍🌾", "ageGroups": ["9"] },
-    { "id": "pilot", "en": "pilot", "fr": "pilote", "image": "/images/vocabulary/metiers/pilot.svg", "emoji": "🧑‍✈️", "ageGroups": ["9"] }
+    { "id": "police-officer", "en": "police officer", "fr": "policier", "image": "/images/vocabulary/metiers/police-officer.svg", "emoji": "👮", "ageGroups": ["6", "9"], "phrases": [{ "en": "The police officer is brave.", "fr": "Le policier est courageux." }] },
+    { "id": "chef", "en": "chef", "fr": "cuisinier", "image": "/images/vocabulary/metiers/chef.svg", "emoji": "🧑‍🍳", "ageGroups": ["9"], "phrases": [{ "en": "The chef cooks well.", "fr": "Le cuisinier cuisine bien." }] },
+    { "id": "farmer", "en": "farmer", "fr": "fermier", "image": "/images/vocabulary/metiers/farmer.svg", "emoji": "🧑‍🌾", "ageGroups": ["9"], "phrases": [{ "en": "The farmer works hard.", "fr": "Le fermier travaille dur." }] },
+    { "id": "pilot", "en": "pilot", "fr": "pilote", "image": "/images/vocabulary/metiers/pilot.svg", "emoji": "🧑‍✈️", "ageGroups": ["9"], "phrases": [{ "en": "The pilot flies the plane.", "fr": "Le pilote pilote l'avion." }] }
   ]
 }

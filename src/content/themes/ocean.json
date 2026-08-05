@@ -3,11 +3,11 @@
   "name": "Océan",
   "icon": "🌊",
   "words": [
-    { "id": "whale", "en": "whale", "fr": "baleine", "image": "/images/vocabulary/ocean/whale.svg", "emoji": "🐳", "ageGroups": ["6", "9"] },
+    { "id": "whale", "en": "whale", "fr": "baleine", "image": "/images/vocabulary/ocean/whale.svg", "emoji": "🐳", "ageGroups": ["6", "9"], "phrases": [{ "en": "The whale is huge.", "fr": "La baleine est énorme." }] },
     { "id": "shark", "en": "shark", "fr": "requin", "image": "/images/vocabulary/ocean/shark.svg", "emoji": "🦈", "ageGroups": ["6", "9"], "phrases": [{ "en": "The shark is big.", "fr": "Le requin est grand." }] },
-    { "id": "octopus", "en": "octopus", "fr": "pieuvre", "image": "/images/vocabulary/ocean/octopus.svg", "emoji": "🐙", "ageGroups": ["9"] },
-    { "id": "crab", "en": "crab", "fr": "crabe", "image": "/images/vocabulary/ocean/crab.svg", "emoji": "🦀", "ageGroups": ["6", "9"] },
-    { "id": "starfish", "en": "starfish", "fr": "étoile de mer", "image": "/images/vocabulary/ocean/starfish.svg", "emoji": "⭐", "ageGroups": ["9"] },
-    { "id": "turtle", "en": "turtle", "fr": "tortue", "image": "/images/vocabulary/ocean/turtle.svg", "emoji": "🐢", "ageGroups": ["6", "9"] }
+    { "id": "octopus", "en": "octopus", "fr": "pieuvre", "image": "/images/vocabulary/ocean/octopus.svg", "emoji": "🐙", "ageGroups": ["9"], "phrases": [{ "en": "The octopus has eight arms.", "fr": "La pieuvre a huit bras." }] },
+    { "id": "crab", "en": "crab", "fr": "crabe", "image": "/images/vocabulary/ocean/crab.svg", "emoji": "🦀", "ageGroups": ["6", "9"], "phrases": [{ "en": "The crab walks sideways.", "fr": "Le crabe marche de côté." }] },
+    { "id": "starfish", "en": "starfish", "fr": "étoile de mer", "image": "/images/vocabulary/ocean/starfish.svg", "emoji": "⭐", "ageGroups": ["9"], "phrases": [{ "en": "I found a starfish.", "fr": "J'ai trouvé une étoile de mer." }] },
+    { "id": "turtle", "en": "turtle", "fr": "tortue", "image": "/images/vocabulary/ocean/turtle.svg", "emoji": "🐢", "ageGroups": ["6", "9"], "phrases": [{ "en": "The turtle swims slowly.", "fr": "La tortue nage lentement." }] }
   ]
 }

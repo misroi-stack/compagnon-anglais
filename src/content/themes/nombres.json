@@ -3,11 +3,11 @@
   "name": "Nombres",
   "icon": "🔢",
   "words": [
-    { "id": "one", "en": "one", "fr": "un", "image": "/images/vocabulary/nombres/one.svg", "emoji": "1️⃣", "ageGroups": ["6", "9"] },
-    { "id": "two", "en": "two", "fr": "deux", "image": "/images/vocabulary/nombres/two.svg", "emoji": "2️⃣", "ageGroups": ["6", "9"] },
-    { "id": "three", "en": "three", "fr": "trois", "image": "/images/vocabulary/nombres/three.svg", "emoji": "3️⃣", "ageGroups": ["6", "9"] },
-    { "id": "four", "en": "four", "fr": "quatre", "image": "/images/vocabulary/nombres/four.svg", "emoji": "4️⃣", "ageGroups": ["6", "9"] },
-    { "id": "five", "en": "five", "fr": "cinq", "image": "/images/vocabulary/nombres/five.svg", "emoji": "5️⃣", "ageGroups": ["6", "9"] },
+    { "id": "one", "en": "one", "fr": "un", "image": "/images/vocabulary/nombres/one.svg", "emoji": "1️⃣", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have one dog.", "fr": "J'ai un chien." }] },
+    { "id": "two", "en": "two", "fr": "deux", "image": "/images/vocabulary/nombres/two.svg", "emoji": "2️⃣", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have two hands.", "fr": "J'ai deux mains." }] },
+    { "id": "three", "en": "three", "fr": "trois", "image": "/images/vocabulary/nombres/three.svg", "emoji": "3️⃣", "ageGroups": ["6", "9"], "phrases": [{ "en": "I see three birds.", "fr": "Je vois trois oiseaux." }] },
+    { "id": "four", "en": "four", "fr": "quatre", "image": "/images/vocabulary/nombres/four.svg", "emoji": "4️⃣", "ageGroups": ["6", "9"], "phrases": [{ "en": "The cat has four legs.", "fr": "Le chat a quatre pattes." }] },
+    { "id": "five", "en": "five", "fr": "cinq", "image": "/images/vocabulary/nombres/five.svg", "emoji": "5️⃣", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have five fingers.", "fr": "J'ai cinq doigts." }] },
     { "id": "six", "en": "six", "fr": "six", "image": "/images/vocabulary/nombres/six.svg", "emoji": "6️⃣", "ageGroups": ["9"], "phrases": [{ "en": "I am six years old.", "fr": "J'ai six ans." }] },
     { "id": "nine", "en": "nine", "fr": "neuf", "image": "/images/vocabulary/nombres/nine.svg", "emoji": "9️⃣", "ageGroups": ["9"], "phrases": [{ "en": "I am nine years old.", "fr": "J'ai neuf ans." }] }
   ]

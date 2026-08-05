@@ -61,13 +61,36 @@ export function Flashcards({ theme, words, onExit }: FlashcardsProps) {
           }}
           className="relative h-80 w-full cursor-pointer transition-transform duration-500 ease-in-out"
         >
-          {/* Face avant : mot anglais */}
+          {/* Face avant : mot en français */}
           <div
             style={{ backfaceVisibility: "hidden" }}
             className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-3xl bg-white p-8 shadow-xl"
           >
+            <span
+              aria-hidden
+              className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-violet-100 text-lg text-violet-500"
+            >
+              🔄
+            </span>
             <span className="text-7xl">{word.emoji}</span>
-            <h2 className="text-4xl font-extrabold text-violet-700">{word.en}</h2>
+            <h2 className="text-4xl font-extrabold text-violet-700">{word.fr}</h2>
+            <p className="mt-2 text-sm text-violet-300">👆 Touche la carte pour voir le mot en anglais</p>
+          </div>
+
+          {/* Face arrière : mot anglais + écoute + phrase */}
+          <div
+            style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+            className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-3xl bg-violet-600 p-8 text-center shadow-xl"
+          >
+            <span
+              aria-hidden
+              className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-lg text-white"
+            >
+              🔄
+            </span>
+            <span className="text-6xl">{word.emoji}</span>
+            <h2 className="text-4xl font-extrabold text-white">{word.en}</h2>
+
             <button
               type="button"
               onClick={handleListen}
@@ -75,17 +98,6 @@ export function Flashcards({ theme, words, onExit }: FlashcardsProps) {
             >
               🔊 Écouter
             </button>
-            <p className="mt-2 text-sm text-violet-300">👆 Touche la carte pour voir la traduction</p>
-          </div>
-
-          {/* Face arrière : traduction + phrase */}
-          <div
-            style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
-            className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-3xl bg-violet-600 p-8 text-center shadow-xl"
-          >
-            <span className="text-6xl">{word.emoji}</span>
-            <p className="text-lg text-violet-200">{word.en}</p>
-            <h2 className="text-4xl font-extrabold text-white">{word.fr}</h2>
 
             {word.phrases?.[0] && (
               <div className="mt-2 rounded-2xl bg-white/10 px-4 py-3">

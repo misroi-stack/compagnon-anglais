@@ -3,12 +3,12 @@
   "name": "Nourriture",
   "icon": "🍽️",
   "words": [
-    { "id": "bread", "en": "bread", "fr": "pain", "image": "/images/vocabulary/nourriture/bread.svg", "emoji": "🍞", "ageGroups": ["6", "9"] },
+    { "id": "bread", "en": "bread", "fr": "pain", "image": "/images/vocabulary/nourriture/bread.svg", "emoji": "🍞", "ageGroups": ["6", "9"], "phrases": [{ "en": "I eat bread.", "fr": "Je mange du pain." }] },
     { "id": "milk", "en": "milk", "fr": "lait", "image": "/images/vocabulary/nourriture/milk.svg", "emoji": "🥛", "ageGroups": ["6", "9"], "phrases": [{ "en": "I drink milk.", "fr": "Je bois du lait." }] },
-    { "id": "cheese", "en": "cheese", "fr": "fromage", "image": "/images/vocabulary/nourriture/cheese.svg", "emoji": "🧀", "ageGroups": ["6", "9"] },
-    { "id": "egg", "en": "egg", "fr": "œuf", "image": "/images/vocabulary/nourriture/egg.svg", "emoji": "🥚", "ageGroups": ["6", "9"] },
+    { "id": "cheese", "en": "cheese", "fr": "fromage", "image": "/images/vocabulary/nourriture/cheese.svg", "emoji": "🧀", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like cheese.", "fr": "J'aime le fromage." }] },
+    { "id": "egg", "en": "egg", "fr": "œuf", "image": "/images/vocabulary/nourriture/egg.svg", "emoji": "🥚", "ageGroups": ["6", "9"], "phrases": [{ "en": "I eat an egg.", "fr": "Je mange un œuf." }] },
     { "id": "cake", "en": "cake", "fr": "gâteau", "image": "/images/vocabulary/nourriture/cake.svg", "emoji": "🍰", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like cake.", "fr": "J'aime le gâteau." }] },
-    { "id": "water", "en": "water", "fr": "eau", "image": "/images/vocabulary/nourriture/water.svg", "emoji": "💧", "ageGroups": ["6", "9"] },
-    { "id": "soup", "en": "soup", "fr": "soupe", "image": "/images/vocabulary/nourriture/soup.svg", "emoji": "🍲", "ageGroups": ["9"] }
+    { "id": "water", "en": "water", "fr": "eau", "image": "/images/vocabulary/nourriture/water.svg", "emoji": "💧", "ageGroups": ["6", "9"], "phrases": [{ "en": "I drink water.", "fr": "Je bois de l'eau." }] },
+    { "id": "soup", "en": "soup", "fr": "soupe", "image": "/images/vocabulary/nourriture/soup.svg", "emoji": "🍲", "ageGroups": ["9"], "phrases": [{ "en": "I eat soup.", "fr": "Je mange de la soupe." }] }
   ]
 }

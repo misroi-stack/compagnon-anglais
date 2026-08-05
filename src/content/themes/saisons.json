@@ -3,9 +3,9 @@
   "name": "Saisons",
   "icon": "🍂",
   "words": [
-    { "id": "spring", "en": "spring", "fr": "printemps", "image": "/images/vocabulary/saisons/spring.svg", "emoji": "🌸", "ageGroups": ["9"] },
+    { "id": "spring", "en": "spring", "fr": "printemps", "image": "/images/vocabulary/saisons/spring.svg", "emoji": "🌸", "ageGroups": ["9"], "phrases": [{ "en": "Flowers grow in spring.", "fr": "Les fleurs poussent au printemps." }] },
     { "id": "summer", "en": "summer", "fr": "été", "image": "/images/vocabulary/saisons/summer.svg", "emoji": "☀️", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like summer.", "fr": "J'aime l'été." }] },
-    { "id": "autumn", "en": "autumn", "fr": "automne", "image": "/images/vocabulary/saisons/autumn.svg", "emoji": "🍂", "ageGroups": ["9"] },
-    { "id": "winter", "en": "winter", "fr": "hiver", "image": "/images/vocabulary/saisons/winter.svg", "emoji": "❄️", "ageGroups": ["6", "9"] }
+    { "id": "autumn", "en": "autumn", "fr": "automne", "image": "/images/vocabulary/saisons/autumn.svg", "emoji": "🍂", "ageGroups": ["9"], "phrases": [{ "en": "Leaves fall in autumn.", "fr": "Les feuilles tombent en automne." }] },
+    { "id": "winter", "en": "winter", "fr": "hiver", "image": "/images/vocabulary/saisons/winter.svg", "emoji": "❄️", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is cold in winter.", "fr": "Il fait froid en hiver." }] }
   ]
 }

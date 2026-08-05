@@ -3,11 +3,11 @@
   "name": "Transports",
   "icon": "🚗",
   "words": [
-    { "id": "car", "en": "car", "fr": "voiture", "image": "/images/vocabulary/transports/car.svg", "emoji": "🚗", "ageGroups": ["6", "9"] },
-    { "id": "bus", "en": "bus", "fr": "bus", "image": "/images/vocabulary/transports/bus.svg", "emoji": "🚌", "ageGroups": ["6", "9"] },
+    { "id": "car", "en": "car", "fr": "voiture", "image": "/images/vocabulary/transports/car.svg", "emoji": "🚗", "ageGroups": ["6", "9"], "phrases": [{ "en": "We go by car.", "fr": "On y va en voiture." }] },
+    { "id": "bus", "en": "bus", "fr": "bus", "image": "/images/vocabulary/transports/bus.svg", "emoji": "🚌", "ageGroups": ["6", "9"], "phrases": [{ "en": "I take the bus.", "fr": "Je prends le bus." }] },
     { "id": "bike", "en": "bike", "fr": "vélo", "image": "/images/vocabulary/transports/bike.svg", "emoji": "🚲", "ageGroups": ["6", "9"], "phrases": [{ "en": "I ride my bike.", "fr": "Je fais du vélo." }] },
-    { "id": "train", "en": "train", "fr": "train", "image": "/images/vocabulary/transports/train.svg", "emoji": "🚆", "ageGroups": ["6", "9"] },
-    { "id": "plane", "en": "plane", "fr": "avion", "image": "/images/vocabulary/transports/plane.svg", "emoji": "✈️", "ageGroups": ["6", "9"] },
-    { "id": "boat", "en": "boat", "fr": "bateau", "image": "/images/vocabulary/transports/boat.svg", "emoji": "⛵", "ageGroups": ["9"] }
+    { "id": "train", "en": "train", "fr": "train", "image": "/images/vocabulary/transports/train.svg", "emoji": "🚆", "ageGroups": ["6", "9"], "phrases": [{ "en": "The train is fast.", "fr": "Le train est rapide." }] },
+    { "id": "plane", "en": "plane", "fr": "avion", "image": "/images/vocabulary/transports/plane.svg", "emoji": "✈️", "ageGroups": ["6", "9"], "phrases": [{ "en": "The plane flies high.", "fr": "L'avion vole haut." }] },
+    { "id": "boat", "en": "boat", "fr": "bateau", "image": "/images/vocabulary/transports/boat.svg", "emoji": "⛵", "ageGroups": ["9"], "phrases": [{ "en": "The boat is on the water.", "fr": "Le bateau est sur l'eau." }] }
   ]
 }

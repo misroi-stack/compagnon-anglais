@@ -3,11 +3,11 @@
   "name": "Vêtements",
   "icon": "👕",
   "words": [
-    { "id": "shirt", "en": "shirt", "fr": "chemise", "image": "/images/vocabulary/vetements/shirt.svg", "emoji": "👕", "ageGroups": ["6", "9"] },
-    { "id": "pants", "en": "pants", "fr": "pantalon", "image": "/images/vocabulary/vetements/pants.svg", "emoji": "👖", "ageGroups": ["6", "9"] },
+    { "id": "shirt", "en": "shirt", "fr": "chemise", "image": "/images/vocabulary/vetements/shirt.svg", "emoji": "👕", "ageGroups": ["6", "9"], "phrases": [{ "en": "I wear a shirt.", "fr": "Je porte une chemise." }] },
+    { "id": "pants", "en": "pants", "fr": "pantalon", "image": "/images/vocabulary/vetements/pants.svg", "emoji": "👖", "ageGroups": ["6", "9"], "phrases": [{ "en": "I wear pants.", "fr": "Je porte un pantalon." }] },
     { "id": "shoes", "en": "shoes", "fr": "chaussures", "image": "/images/vocabulary/vetements/shoes.svg", "emoji": "👟", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have new shoes.", "fr": "J'ai de nouvelles chaussures." }] },
-    { "id": "hat", "en": "hat", "fr": "chapeau", "image": "/images/vocabulary/vetements/hat.svg", "emoji": "🎩", "ageGroups": ["6", "9"] },
-    { "id": "socks", "en": "socks", "fr": "chaussettes", "image": "/images/vocabulary/vetements/socks.svg", "emoji": "🧦", "ageGroups": ["6", "9"] },
-    { "id": "dress", "en": "dress", "fr": "robe", "image": "/images/vocabulary/vetements/dress.svg", "emoji": "👗", "ageGroups": ["9"] }
+    { "id": "hat", "en": "hat", "fr": "chapeau", "image": "/images/vocabulary/vetements/hat.svg", "emoji": "🎩", "ageGroups": ["6", "9"], "phrases": [{ "en": "I wear a hat.", "fr": "Je porte un chapeau." }] },
+    { "id": "socks", "en": "socks", "fr": "chaussettes", "image": "/images/vocabulary/vetements/socks.svg", "emoji": "🧦", "ageGroups": ["6", "9"], "phrases": [{ "en": "I wear socks.", "fr": "Je porte des chaussettes." }] },
+    { "id": "dress", "en": "dress", "fr": "robe", "image": "/images/vocabulary/vetements/dress.svg", "emoji": "👗", "ageGroups": ["9"], "phrases": [{ "en": "She wears a dress.", "fr": "Elle porte une robe." }] }
   ]
 }
