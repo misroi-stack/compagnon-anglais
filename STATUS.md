@@ -8,14 +8,15 @@ Dernière mise à jour : 2026-08-05
 - Node.js installé sur la machine
 - Scaffold Next.js 16 + TypeScript + Tailwind + Framer Motion, en place dans ce dossier
 - PWA de base : `src/app/manifest.ts` + `public/sw.js` (service worker minimal, cache basique)
-- Modèle de données : `src/types/` (content, profile, progress) + `src/content/themes/` (3 thèmes d'exemple : animaux, couleurs, nombres), chaque mot a maintenant un `emoji` placeholder (visuel par mot en attendant les vraies illustrations)
+- Modèle de données : `src/types/` (content, profile, progress) + `src/content/themes/` — **les 24 thèmes du plan sont tous créés** (animaux, couleurs, nombres, famille, nourriture, fruits & légumes, école, corps, météo, vêtements, maison, transports, sport, émotions, jours, saisons, formes, nature, jouets, musique, métiers, ferme, océan, espace), chaque mot a un `emoji` placeholder (visuel par mot en attendant les vraies illustrations). Les mots partagés entre thèmes (ex: "star" en Formes et en Espace, "sun" en Météo et en Espace) utilisent volontairement le même `id` pour que leur progression Leitner reste unifiée plutôt que dupliquée.
 - Répétition espacée (boîtes Leitner) implémentée : `src/lib/leitner.ts`
 - **Écran de sélection de profil fonctionnel** (`src/app/page.tsx`) : création de profil (nom, âge 6/9, mascotte parmi 4 emojis placeholder), sélection — testé dans le navigateur, ça marche
 - **Comptes Supabase créés** : `compagnon-anglais-dev` et `compagnon-anglais-prod`
 - **Supabase dev branché** : schéma appliqué (`supabase/schema.sql` : tables `profiles`, `word_progress`, `attempts`, RLS activé avec accès public — pas d'auth utilisateur prévue), client dans `src/lib/supabase.ts`, `.env.local` configuré (non commité)
 - Profils maintenant lus/écrits directement dans Supabase (`src/lib/profiles.ts`) — testé de bout en bout (créé un profil, rechargé la page, toujours là)
 - `scripts/run-sql.mjs` : utilitaire pour exécuter du SQL contre une base via `DATABASE_URL` (utilisé pour appliquer le schéma ; connexion via le **pooler** Supabase, la connexion directe ne passe pas sur ce réseau — IPv6 uniquement)
-- **Routing complet** : sélection profil → `/play/[profileId]` (suggestion de thème + choix du mode) → `/play/[profileId]/[themeId]/[mode]` (l'écran de jeu)
+- **Routing complet** : sélection profil → `/play/[profileId]` (grille des 24 thèmes + choix du mode) → `/play/[profileId]/[themeId]/[mode]` (l'écran de jeu)
+- **Grille de thèmes avec indicateur de progrès** (`src/lib/theme-suggestion.ts` → `getThemeStats`) : chaque carte affiche une barre de progression (mots maîtrisés / total pour cet âge) ; les thèmes sont triés du moins avancé au plus avancé (le moins avancé est mis en avant avec un badge ✨) pour encourager à combler les lacunes plutôt que refaire toujours les mêmes thèmes. Les thèmes sans aucun mot pour l'âge du profil (ex: "Jours de la semaine" est réservé aux 9 ans) sont automatiquement masqués — testé avec un profil 6 ans (23 thèmes visibles) et 9 ans (24 thèmes visibles).
 - **Les 4 modes de jeu sont construits et testés** :
   - Flashcards (découverte) — carte qui se retourne (clic) pour révéler mot/traduction/phrase/écoute
   - Quiz (reconnaissance) — questions traduction/écoute alternées, feedback correctif
@@ -42,7 +43,7 @@ Dernière mise à jour : 2026-08-05
 2. Appliquer `supabase/schema.sql` sur le projet **prod** au moment du déploiement (même méthode que dev, avec le mot de passe/pooler de prod)
 3. Mettre en place le pipeline CI/CD GitHub Actions (branche `production`)
 4. Premier déploiement de test sur la tablette Android — **notamment pour valider la reconnaissance vocale en conditions réelles**
-5. Reste à faire pour un vrai V1 complet : mode parent (dashboard stats), suggestion de thème plus visible/expliquée à l'enfant, sons d'interface (clic/transition), mascotte animée (en attente des images), gestion du cas "aucun mot" si un thème est vide pour un âge donné
+5. Reste à faire pour un vrai V1 complet : mode parent (dashboard stats), différenciation plus fine par âge (mini-phrases à trous en Quiz pour les 9 ans, priorisation des modes selon l'âge — voir PLAN.md), sons d'interface (clic/transition), mascotte animée (en attente des images)
 
 ## Pour relancer le développement local
 

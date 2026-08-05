@@ -1,0 +1,13 @@
+{
+  "id": "maison",
+  "name": "Maison",
+  "icon": "🏠",
+  "words": [
+    { "id": "kitchen", "en": "kitchen", "fr": "cuisine", "image": "/images/vocabulary/maison/kitchen.svg", "emoji": "🍳", "ageGroups": ["6", "9"] },
+    { "id": "bedroom", "en": "bedroom", "fr": "chambre", "image": "/images/vocabulary/maison/bedroom.svg", "emoji": "🛏️", "ageGroups": ["6", "9"] },
+    { "id": "bathroom", "en": "bathroom", "fr": "salle de bain", "image": "/images/vocabulary/maison/bathroom.svg", "emoji": "🛁", "ageGroups": ["9"] },
+    { "id": "door", "en": "door", "fr": "porte", "image": "/images/vocabulary/maison/door.svg", "emoji": "🚪", "ageGroups": ["6", "9"] },
+    { "id": "window", "en": "window", "fr": "fenêtre", "image": "/images/vocabulary/maison/window.svg", "emoji": "🪟", "ageGroups": ["6", "9"] },
+    { "id": "garden", "en": "garden", "fr": "jardin", "image": "/images/vocabulary/maison/garden.svg", "emoji": "🌳", "ageGroups": ["6", "9"], "phrases": [{ "en": "We play in the garden.", "fr": "On joue dans le jardin." }] }
+  ]
+}

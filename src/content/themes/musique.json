@@ -1,0 +1,13 @@
+{
+  "id": "musique",
+  "name": "Musique",
+  "icon": "🎵",
+  "words": [
+    { "id": "guitar", "en": "guitar", "fr": "guitare", "image": "/images/vocabulary/musique/guitar.svg", "emoji": "🎸", "ageGroups": ["6", "9"] },
+    { "id": "drum", "en": "drum", "fr": "tambour", "image": "/images/vocabulary/musique/drum.svg", "emoji": "🥁", "ageGroups": ["6", "9"] },
+    { "id": "piano", "en": "piano", "fr": "piano", "image": "/images/vocabulary/musique/piano.svg", "emoji": "🎹", "ageGroups": ["6", "9"], "phrases": [{ "en": "I play the piano.", "fr": "Je joue du piano." }] },
+    { "id": "violin", "en": "violin", "fr": "violon", "image": "/images/vocabulary/musique/violin.svg", "emoji": "🎻", "ageGroups": ["9"] },
+    { "id": "trumpet", "en": "trumpet", "fr": "trompette", "image": "/images/vocabulary/musique/trumpet.svg", "emoji": "🎺", "ageGroups": ["9"] },
+    { "id": "microphone", "en": "microphone", "fr": "micro", "image": "/images/vocabulary/musique/microphone.svg", "emoji": "🎤", "ageGroups": ["6", "9"] }
+  ]
+}

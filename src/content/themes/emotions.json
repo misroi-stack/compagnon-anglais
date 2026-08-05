@@ -1,0 +1,13 @@
+{
+  "id": "emotions",
+  "name": "Émotions",
+  "icon": "😊",
+  "words": [
+    { "id": "happy", "en": "happy", "fr": "content", "image": "/images/vocabulary/emotions/happy.svg", "emoji": "😊", "ageGroups": ["6", "9"], "phrases": [{ "en": "I am happy.", "fr": "Je suis content." }] },
+    { "id": "sad", "en": "sad", "fr": "triste", "image": "/images/vocabulary/emotions/sad.svg", "emoji": "😢", "ageGroups": ["6", "9"] },
+    { "id": "angry", "en": "angry", "fr": "fâché", "image": "/images/vocabulary/emotions/angry.svg", "emoji": "😠", "ageGroups": ["6", "9"] },
+    { "id": "scared", "en": "scared", "fr": "effrayé", "image": "/images/vocabulary/emotions/scared.svg", "emoji": "😨", "ageGroups": ["9"] },
+    { "id": "tired", "en": "tired", "fr": "fatigué", "image": "/images/vocabulary/emotions/tired.svg", "emoji": "😴", "ageGroups": ["6", "9"] },
+    { "id": "surprised", "en": "surprised", "fr": "surpris", "image": "/images/vocabulary/emotions/surprised.svg", "emoji": "😲", "ageGroups": ["9"] }
+  ]
+}

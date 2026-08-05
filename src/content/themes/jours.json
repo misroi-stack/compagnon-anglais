@@ -1,0 +1,14 @@
+{
+  "id": "jours",
+  "name": "Jours de la semaine",
+  "icon": "📅",
+  "words": [
+    { "id": "monday", "en": "Monday", "fr": "lundi", "image": "/images/vocabulary/jours/monday.svg", "emoji": "📅", "ageGroups": ["9"] },
+    { "id": "tuesday", "en": "Tuesday", "fr": "mardi", "image": "/images/vocabulary/jours/tuesday.svg", "emoji": "📅", "ageGroups": ["9"] },
+    { "id": "wednesday", "en": "Wednesday", "fr": "mercredi", "image": "/images/vocabulary/jours/wednesday.svg", "emoji": "📅", "ageGroups": ["9"] },
+    { "id": "thursday", "en": "Thursday", "fr": "jeudi", "image": "/images/vocabulary/jours/thursday.svg", "emoji": "📅", "ageGroups": ["9"] },
+    { "id": "friday", "en": "Friday", "fr": "vendredi", "image": "/images/vocabulary/jours/friday.svg", "emoji": "📅", "ageGroups": ["9"] },
+    { "id": "saturday", "en": "Saturday", "fr": "samedi", "image": "/images/vocabulary/jours/saturday.svg", "emoji": "🎉", "ageGroups": ["9"], "phrases": [{ "en": "I play on Saturday.", "fr": "Je joue le samedi." }] },
+    { "id": "sunday", "en": "Sunday", "fr": "dimanche", "image": "/images/vocabulary/jours/sunday.svg", "emoji": "☀️", "ageGroups": ["9"] }
+  ]
+}

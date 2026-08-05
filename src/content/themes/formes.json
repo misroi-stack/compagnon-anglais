@@ -1,0 +1,13 @@
+{
+  "id": "formes",
+  "name": "Formes",
+  "icon": "🔺",
+  "words": [
+    { "id": "circle", "en": "circle", "fr": "cercle", "image": "/images/vocabulary/formes/circle.svg", "emoji": "⭕", "ageGroups": ["6", "9"] },
+    { "id": "square", "en": "square", "fr": "carré", "image": "/images/vocabulary/formes/square.svg", "emoji": "⬛", "ageGroups": ["6", "9"] },
+    { "id": "triangle", "en": "triangle", "fr": "triangle", "image": "/images/vocabulary/formes/triangle.svg", "emoji": "🔺", "ageGroups": ["6", "9"] },
+    { "id": "star", "en": "star", "fr": "étoile", "image": "/images/vocabulary/formes/star.svg", "emoji": "⭐", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is a star.", "fr": "C'est une étoile." }] },
+    { "id": "heart", "en": "heart", "fr": "cœur", "image": "/images/vocabulary/formes/heart.svg", "emoji": "❤️", "ageGroups": ["6", "9"] },
+    { "id": "diamond", "en": "diamond", "fr": "losange", "image": "/images/vocabulary/formes/diamond.svg", "emoji": "🔷", "ageGroups": ["9"] }
+  ]
+}

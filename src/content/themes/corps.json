@@ -1,0 +1,13 @@
+{
+  "id": "corps",
+  "name": "Corps humain",
+  "icon": "🧍",
+  "words": [
+    { "id": "eye", "en": "eye", "fr": "œil", "image": "/images/vocabulary/corps/eye.svg", "emoji": "👁️", "ageGroups": ["6", "9"] },
+    { "id": "hand", "en": "hand", "fr": "main", "image": "/images/vocabulary/corps/hand.svg", "emoji": "✋", "ageGroups": ["6", "9"] },
+    { "id": "foot", "en": "foot", "fr": "pied", "image": "/images/vocabulary/corps/foot.svg", "emoji": "🦶", "ageGroups": ["6", "9"] },
+    { "id": "nose", "en": "nose", "fr": "nez", "image": "/images/vocabulary/corps/nose.svg", "emoji": "👃", "ageGroups": ["6", "9"] },
+    { "id": "ear", "en": "ear", "fr": "oreille", "image": "/images/vocabulary/corps/ear.svg", "emoji": "👂", "ageGroups": ["6", "9"] },
+    { "id": "mouth", "en": "mouth", "fr": "bouche", "image": "/images/vocabulary/corps/mouth.svg", "emoji": "👄", "ageGroups": ["9"] }
+  ]
+}

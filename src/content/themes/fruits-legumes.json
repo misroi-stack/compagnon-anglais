@@ -1,0 +1,13 @@
+{
+  "id": "fruits-legumes",
+  "name": "Fruits & légumes",
+  "icon": "🍎",
+  "words": [
+    { "id": "apple", "en": "apple", "fr": "pomme", "image": "/images/vocabulary/fruits-legumes/apple.svg", "emoji": "🍎", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like apples.", "fr": "J'aime les pommes." }] },
+    { "id": "banana", "en": "banana", "fr": "banane", "image": "/images/vocabulary/fruits-legumes/banana.svg", "emoji": "🍌", "ageGroups": ["6", "9"] },
+    { "id": "carrot", "en": "carrot", "fr": "carotte", "image": "/images/vocabulary/fruits-legumes/carrot.svg", "emoji": "🥕", "ageGroups": ["6", "9"] },
+    { "id": "potato", "en": "potato", "fr": "pomme de terre", "image": "/images/vocabulary/fruits-legumes/potato.svg", "emoji": "🥔", "ageGroups": ["9"] },
+    { "id": "tomato", "en": "tomato", "fr": "tomate", "image": "/images/vocabulary/fruits-legumes/tomato.svg", "emoji": "🍅", "ageGroups": ["6", "9"] },
+    { "id": "strawberry", "en": "strawberry", "fr": "fraise", "image": "/images/vocabulary/fruits-legumes/strawberry.svg", "emoji": "🍓", "ageGroups": ["6", "9"], "phrases": [{ "en": "She has a strawberry.", "fr": "Elle a une fraise." }] }
+  ]
+}

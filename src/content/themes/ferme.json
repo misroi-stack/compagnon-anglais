@@ -1,0 +1,13 @@
+{
+  "id": "ferme",
+  "name": "Ferme",
+  "icon": "🚜",
+  "words": [
+    { "id": "cow", "en": "cow", "fr": "vache", "image": "/images/vocabulary/ferme/cow.svg", "emoji": "🐄", "ageGroups": ["6", "9"] },
+    { "id": "pig", "en": "pig", "fr": "cochon", "image": "/images/vocabulary/ferme/pig.svg", "emoji": "🐷", "ageGroups": ["6", "9"] },
+    { "id": "sheep", "en": "sheep", "fr": "mouton", "image": "/images/vocabulary/ferme/sheep.svg", "emoji": "🐑", "ageGroups": ["6", "9"], "phrases": [{ "en": "I see a sheep.", "fr": "Je vois un mouton." }] },
+    { "id": "chicken", "en": "chicken", "fr": "poule", "image": "/images/vocabulary/ferme/chicken.svg", "emoji": "🐔", "ageGroups": ["6", "9"] },
+    { "id": "duck", "en": "duck", "fr": "canard", "image": "/images/vocabulary/ferme/duck.svg", "emoji": "🦆", "ageGroups": ["6", "9"] },
+    { "id": "tractor", "en": "tractor", "fr": "tracteur", "image": "/images/vocabulary/ferme/tractor.svg", "emoji": "🚜", "ageGroups": ["9"] }
+  ]
+}

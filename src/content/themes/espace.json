@@ -1,0 +1,13 @@
+{
+  "id": "espace",
+  "name": "Espace",
+  "icon": "🚀",
+  "words": [
+    { "id": "star", "en": "star", "fr": "étoile", "image": "/images/vocabulary/espace/star.svg", "emoji": "🌟", "ageGroups": ["6", "9"] },
+    { "id": "moon", "en": "moon", "fr": "lune", "image": "/images/vocabulary/espace/moon.svg", "emoji": "🌙", "ageGroups": ["6", "9"], "phrases": [{ "en": "I see the moon.", "fr": "Je vois la lune." }] },
+    { "id": "rocket", "en": "rocket", "fr": "fusée", "image": "/images/vocabulary/espace/rocket.svg", "emoji": "🚀", "ageGroups": ["6", "9"] },
+    { "id": "astronaut", "en": "astronaut", "fr": "astronaute", "image": "/images/vocabulary/espace/astronaut.svg", "emoji": "🧑‍🚀", "ageGroups": ["9"] },
+    { "id": "planet", "en": "planet", "fr": "planète", "image": "/images/vocabulary/espace/planet.svg", "emoji": "🪐", "ageGroups": ["9"] },
+    { "id": "sun", "en": "sun", "fr": "soleil", "image": "/images/vocabulary/espace/sun.svg", "emoji": "☀️", "ageGroups": ["6", "9"] }
+  ]
+}

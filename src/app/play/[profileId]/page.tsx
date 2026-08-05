@@ -8,7 +8,7 @@ import { getMascot } from "@/lib/mascots";
 import { MODES } from "@/lib/modes";
 import { getProfile } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
-import { suggestTheme } from "@/lib/theme-suggestion";
+import { getThemeStats, type ThemeStats } from "@/lib/theme-suggestion";
 import type { Profile } from "@/types/profile";
 import type { GameMode } from "@/types/progress";
 
@@ -18,7 +18,7 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
-  const [suggestedThemeId, setSuggestedThemeId] = useState<string | null>(null);
+  const [themeStats, setThemeStats] = useState<ThemeStats[]>([]);
   const [selectedThemeId, setSelectedThemeId] = useState<string | null>(null);
   const [selectedMode, setSelectedMode] = useState<GameMode | null>(null);
 
@@ -32,12 +32,12 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
         return;
       }
       const progressMap = await getProgressForProfile(profileId);
-      const suggested = suggestTheme(themes, p.age, progressMap);
+      const stats = getThemeStats(themes, p.age, progressMap);
 
       if (!cancelled) {
         setProfile(p);
-        setSuggestedThemeId(suggested.id);
-        setSelectedThemeId(suggested.id);
+        setThemeStats(stats);
+        setSelectedThemeId(stats[0]?.theme.id ?? null);
         setLoading(false);
       }
     }
@@ -68,30 +68,49 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
         </div>
       </div>
 
-      <section className="w-full max-w-2xl">
-        <h2 className="mb-3 text-center text-lg font-bold text-violet-600">Choisis un thème</h2>
-        <div className="flex flex-wrap justify-center gap-4">
-          {themes.map((theme) => {
-            const isSuggested = theme.id === suggestedThemeId;
-            const isSelected = theme.id === selectedThemeId;
+      <section className="w-full max-w-3xl">
+        <h2 className="mb-1 text-center text-lg font-bold text-violet-600">Choisis un thème</h2>
+        <p className="mb-4 text-center text-xs text-violet-400">
+          Les thèmes les moins avancés sont proposés en premier ✨
+        </p>
+        <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
+          {themeStats.map((stats, i) => {
+            const isSuggested = i === 0;
+            const isSelected = stats.theme.id === selectedThemeId;
+            const percent = Math.round(stats.masteryPercent * 100);
             return (
               <motion.button
-                key={theme.id}
+                key={stats.theme.id}
                 type="button"
-                onClick={() => setSelectedThemeId(theme.id)}
+                onClick={() => setSelectedThemeId(stats.theme.id)}
                 whileTap={{ scale: 0.95 }}
                 whileHover={{ scale: 1.05 }}
-                className={`flex flex-col items-center gap-1 rounded-2xl px-5 py-4 shadow-md ${
+                className={`relative flex flex-col items-center gap-1 rounded-2xl px-2 py-3 shadow-md ${
                   isSelected ? "bg-violet-500 text-white" : "bg-white text-violet-600"
                 }`}
               >
-                <span className="text-3xl">{theme.icon}</span>
-                <span className="text-sm font-semibold">{theme.name}</span>
                 {isSuggested && (
-                  <span className="rounded-full bg-amber-300 px-2 py-0.5 text-[10px] font-bold text-amber-900">
-                    Suggéré
+                  <span className="absolute -top-2 -right-2 rounded-full bg-amber-300 px-1.5 py-0.5 text-[9px] font-bold text-amber-900">
+                    ✨
                   </span>
                 )}
+                <span className="text-2xl">{stats.theme.icon}</span>
+                <span className="text-center text-[11px] font-semibold leading-tight">
+                  {stats.theme.name}
+                </span>
+                <div
+                  className={`h-1.5 w-full overflow-hidden rounded-full ${
+                    isSelected ? "bg-white/30" : "bg-violet-100"
+                  }`}
+                >
+                  <div
+                    style={{ width: `${percent}%` }}
+                    className={`h-full rounded-full ${isSelected ? "bg-white" : "bg-emerald-400"}`}
+                  />
+                </div>
+                <span className={`text-[9px] ${isSelected ? "text-white/80" : "text-violet-400"}`}>
+                  {stats.mastered}/{stats.total} maîtrisés
+                </span>
               </motion.button>
             );
           })}

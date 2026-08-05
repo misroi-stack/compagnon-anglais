@@ -1,0 +1,13 @@
+{
+  "id": "ecole",
+  "name": "École",
+  "icon": "🏫",
+  "words": [
+    { "id": "book", "en": "book", "fr": "livre", "image": "/images/vocabulary/ecole/book.svg", "emoji": "📖", "ageGroups": ["6", "9"], "phrases": [{ "en": "I read a book.", "fr": "Je lis un livre." }] },
+    { "id": "pencil", "en": "pencil", "fr": "crayon", "image": "/images/vocabulary/ecole/pencil.svg", "emoji": "✏️", "ageGroups": ["6", "9"] },
+    { "id": "bag", "en": "bag", "fr": "sac", "image": "/images/vocabulary/ecole/bag.svg", "emoji": "🎒", "ageGroups": ["6", "9"] },
+    { "id": "chair", "en": "chair", "fr": "chaise", "image": "/images/vocabulary/ecole/chair.svg", "emoji": "🪑", "ageGroups": ["6", "9"] },
+    { "id": "teacher", "en": "teacher", "fr": "maîtresse", "image": "/images/vocabulary/ecole/teacher.svg", "emoji": "🧑‍🏫", "ageGroups": ["9"], "phrases": [{ "en": "The teacher is nice.", "fr": "La maîtresse est gentille." }] },
+    { "id": "ruler", "en": "ruler", "fr": "règle", "image": "/images/vocabulary/ecole/ruler.svg", "emoji": "📏", "ageGroups": ["9"] }
+  ]
+}

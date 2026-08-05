@@ -1,0 +1,14 @@
+{
+  "id": "famille",
+  "name": "Famille",
+  "icon": "👨‍👩‍👧",
+  "words": [
+    { "id": "mother", "en": "mother", "fr": "maman", "image": "/images/vocabulary/famille/mother.svg", "emoji": "👩", "ageGroups": ["6", "9"], "phrases": [{ "en": "I love my mother.", "fr": "J'aime ma maman." }] },
+    { "id": "father", "en": "father", "fr": "papa", "image": "/images/vocabulary/famille/father.svg", "emoji": "👨", "ageGroups": ["6", "9"], "phrases": [{ "en": "My father is tall.", "fr": "Mon papa est grand." }] },
+    { "id": "sister", "en": "sister", "fr": "sœur", "image": "/images/vocabulary/famille/sister.svg", "emoji": "👧", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have a sister.", "fr": "J'ai une sœur." }] },
+    { "id": "brother", "en": "brother", "fr": "frère", "image": "/images/vocabulary/famille/brother.svg", "emoji": "👦", "ageGroups": ["6", "9"], "phrases": [{ "en": "He is my brother.", "fr": "C'est mon frère." }] },
+    { "id": "baby", "en": "baby", "fr": "bébé", "image": "/images/vocabulary/famille/baby.svg", "emoji": "👶", "ageGroups": ["6", "9"] },
+    { "id": "grandmother", "en": "grandmother", "fr": "grand-mère", "image": "/images/vocabulary/famille/grandmother.svg", "emoji": "👵", "ageGroups": ["9"], "phrases": [{ "en": "My grandmother is kind.", "fr": "Ma grand-mère est gentille." }] },
+    { "id": "grandfather", "en": "grandfather", "fr": "grand-père", "image": "/images/vocabulary/famille/grandfather.svg", "emoji": "👴", "ageGroups": ["9"] }
+  ]
+}
