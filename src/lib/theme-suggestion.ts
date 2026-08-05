@@ -8,7 +8,13 @@ export interface ThemeStats {
   total: number;
   mastered: number;
   due: number;
-  masteryPercent: number;
+  /** Progression graduelle (0-1) basée sur la boîte Leitron de chaque mot — avance dès la première bonne réponse. */
+  progressPercent: number;
+}
+
+function wordProgressFraction(progress: WordProgress | undefined): number {
+  if (!progress) return 0;
+  return (progress.box - 1) / 4;
 }
 
 /**
@@ -30,15 +36,19 @@ export function getThemeStats(
         const progress = progressByWordId.get(w.id);
         return !progress || isDueForReview(progress);
       }).length;
+      const progressSum = words.reduce(
+        (sum, w) => sum + wordProgressFraction(progressByWordId.get(w.id)),
+        0
+      );
 
       return {
         theme,
         total: words.length,
         mastered,
         due,
-        masteryPercent: words.length ? mastered / words.length : 0,
+        progressPercent: words.length ? progressSum / words.length : 0,
       };
     })
     .filter((stats) => stats.total > 0)
-    .sort((a, b) => a.masteryPercent - b.masteryPercent || b.due - a.due);
+    .sort((a, b) => a.progressPercent - b.progressPercent || b.due - a.due);
 }

@@ -83,7 +83,7 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
           {visibleThemeStats.map((stats, i) => {
             const isSuggested = i === 0;
             const isSelected = stats.theme.id === selectedThemeId;
-            const percent = Math.round(stats.masteryPercent * 100);
+            const percent = Math.round(stats.progressPercent * 100);
             return (
               <motion.button
                 key={stats.theme.id}
