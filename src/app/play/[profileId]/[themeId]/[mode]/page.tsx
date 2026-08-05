@@ -4,6 +4,7 @@ import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getTheme, wordsForAge } from "@/content";
 import { Flashcards } from "@/components/games/Flashcards";
+import { Quiz } from "@/components/games/Quiz";
 import { getProfile } from "@/lib/profiles";
 import type { Theme, Word } from "@/types/content";
 import type { Profile } from "@/types/profile";
@@ -72,6 +73,10 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
   switch (mode as GameMode) {
     case "flashcards":
       return <Flashcards theme={theme} words={words} onExit={exitToThemeSelection} />;
+    case "quiz":
+      return (
+        <Quiz profileId={profileId} theme={theme} words={words} onExit={exitToThemeSelection} />
+      );
     default:
       return (
         <main className="flex min-h-screen flex-col items-center justify-center gap-4 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50">
