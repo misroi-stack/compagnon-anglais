@@ -30,6 +30,17 @@ export async function getProfiles(): Promise<Profile[]> {
   return (data as ProfileRow[]).map(fromRow);
 }
 
+export async function getProfile(profileId: string): Promise<Profile | null> {
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", profileId)
+    .maybeSingle();
+
+  if (error) throw error;
+  return data ? fromRow(data as ProfileRow) : null;
+}
+
 export async function createProfile(input: {
   name: string;
   age: AgeGroup;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { MascotPicker } from "@/components/MascotPicker";
 import { ProfileCard } from "@/components/ProfileCard";
@@ -9,9 +10,9 @@ import type { AgeGroup } from "@/types/content";
 import type { MascotId, Profile } from "@/types/profile";
 
 export default function Home() {
+  const router = useRouter();
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState<Profile | null>(null);
   const [isCreating, setIsCreating] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -67,7 +68,11 @@ export default function Home() {
       ) : (
         <div className="flex flex-wrap items-center justify-center gap-6">
           {profiles.map((profile) => (
-            <ProfileCard key={profile.id} profile={profile} onSelect={setSelected} />
+            <ProfileCard
+              key={profile.id}
+              profile={profile}
+              onSelect={(p) => router.push(`/play/${p.id}`)}
+            />
           ))}
 
           <motion.button
@@ -81,16 +86,6 @@ export default function Home() {
             <span className="text-sm font-semibold">Nouveau profil</span>
           </motion.button>
         </div>
-      )}
-
-      {selected && (
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="rounded-full bg-white/70 px-6 py-3 text-violet-700 shadow"
-        >
-          Salut {selected.name} ! Le tableau de bord arrive très bientôt 🚧
-        </motion.p>
       )}
 
       <AnimatePresence>
