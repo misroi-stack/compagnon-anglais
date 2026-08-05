@@ -10,6 +10,8 @@ export interface Word {
   en: string;
   fr: string;
   image: string;
+  /** Placeholder emoji utilisé tant que les vraies illustrations ne sont pas prêtes. */
+  emoji: string;
   audio?: string;
   ageGroups: AgeGroup[];
   phrases?: Phrase[];

@@ -3,11 +3,11 @@
   "name": "Animaux",
   "icon": "🐾",
   "words": [
-    { "id": "dog", "en": "dog", "fr": "chien", "image": "/images/vocabulary/animaux/dog.svg", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like the dog.", "fr": "J'aime le chien." }] },
-    { "id": "cat", "en": "cat", "fr": "chat", "image": "/images/vocabulary/animaux/cat.svg", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is a cat.", "fr": "C'est un chat." }] },
-    { "id": "bird", "en": "bird", "fr": "oiseau", "image": "/images/vocabulary/animaux/bird.svg", "ageGroups": ["6", "9"], "phrases": [{ "en": "The bird can fly.", "fr": "L'oiseau peut voler." }] },
-    { "id": "fish", "en": "fish", "fr": "poisson", "image": "/images/vocabulary/animaux/fish.svg", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have a fish.", "fr": "J'ai un poisson." }] },
-    { "id": "rabbit", "en": "rabbit", "fr": "lapin", "image": "/images/vocabulary/animaux/rabbit.svg", "ageGroups": ["6", "9"], "phrases": [{ "en": "She has a rabbit.", "fr": "Elle a un lapin." }] },
-    { "id": "horse", "en": "horse", "fr": "cheval", "image": "/images/vocabulary/animaux/horse.svg", "ageGroups": ["9"], "phrases": [{ "en": "He likes horses.", "fr": "Il aime les chevaux." }] }
+    { "id": "dog", "en": "dog", "fr": "chien", "image": "/images/vocabulary/animaux/dog.svg", "emoji": "🐶", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like the dog.", "fr": "J'aime le chien." }] },
+    { "id": "cat", "en": "cat", "fr": "chat", "image": "/images/vocabulary/animaux/cat.svg", "emoji": "🐱", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is a cat.", "fr": "C'est un chat." }] },
+    { "id": "bird", "en": "bird", "fr": "oiseau", "image": "/images/vocabulary/animaux/bird.svg", "emoji": "🐦", "ageGroups": ["6", "9"], "phrases": [{ "en": "The bird can fly.", "fr": "L'oiseau peut voler." }] },
+    { "id": "fish", "en": "fish", "fr": "poisson", "image": "/images/vocabulary/animaux/fish.svg", "emoji": "🐟", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have a fish.", "fr": "J'ai un poisson." }] },
+    { "id": "rabbit", "en": "rabbit", "fr": "lapin", "image": "/images/vocabulary/animaux/rabbit.svg", "emoji": "🐰", "ageGroups": ["6", "9"], "phrases": [{ "en": "She has a rabbit.", "fr": "Elle a un lapin." }] },
+    { "id": "horse", "en": "horse", "fr": "cheval", "image": "/images/vocabulary/animaux/horse.svg", "emoji": "🐴", "ageGroups": ["9"], "phrases": [{ "en": "He likes horses.", "fr": "Il aime les chevaux." }] }
   ]
 }

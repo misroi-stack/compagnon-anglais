@@ -45,7 +45,7 @@ export function Flashcards({ theme, words, onExit }: FlashcardsProps) {
         transition={{ type: "spring", stiffness: 260, damping: 22 }}
         className="flex w-full max-w-md flex-col items-center gap-4 rounded-3xl bg-white p-10 shadow-xl"
       >
-        <span className="text-7xl">{theme.icon}</span>
+        <span className="text-7xl">{word.emoji}</span>
         <h2 className="text-4xl font-extrabold text-violet-700">{word.en}</h2>
         <p className="text-xl text-violet-400">{word.fr}</p>
 

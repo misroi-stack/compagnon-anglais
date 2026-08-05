@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { getTheme, wordsForAge } from "@/content";
 import { Flashcards } from "@/components/games/Flashcards";
 import { Quiz } from "@/components/games/Quiz";
+import { Memory } from "@/components/games/Memory";
 import { getProfile } from "@/lib/profiles";
 import type { Theme, Word } from "@/types/content";
 import type { Profile } from "@/types/profile";
@@ -76,6 +77,10 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
     case "quiz":
       return (
         <Quiz profileId={profileId} theme={theme} words={words} onExit={exitToThemeSelection} />
+      );
+    case "memory":
+      return (
+        <Memory profileId={profileId} theme={theme} words={words} onExit={exitToThemeSelection} />
       );
     default:
       return (

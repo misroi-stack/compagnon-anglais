@@ -3,11 +3,11 @@
   "name": "Couleurs",
   "icon": "🎨",
   "words": [
-    { "id": "red", "en": "red", "fr": "rouge", "image": "/images/vocabulary/couleurs/red.svg", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is red.", "fr": "C'est rouge." }] },
-    { "id": "blue", "en": "blue", "fr": "bleu", "image": "/images/vocabulary/couleurs/blue.svg", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like blue.", "fr": "J'aime le bleu." }] },
-    { "id": "yellow", "en": "yellow", "fr": "jaune", "image": "/images/vocabulary/couleurs/yellow.svg", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is yellow.", "fr": "C'est jaune." }] },
-    { "id": "green", "en": "green", "fr": "vert", "image": "/images/vocabulary/couleurs/green.svg", "ageGroups": ["6", "9"], "phrases": [{ "en": "She likes green.", "fr": "Elle aime le vert." }] },
-    { "id": "purple", "en": "purple", "fr": "violet", "image": "/images/vocabulary/couleurs/purple.svg", "ageGroups": ["9"], "phrases": [{ "en": "It is purple.", "fr": "C'est violet." }] },
-    { "id": "orange", "en": "orange", "fr": "orange", "image": "/images/vocabulary/couleurs/orange.svg", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have an orange ball.", "fr": "J'ai une balle orange." }] }
+    { "id": "red", "en": "red", "fr": "rouge", "image": "/images/vocabulary/couleurs/red.svg", "emoji": "🔴", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is red.", "fr": "C'est rouge." }] },
+    { "id": "blue", "en": "blue", "fr": "bleu", "image": "/images/vocabulary/couleurs/blue.svg", "emoji": "🔵", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like blue.", "fr": "J'aime le bleu." }] },
+    { "id": "yellow", "en": "yellow", "fr": "jaune", "image": "/images/vocabulary/couleurs/yellow.svg", "emoji": "🟡", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is yellow.", "fr": "C'est jaune." }] },
+    { "id": "green", "en": "green", "fr": "vert", "image": "/images/vocabulary/couleurs/green.svg", "emoji": "🟢", "ageGroups": ["6", "9"], "phrases": [{ "en": "She likes green.", "fr": "Elle aime le vert." }] },
+    { "id": "purple", "en": "purple", "fr": "violet", "image": "/images/vocabulary/couleurs/purple.svg", "emoji": "🟣", "ageGroups": ["9"], "phrases": [{ "en": "It is purple.", "fr": "C'est violet." }] },
+    { "id": "orange", "en": "orange", "fr": "orange", "image": "/images/vocabulary/couleurs/orange.svg", "emoji": "🟠", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have an orange ball.", "fr": "J'ai une balle orange." }] }
   ]
 }
