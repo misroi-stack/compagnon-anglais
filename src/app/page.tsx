@@ -130,6 +130,14 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <button
+        type="button"
+        onClick={() => router.push("/parent")}
+        className="text-sm text-violet-400 underline"
+      >
+        👨‍👩‍👧 Espace parent
+      </button>
     </main>
   );
 }
