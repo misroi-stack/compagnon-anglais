@@ -90,7 +90,7 @@ export default function ModeHubPage({ params }: { params: Promise<RouteParams> }
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="flex flex-col items-center gap-2"
+          className="flex flex-col items-center gap-3"
         >
           <Image
             src={getMascotImage(profile.mascot, "celebration")}
@@ -102,6 +102,19 @@ export default function ModeHubPage({ params }: { params: Promise<RouteParams> }
           <p className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700">
             Les 4 jeux sont faits pour ce niveau !
           </p>
+          {level < 3 ? (
+            <button
+              type="button"
+              onClick={() => router.push(`/play/${profileId}/${themeId}/${level + 1}`)}
+              className="rounded-full bg-emerald-500 px-8 py-4 text-lg font-bold text-white shadow-lg"
+            >
+              Niveau {level + 1} →
+            </button>
+          ) : (
+            <p className="text-sm font-semibold text-violet-500">
+              🏆 Tous les niveaux de ce thème sont terminés !
+            </p>
+          )}
         </motion.div>
       )}
 
