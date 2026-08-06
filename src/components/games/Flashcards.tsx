@@ -38,6 +38,11 @@ export function Flashcards({ theme, words, onExit }: FlashcardsProps) {
     speak(word.en);
   }
 
+  function handleListenPhrase(e: React.MouseEvent) {
+    e.stopPropagation();
+    if (word.phrases?.[0]) speak(word.phrases[0].en);
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
       <GameHeader
@@ -100,9 +105,19 @@ export function Flashcards({ theme, words, onExit }: FlashcardsProps) {
             </button>
 
             {word.phrases?.[0] && (
-              <div className="mt-2 rounded-2xl bg-white/10 px-4 py-3">
-                <p className="font-semibold text-white">{word.phrases[0].en}</p>
-                <p className="text-sm text-violet-200">{word.phrases[0].fr}</p>
+              <div className="mt-2 flex items-center gap-2 rounded-2xl bg-white/10 px-4 py-3">
+                <div>
+                  <p className="font-semibold text-white">{word.phrases[0].en}</p>
+                  <p className="text-sm text-violet-200">{word.phrases[0].fr}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleListenPhrase}
+                  aria-label="Écouter la phrase"
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-400 text-sm shadow"
+                >
+                  🔊
+                </button>
               </div>
             )}
           </div>
