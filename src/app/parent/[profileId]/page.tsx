@@ -108,6 +108,9 @@ export default function ParentDashboardPage({ params }: { params: Promise<{ prof
 
   const maxDayMinutes = Math.max(...dayBuckets.map((d) => d.minutes), 1);
   const modeById = new Map(MODES.map((m) => [m.id, m]));
+  // Vue parent : thèmes les mieux maîtrisés en premier (inverse de la suggestion
+  // enfant, qui met en avant les thèmes les moins avancés à pratiquer).
+  const themeStatsByMastery = [...themeStats].sort((a, b) => b.progressPercent - a.progressPercent);
 
   async function handleDelete() {
     setDeleting(true);
@@ -247,7 +250,7 @@ export default function ParentDashboardPage({ params }: { params: Promise<{ prof
           <section className="rounded-3xl bg-white p-6 shadow-xl">
             <h2 className="mb-4 font-bold text-violet-700">Progression par thème</h2>
             <div className="flex flex-col gap-2">
-              {themeStats.map((stats) => {
+              {themeStatsByMastery.map((stats) => {
                 const attemptStats = themeAttempts.get(stats.theme.id);
                 const percent = Math.round(stats.progressPercent * 100);
                 return (
