@@ -1,4 +1,5 @@
--- Schéma Compagnon Anglais — à exécuter dans le SQL Editor de CHAQUE projet Supabase (dev puis prod)
+-- Comptes parents (via Supabase Auth) + rattachement des profils enfants +
+-- codes d'invitation pour limiter les inscriptions.
 
 create table if not exists invite_codes (
   code text primary key,
@@ -13,40 +14,6 @@ create table if not exists parents (
   id uuid primary key references auth.users(id) on delete cascade,
   email text not null,
   signup_code text not null references invite_codes(code),
-  created_at timestamptz not null default now()
-);
-
-create table if not exists profiles (
-  id uuid primary key default gen_random_uuid(),
-  name text not null,
-  mascot text not null check (mascot in ('renard', 'hibou', 'dragon', 'panda')),
-  created_at timestamptz not null default now(),
-  -- Désactivé plutôt que supprimé quand un parent "supprime" un profil depuis
-  -- l'espace parent — masqué partout, réactivable plus tard via un futur portail admin.
-  active boolean not null default true,
-  parent_id uuid references parents(id) on delete cascade
-);
-
-create table if not exists word_progress (
-  id uuid primary key default gen_random_uuid(),
-  profile_id uuid not null references profiles(id) on delete cascade,
-  word_id text not null,
-  box smallint not null default 1 check (box between 1 and 5),
-  last_reviewed_at timestamptz,
-  next_review_at timestamptz,
-  success_modes text[] not null default '{}',
-  mastered boolean not null default false,
-  unique (profile_id, word_id)
-);
-
-create table if not exists attempts (
-  id uuid primary key default gen_random_uuid(),
-  profile_id uuid not null references profiles(id) on delete cascade,
-  word_id text not null,
-  theme_id text not null,
-  mode text not null check (mode in ('flashcards', 'quiz', 'associe', 'repete')),
-  correct boolean not null,
-  response_time_ms integer not null,
   created_at timestamptz not null default now()
 );
 
@@ -84,20 +51,21 @@ $$;
 
 grant execute on function is_invite_code_active(text) to anon, authenticated;
 
+alter table profiles add column if not exists parent_id uuid references parents(id) on delete cascade;
+
 alter table invite_codes enable row level security;
 alter table parents enable row level security;
-alter table profiles enable row level security;
-alter table word_progress enable row level security;
-alter table attempts enable row level security;
 
--- Accès verrouillé par famille : chaque parent ne voit que ses propres profils
--- enfants et leurs données (auth.uid() = le parent connecté).
 create policy "parents can read own row" on parents for select using (auth.uid() = id);
 create policy "parents can insert own row" on parents for insert with check (auth.uid() = id);
 
+-- Verrouille l'accès aux données par famille maintenant qu'il y a de vrais comptes
+-- (remplace les policies "allow all" ouvertes à tous, datant d'avant l'authentification).
+drop policy if exists "allow all on profiles" on profiles;
 create policy "parents manage own children profiles" on profiles
   for all using (parent_id = auth.uid()) with check (parent_id = auth.uid());
 
+drop policy if exists "allow all on word_progress" on word_progress;
 create policy "parents manage own children word_progress" on word_progress
   for all using (exists (
     select 1 from profiles where profiles.id = word_progress.profile_id and profiles.parent_id = auth.uid()
@@ -106,6 +74,7 @@ create policy "parents manage own children word_progress" on word_progress
     select 1 from profiles where profiles.id = word_progress.profile_id and profiles.parent_id = auth.uid()
   ));
 
+drop policy if exists "allow all on attempts" on attempts;
 create policy "parents manage own children attempts" on attempts
   for all using (exists (
     select 1 from profiles where profiles.id = attempts.profile_id and profiles.parent_id = auth.uid()

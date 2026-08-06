@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { ProfileCard } from "@/components/ProfileCard";
 import { getProfiles } from "@/lib/profiles";
+import { signOut } from "@/lib/auth";
 import type { Profile } from "@/types/profile";
 
 export default function ParentPortalPage() {
@@ -43,9 +44,14 @@ export default function ParentPortalPage() {
         </div>
       )}
 
-      <button type="button" onClick={() => router.push("/")} className="text-sm text-violet-400 underline">
-        ← Retour à l&apos;app
-      </button>
+      <div className="flex items-center gap-4">
+        <button type="button" onClick={() => router.push("/")} className="text-sm text-violet-400 underline">
+          ← Retour à l&apos;app
+        </button>
+        <button type="button" onClick={() => signOut()} className="text-sm text-rose-400 underline">
+          Se déconnecter
+        </button>
+      </div>
     </main>
   );
 }

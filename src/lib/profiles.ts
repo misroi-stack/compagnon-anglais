@@ -41,9 +41,13 @@ export async function getProfile(profileId: string): Promise<Profile | null> {
 }
 
 export async function createProfile(input: { name: string; mascot: MascotId }): Promise<Profile> {
+  const { data: userData, error: userError } = await supabase.auth.getUser();
+  if (userError) throw userError;
+  if (!userData.user) throw new Error("not_authenticated");
+
   const { data, error } = await supabase
     .from("profiles")
-    .insert({ name: input.name, mascot: input.mascot })
+    .insert({ name: input.name, mascot: input.mascot, parent_id: userData.user.id })
     .select()
     .single();
 
