@@ -2,6 +2,11 @@
 
 Dernière mise à jour : 2026-08-06
 
+- Son de succès (petit arpège synthétisé via Web Audio API, `src/lib/sound.ts`) joué à la complétion de Quiz, Associe et Répète — pas de fichier audio à gérer.
+- Répète-et-vérifie : le bouton micro sert aussi de bouton "réessayer" (un seul tap après une réponse incorrecte relance l'écoute), et un mot répété 2-3 fois d'affilée par l'enfant (ex: "dog dog", fréquent quand la reconnaissance n'a rien capté au premier essai) compte comme correct (`matchesSpokenWord` dans `src/lib/speech-recognition.ts`).
+- Flashcards : bouton 🔊 dédié pour écouter la phrase d'exemple, séparé du bouton d'écoute du mot seul.
+- On peut changer de mascotte en cliquant dessus sur la page d'accueil du profil (`/play/[profileId]`) — ouvre le même `MascotPicker` que la création de profil, persisté via `updateProfileMascot` dans Supabase.
+
 ## Fait
 
 - [PLAN.md](PLAN.md) finalisé (pédagogie, modes de jeu, contenu, voix, son, visuel, stats/parent, workflow technique, coûts)
@@ -41,6 +46,7 @@ Dernière mise à jour : 2026-08-06
 - Mots de passe/secrets gérés via le gestionnaire de mots de passe Chrome ; jamais commités (`.env.local` et `.env*` sont dans `.gitignore`)
 - Connexion Postgres directe (`db.<ref>.supabase.co`) ne fonctionne pas sur ce réseau (IPv6 requis) → toujours utiliser le **connection pooler** (`Settings → Database → Connect → Transaction pooler`)
 - ⚠️ **Framer Motion `animate={{...}}` ne se met pas à jour de façon fiable dans cette combo Next.js 16 / React 19 / framer-motion 12** quand la valeur change après le montage (testé et confirmé cassé sur `AnimatePresence` exit ET sur un `rotateY` piloté par state). Le state React se met à jour correctement, mais le style ne suit pas. **Solution qui marche** : transitions CSS pures (classe Tailwind `transition-transform`/`transition-all` + `style={{transform: ...}}` conditionnel sur le state), utilisée dans Flashcards et Associe. Framer Motion reste fiable pour les animations au montage (`initial`→`animate` une fois) et les gestes (`whileTap`/`whileHover`) — évite `animate` piloté par state ailleurs dans le code.
+  - Même bug rencontré avec `AnimatePresence`/`exit` : le modal de changement de mascotte restait bloqué à l'écran (`opacity: 0` mais toujours dans le DOM, jamais démonté) après sélection — l'animation de sortie ne se termine jamais de façon fiable. Corrigé en abandonnant `AnimatePresence`/`exit` pour un rendu conditionnel simple (`{condition && <motion.div initial animate .../>}`, sans `exit`). Éviter `AnimatePresence` pour les modals dans ce projet.
 - Le mode "Memory" (cartes cachées, retrouver les paires) a été essayé puis abandonné après un test utilisateur réel : ça mesurait la mémoire spatiale, pas la connaissance du vocabulaire anglais. Remplacé par "Associe" (tout visible, on relie image et mot). Bien retenir cette leçon pour les futures idées de mini-jeux (V2) : vérifier qu'un mécanisme teste vraiment l'anglais, pas juste une compétence annexe.
 
 ## Prochaines étapes (dans l'ordre)
