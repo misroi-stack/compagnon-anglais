@@ -138,82 +138,85 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: Repea
         onExit={onExit}
       />
 
-      <motion.div
-        key={word.id}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="flex w-full max-w-md flex-col items-center gap-5 rounded-3xl bg-white p-10 shadow-xl"
-      >
+      <div className="relative w-full max-w-md">
         <Image
           src={getMascotImage(mascotId, mascotPose)}
           alt=""
           width={80}
           height={80}
-          className="h-16 w-16 object-contain"
+          className="absolute -top-6 -right-4 z-10 h-16 w-16 object-contain sm:-right-14"
         />
-        <span className="text-7xl">{word.emoji}</span>
-        <h2 className="text-4xl font-extrabold text-violet-700">{word.en}</h2>
 
-        <button
-          type="button"
-          onClick={() => speak(word.en)}
-          className="rounded-full bg-amber-400 px-6 py-2 font-bold text-white shadow"
+        <motion.div
+          key={word.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex w-full flex-col items-center gap-5 rounded-3xl bg-white p-10 shadow-xl"
         >
-          🔊 Écouter
-        </button>
+          <span className="text-7xl">{word.emoji}</span>
+          <h2 className="text-4xl font-extrabold text-violet-700">{word.en}</h2>
 
-        {status === "unsupported" ? (
-          <p className="text-center text-sm text-rose-500">
-            La reconnaissance vocale n&apos;est pas disponible sur cet appareil/navigateur.
-          </p>
-        ) : status === "mic-error" ? (
-          <p className="text-center text-sm text-rose-500">
-            Accès au micro refusé — autorise le micro pour ce site puis réessaie.
-          </p>
-        ) : (
           <button
             type="button"
-            onClick={handleListen}
-            disabled={status === "listening" || answered}
-            className="rounded-full bg-violet-600 px-8 py-4 text-2xl text-white shadow disabled:opacity-50"
+            onClick={() => speak(word.en)}
+            className="rounded-full bg-amber-400 px-6 py-2 font-bold text-white shadow"
           >
-            {status === "listening" ? "🎙️ J'écoute…" : "🎤 Répète le mot"}
+            🔊 Écouter
           </button>
-        )}
 
-        {status === "no-speech" && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="font-semibold text-amber-500"
-          >
-            🤔 Je n&apos;ai rien entendu — appuie sur le micro et réessaie !
-          </motion.p>
-        )}
-
-        {status === "correct" && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="font-semibold text-emerald-600"
-          >
-            Parfait ! 🎉
-          </motion.p>
-        )}
-
-        {status === "incorrect" && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="rounded-2xl bg-rose-50 px-4 py-3 text-center"
-          >
-            <p className="font-semibold text-rose-500">Presque ! Essaie encore 💪</p>
-            <p className="mt-1 text-sm text-rose-400">
-              J&apos;ai entendu &quot;{heard}&quot;, le mot est &quot;{word.en}&quot;
+          {status === "unsupported" ? (
+            <p className="text-center text-sm text-rose-500">
+              La reconnaissance vocale n&apos;est pas disponible sur cet appareil/navigateur.
             </p>
-          </motion.div>
-        )}
-      </motion.div>
+          ) : status === "mic-error" ? (
+            <p className="text-center text-sm text-rose-500">
+              Accès au micro refusé — autorise le micro pour ce site puis réessaie.
+            </p>
+          ) : (
+            <button
+              type="button"
+              onClick={handleListen}
+              disabled={status === "listening" || answered}
+              className="rounded-full bg-violet-600 px-8 py-4 text-2xl text-white shadow disabled:opacity-50"
+            >
+              {status === "listening" ? "🎙️ J'écoute…" : "🎤 Répète le mot"}
+            </button>
+          )}
+
+          {status === "no-speech" && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="font-semibold text-amber-500"
+            >
+              🤔 Je n&apos;ai rien entendu — appuie sur le micro et réessaie !
+            </motion.p>
+          )}
+
+          {status === "correct" && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="font-semibold text-emerald-600"
+            >
+              Parfait ! 🎉
+            </motion.p>
+          )}
+
+          {status === "incorrect" && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="rounded-2xl bg-rose-50 px-4 py-3 text-center"
+            >
+              <p className="font-semibold text-rose-500">Presque ! Essaie encore 💪</p>
+              <p className="mt-1 text-sm text-rose-400">
+                J&apos;ai entendu &quot;{heard}&quot;, le mot est &quot;{word.en}&quot;
+              </p>
+            </motion.div>
+          )}
+        </motion.div>
+      </div>
 
       {status === "incorrect" && (
         <div className="flex gap-4">
