@@ -8,7 +8,7 @@ import { speak } from "@/lib/speech";
 import {
   isSpeechRecognitionSupported,
   listenOnce,
-  normalizeForCompare,
+  matchesSpokenWord,
 } from "@/lib/speech-recognition";
 import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
@@ -89,7 +89,7 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: Repea
     }
 
     setHeard(outcome.transcript);
-    const recognized = normalizeForCompare(outcome.transcript) === normalizeForCompare(word.en);
+    const recognized = matchesSpokenWord(outcome.transcript, word.en);
 
     let correct = recognized;
     if (!recognized) {
