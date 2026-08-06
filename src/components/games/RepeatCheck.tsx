@@ -13,6 +13,7 @@ import {
 import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
 import { getMascotImage, type MascotPose } from "@/lib/mascots";
+import { playSuccessSound } from "@/lib/sound";
 import type { Theme, Word } from "@/types/content";
 import type { MascotId } from "@/types/profile";
 import type { WordProgress } from "@/types/progress";
@@ -54,6 +55,10 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: Repea
   useEffect(() => {
     getProgressForProfile(profileId).then(setProgressMap);
   }, [profileId]);
+
+  useEffect(() => {
+    if (finished) playSuccessSound();
+  }, [finished]);
 
   useEffect(() => {
     setStatus(isSpeechRecognitionSupported() ? "idle" : "unsupported");

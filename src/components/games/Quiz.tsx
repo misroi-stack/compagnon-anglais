@@ -9,6 +9,7 @@ import { speak } from "@/lib/speech";
 import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
 import { getMascotImage } from "@/lib/mascots";
+import { playSuccessSound } from "@/lib/sound";
 import type { Theme, Word } from "@/types/content";
 import type { MascotId } from "@/types/profile";
 import type { WordProgress } from "@/types/progress";
@@ -36,6 +37,10 @@ export function Quiz({ profileId, mascotId, theme, words, onExit }: QuizProps) {
   useEffect(() => {
     getProgressForProfile(profileId).then(setProgressMap);
   }, [profileId]);
+
+  useEffect(() => {
+    if (finished) playSuccessSound();
+  }, [finished]);
 
   useEffect(() => {
     setSelected(null);

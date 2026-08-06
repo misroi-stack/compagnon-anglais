@@ -7,6 +7,7 @@ import { GameHeader } from "./GameHeader";
 import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
 import { getMascotImage } from "@/lib/mascots";
+import { playSuccessSound } from "@/lib/sound";
 import type { Theme, Word } from "@/types/content";
 import type { MascotId } from "@/types/profile";
 import type { WordProgress } from "@/types/progress";
@@ -42,6 +43,10 @@ export function Associe({ profileId, mascotId, theme, words, onExit }: AssociePr
   useEffect(() => {
     getProgressForProfile(profileId).then(setProgressMap);
   }, [profileId]);
+
+  useEffect(() => {
+    if (isComplete) playSuccessSound();
+  }, [isComplete]);
 
   async function tryMatch(emojiWordId: string, wordWordId: string) {
     if (emojiWordId === wordWordId) {
