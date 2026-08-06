@@ -1,23 +1,27 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { GameHeader } from "./GameHeader";
 import { buildQuestion } from "@/lib/quiz";
 import { speak } from "@/lib/speech";
 import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
+import { getMascotImage } from "@/lib/mascots";
 import type { Theme, Word } from "@/types/content";
+import type { MascotId } from "@/types/profile";
 import type { WordProgress } from "@/types/progress";
 
 interface QuizProps {
   profileId: string;
+  mascotId: MascotId;
   theme: Theme;
   words: Word[];
   onExit: () => void;
 }
 
-export function Quiz({ profileId, theme, words, onExit }: QuizProps) {
+export function Quiz({ profileId, mascotId, theme, words, onExit }: QuizProps) {
   const [index, setIndex] = useState(0);
   const [progressMap, setProgressMap] = useState<Map<string, WordProgress>>(new Map());
   const [selected, setSelected] = useState<string | null>(null);
@@ -123,13 +127,26 @@ export function Quiz({ profileId, theme, words, onExit }: QuizProps) {
         </div>
 
         {answered && (
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className={`font-semibold ${selected === question.correctAnswer ? "text-emerald-600" : "text-rose-500"}`}
+            className="flex flex-col items-center gap-2"
           >
-            {selected === question.correctAnswer ? "Bravo ! 🎉" : `C'était "${question.correctAnswer}"`}
-          </motion.p>
+            {selected === question.correctAnswer && (
+              <Image
+                src={getMascotImage(mascotId, "encourageant")}
+                alt=""
+                width={72}
+                height={72}
+                className="h-16 w-16 object-contain"
+              />
+            )}
+            <p
+              className={`font-semibold ${selected === question.correctAnswer ? "text-emerald-600" : "text-rose-500"}`}
+            >
+              {selected === question.correctAnswer ? "Bravo ! 🎉" : `C'était "${question.correctAnswer}"`}
+            </p>
+          </motion.div>
         )}
       </motion.div>
 

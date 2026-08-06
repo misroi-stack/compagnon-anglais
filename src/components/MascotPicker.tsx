@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { MASCOTS } from "@/lib/mascots";
+import { MASCOTS, getMascotImage } from "@/lib/mascots";
 import type { MascotId } from "@/types/profile";
 
 interface MascotPickerProps {
@@ -21,11 +22,17 @@ export function MascotPicker({ value, onChange }: MascotPickerProps) {
             onClick={() => onChange(mascot.id)}
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.05 }}
-            className={`flex flex-col items-center gap-1 rounded-2xl bg-gradient-to-br ${mascot.gradient} p-4 text-white shadow-md transition-shadow ${
+            className={`flex flex-col items-center gap-1 rounded-2xl bg-gradient-to-br ${mascot.gradient} p-2 text-white shadow-md transition-shadow ${
               selected ? "ring-4 ring-white ring-offset-2 ring-offset-violet-200" : ""
             }`}
           >
-            <span className="text-4xl">{mascot.emoji}</span>
+            <Image
+              src={getMascotImage(mascot.id)}
+              alt={mascot.label}
+              width={64}
+              height={64}
+              className="h-14 w-14 object-contain"
+            />
             <span className="text-xs font-semibold">{mascot.label}</span>
           </motion.button>
         );

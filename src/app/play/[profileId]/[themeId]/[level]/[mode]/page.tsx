@@ -79,12 +79,34 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
     case "flashcards":
       return <Flashcards theme={theme} words={words} onExit={exitToModeHub} />;
     case "quiz":
-      return <Quiz profileId={profileId} theme={theme} words={words} onExit={exitToModeHub} />;
+      return (
+        <Quiz
+          profileId={profileId}
+          mascotId={profile.mascot}
+          theme={theme}
+          words={words}
+          onExit={exitToModeHub}
+        />
+      );
     case "associe":
-      return <Associe profileId={profileId} theme={theme} words={words} onExit={exitToModeHub} />;
+      return (
+        <Associe
+          profileId={profileId}
+          mascotId={profile.mascot}
+          theme={theme}
+          words={words}
+          onExit={exitToModeHub}
+        />
+      );
     case "repete":
       return (
-        <RepeatCheck profileId={profileId} theme={theme} words={words} onExit={exitToModeHub} />
+        <RepeatCheck
+          profileId={profileId}
+          mascotId={profile.mascot}
+          theme={theme}
+          words={words}
+          onExit={exitToModeHub}
+        />
       );
     default:
       return (

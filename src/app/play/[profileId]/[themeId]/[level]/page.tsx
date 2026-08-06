@@ -2,11 +2,13 @@
 
 import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { getTheme, wordsForLevel } from "@/content";
 import { MODES } from "@/lib/modes";
 import { getProfile } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
+import { getMascotImage } from "@/lib/mascots";
 import { getThemeModeStats, type ThemeModeStats } from "@/lib/theme-mode-stats";
 import type { Level, Theme } from "@/types/content";
 import type { Profile } from "@/types/profile";
@@ -85,13 +87,22 @@ export default function ModeHubPage({ params }: { params: Promise<RouteParams> }
       </div>
 
       {allGradedComplete && (
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700"
+          className="flex flex-col items-center gap-2"
         >
-          🎉 Les 4 jeux sont faits pour ce niveau !
-        </motion.p>
+          <Image
+            src={getMascotImage(profile.mascot, "celebration")}
+            alt=""
+            width={80}
+            height={80}
+            className="h-16 w-16 object-contain"
+          />
+          <p className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700">
+            Les 4 jeux sont faits pour ce niveau !
+          </p>
+        </motion.div>
       )}
 
       <section className="w-full max-w-md">

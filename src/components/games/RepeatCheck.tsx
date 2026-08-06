@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { GameHeader } from "./GameHeader";
 import { speak } from "@/lib/speech";
@@ -11,11 +12,14 @@ import {
 } from "@/lib/speech-recognition";
 import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
+import { getMascotImage, type MascotPose } from "@/lib/mascots";
 import type { Theme, Word } from "@/types/content";
+import type { MascotId } from "@/types/profile";
 import type { WordProgress } from "@/types/progress";
 
 interface RepeatCheckProps {
   profileId: string;
+  mascotId: MascotId;
   theme: Theme;
   words: Word[];
   onExit: () => void;
@@ -35,7 +39,7 @@ type Status =
  *  et ça ne doit pas décourager un enfant qui prononce correctement. */
 const MAX_ATTEMPTS_BEFORE_AUTO_SUCCESS = 3;
 
-export function RepeatCheck({ profileId, theme, words, onExit }: RepeatCheckProps) {
+export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: RepeatCheckProps) {
   const [index, setIndex] = useState(0);
   const [status, setStatus] = useState<Status>("idle");
   const [heard, setHeard] = useState<string | null>(null);
@@ -122,6 +126,9 @@ export function RepeatCheck({ profileId, theme, words, onExit }: RepeatCheckProp
     setStartTime(Date.now());
   }
 
+  const mascotPose: MascotPose =
+    status === "listening" ? "attentif" : status === "correct" ? "encourageant" : "neutre";
+
   return (
     <main className="flex min-h-screen flex-col items-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
       <GameHeader
@@ -137,6 +144,13 @@ export function RepeatCheck({ profileId, theme, words, onExit }: RepeatCheckProp
         animate={{ opacity: 1, y: 0 }}
         className="flex w-full max-w-md flex-col items-center gap-5 rounded-3xl bg-white p-10 shadow-xl"
       >
+        <Image
+          src={getMascotImage(mascotId, mascotPose)}
+          alt=""
+          width={80}
+          height={80}
+          className="h-16 w-16 object-contain"
+        />
         <span className="text-7xl">{word.emoji}</span>
         <h2 className="text-4xl font-extrabold text-violet-700">{word.en}</h2>
 

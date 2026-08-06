@@ -1,5 +1,7 @@
 import type { MascotId } from "@/types/profile";
 
+export type MascotPose = "neutre" | "attentif" | "encourageant" | "celebration";
+
 export interface MascotInfo {
   id: MascotId;
   emoji: string;
@@ -16,4 +18,8 @@ export const MASCOTS: MascotInfo[] = [
 
 export function getMascot(id: MascotId): MascotInfo {
   return MASCOTS.find((m) => m.id === id) ?? MASCOTS[0];
+}
+
+export function getMascotImage(id: MascotId, pose: MascotPose = "neutre"): string {
+  return `/images/mascots/${id}-${pose}.png`;
 }

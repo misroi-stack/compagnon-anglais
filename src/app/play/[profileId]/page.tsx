@@ -2,9 +2,10 @@
 
 import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { themes } from "@/content";
-import { getMascot } from "@/lib/mascots";
+import { getMascotImage } from "@/lib/mascots";
 import { getProfile } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
 import { getThemeStats, type ThemeStats } from "@/lib/theme-suggestion";
@@ -51,12 +52,16 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
     );
   }
 
-  const mascot = getMascot(profile.mascot);
-
   return (
     <main className="flex min-h-screen flex-col items-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
       <div className="flex items-center gap-3">
-        <span className="text-5xl">{mascot.emoji}</span>
+        <Image
+          src={getMascotImage(profile.mascot)}
+          alt=""
+          width={80}
+          height={80}
+          className="h-16 w-16 object-contain"
+        />
         <div>
           <p className="text-sm text-violet-400">Salut</p>
           <h1 className="text-2xl font-extrabold text-violet-700">{profile.name} !</h1>

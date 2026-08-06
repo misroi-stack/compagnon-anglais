@@ -1,15 +1,19 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { GameHeader } from "./GameHeader";
 import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
+import { getMascotImage } from "@/lib/mascots";
 import type { Theme, Word } from "@/types/content";
+import type { MascotId } from "@/types/profile";
 import type { WordProgress } from "@/types/progress";
 
 interface AssocieProps {
   profileId: string;
+  mascotId: MascotId;
   theme: Theme;
   words: Word[];
   onExit: () => void;
@@ -21,7 +25,7 @@ function shuffle<T>(items: T[]): T[] {
   return [...items].sort(() => Math.random() - 0.5);
 }
 
-export function Associe({ profileId, theme, words, onExit }: AssocieProps) {
+export function Associe({ profileId, mascotId, theme, words, onExit }: AssocieProps) {
   const pool = useMemo(() => shuffle(words).slice(0, Math.min(MAX_PAIRS, words.length)), [words]);
   const emojiColumn = useMemo(() => shuffle(pool), [pool]);
   const wordColumn = useMemo(() => shuffle(pool), [pool]);
@@ -103,7 +107,13 @@ export function Associe({ profileId, theme, words, onExit }: AssocieProps) {
           animate={{ opacity: 1, scale: 1 }}
           className="flex flex-col items-center gap-4 rounded-3xl bg-white p-10 shadow-xl"
         >
-          <p className="text-3xl">🎉</p>
+          <Image
+            src={getMascotImage(mascotId, "celebration")}
+            alt=""
+            width={112}
+            height={112}
+            className="h-24 w-24 object-contain"
+          />
           <p className="text-xl font-bold text-violet-700">Bien joué !</p>
           <button
             type="button"
