@@ -21,7 +21,14 @@ interface RepeatCheckProps {
   onExit: () => void;
 }
 
-type Status = "idle" | "listening" | "correct" | "incorrect" | "unsupported" | "mic-error";
+type Status =
+  | "idle"
+  | "listening"
+  | "correct"
+  | "incorrect"
+  | "unsupported"
+  | "mic-error"
+  | "no-speech";
 
 export function RepeatCheck({ profileId, theme, words, onExit }: RepeatCheckProps) {
   const [index, setIndex] = useState(0);
@@ -60,7 +67,7 @@ export function RepeatCheck({ profileId, theme, words, onExit }: RepeatCheckProp
       return;
     }
     if (outcome.status !== "result") {
-      setStatus("idle");
+      setStatus("no-speech");
       return;
     }
 
@@ -141,6 +148,16 @@ export function RepeatCheck({ profileId, theme, words, onExit }: RepeatCheckProp
           >
             {status === "listening" ? "🎙️ J'écoute…" : "🎤 Répète le mot"}
           </button>
+        )}
+
+        {status === "no-speech" && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="font-semibold text-amber-500"
+          >
+            🤔 Je n&apos;ai rien entendu — appuie sur le micro et réessaie !
+          </motion.p>
         )}
 
         {status === "correct" && (
