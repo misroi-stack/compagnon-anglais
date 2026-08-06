@@ -41,6 +41,7 @@ const MAX_ATTEMPTS_BEFORE_AUTO_SUCCESS = 3;
 
 export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: RepeatCheckProps) {
   const [index, setIndex] = useState(0);
+  const [finished, setFinished] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [heard, setHeard] = useState<string | null>(null);
   const [attemptCount, setAttemptCount] = useState(0);
@@ -114,7 +115,7 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: Repea
 
   function next() {
     if (isLast) {
-      onExit();
+      setFinished(true);
       return;
     }
     setIndex((i) => i + 1);
@@ -128,6 +129,34 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: Repea
 
   const mascotPose: MascotPose =
     status === "listening" ? "attentif" : status === "correct" ? "encourageant" : "neutre";
+
+  if (finished) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="flex flex-col items-center gap-4 rounded-3xl bg-white p-10 shadow-xl"
+        >
+          <Image
+            src={getMascotImage(mascotId, "celebration")}
+            alt=""
+            width={112}
+            height={112}
+            className="h-24 w-24 object-contain"
+          />
+          <p className="text-xl font-bold text-violet-700">Bien joué !</p>
+          <button
+            type="button"
+            onClick={onExit}
+            className="rounded-full bg-violet-600 px-8 py-3 font-bold text-white shadow"
+          >
+            Terminé
+          </button>
+        </motion.div>
+      </main>
+    );
+  }
 
   return (
     <main className="flex min-h-screen flex-col items-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
