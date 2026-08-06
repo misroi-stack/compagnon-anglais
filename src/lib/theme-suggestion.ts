@@ -13,6 +13,10 @@ export interface ThemeStats {
 
 function wordProgressFraction(progress: WordProgress | undefined): number {
   if (!progress) return 0;
+  // Un mot maîtrisé (3 modes réussis) compte pour 100%, même si sa boîte
+  // Leitner n'a pas encore atteint 5 — sinon un thème à "X/X maîtrisés"
+  // peut afficher une barre non pleine, ce qui est trompeur.
+  if (progress.mastered) return 1;
   return (progress.box - 1) / 4;
 }
 
