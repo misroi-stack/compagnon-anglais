@@ -6,6 +6,7 @@ Dernière mise à jour : 2026-08-06
 - Répète-et-vérifie : le bouton micro sert aussi de bouton "réessayer" (un seul tap après une réponse incorrecte relance l'écoute), et un mot répété 2-3 fois d'affilée par l'enfant (ex: "dog dog", fréquent quand la reconnaissance n'a rien capté au premier essai) compte comme correct (`matchesSpokenWord` dans `src/lib/speech-recognition.ts`).
 - Flashcards : bouton 🔊 dédié pour écouter la phrase d'exemple, séparé du bouton d'écoute du mot seul.
 - On peut changer de mascotte en cliquant dessus sur la page d'accueil du profil (`/play/[profileId]`) — ouvre le même `MascotPicker` que la création de profil, persisté via `updateProfileMascot` dans Supabase.
+- **Espace parent** (`/parent` → choix du profil, `/parent/[profileId]` → dashboard) : durée de pratique estimée par sessions (tuiles jour/semaine/mois + graphique 14 jours), évolution du taux de réussite sur 8 semaines, essais/réussite par mode, mots à travailler / points forts, progression et réussite par thème. Tout calculé côté client à partir de la table `attempts` existante (`src/lib/parent-stats.ts`), pas de nouvelle table. Flashcards (mode découverte) n'enregistre pas d'essai, donc n'apparaît pas dans ces stats. Accessible via un lien en bas de l'écran de choix de profil.
 
 ## Fait
 
@@ -55,7 +56,7 @@ Dernière mise à jour : 2026-08-06
 2. Appliquer `supabase/schema.sql` sur le projet **prod** au moment du déploiement (même méthode que dev, avec le mot de passe/pooler de prod)
 3. Mettre en place le pipeline CI/CD GitHub Actions (branche `production`)
 4. Premier déploiement de test sur la tablette Android — **notamment pour valider la reconnaissance vocale en conditions réelles**
-5. Reste à faire pour un vrai V1 complet : mode parent (dashboard stats), sons d'interface (clic/transition), mascotte animée (en attente des images)
+5. Reste à faire pour un vrai V1 complet : sons d'interface (clic/transition)
 
 ## Pour relancer le développement local
 
