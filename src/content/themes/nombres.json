@@ -3,18 +3,23 @@
   "name": "Nombres",
   "icon": "🔢",
   "words": [
+    { "id": "zero", "en": "zero", "fr": "zéro", "image": "/images/vocabulary/nombres/zero.svg", "emoji": "0️⃣", "level": 1, "phrases": [{ "en": "The score is zero.", "fr": "Le score est zéro." }] },
     { "id": "one", "en": "one", "fr": "un", "image": "/images/vocabulary/nombres/one.svg", "emoji": "1️⃣", "level": 1, "phrases": [{ "en": "I have one dog.", "fr": "J'ai un chien." }] },
     { "id": "two", "en": "two", "fr": "deux", "image": "/images/vocabulary/nombres/two.svg", "emoji": "2️⃣", "level": 1, "phrases": [{ "en": "I have two hands.", "fr": "J'ai deux mains." }] },
     { "id": "three", "en": "three", "fr": "trois", "image": "/images/vocabulary/nombres/three.svg", "emoji": "3️⃣", "level": 1, "phrases": [{ "en": "I see three birds.", "fr": "Je vois trois oiseaux." }] },
     { "id": "four", "en": "four", "fr": "quatre", "image": "/images/vocabulary/nombres/four.svg", "emoji": "4️⃣", "level": 1, "phrases": [{ "en": "The cat has four legs.", "fr": "Le chat a quatre pattes." }] },
     { "id": "five", "en": "five", "fr": "cinq", "image": "/images/vocabulary/nombres/five.svg", "emoji": "5️⃣", "level": 1, "phrases": [{ "en": "I have five fingers.", "fr": "J'ai cinq doigts." }] },
-    { "id": "six", "en": "six", "fr": "six", "image": "/images/vocabulary/nombres/six.svg", "emoji": "6️⃣", "level": 2, "phrases": [{ "en": "I am six years old.", "fr": "J'ai six ans." }] },
-    { "id": "seven", "en": "seven", "fr": "sept", "image": "/images/vocabulary/nombres/seven.svg", "emoji": "7️⃣", "level": 2, "phrases": [{ "en": "There are seven days.", "fr": "Il y a sept jours." }] },
-    { "id": "eight", "en": "eight", "fr": "huit", "image": "/images/vocabulary/nombres/eight.svg", "emoji": "8️⃣", "level": 2, "phrases": [{ "en": "The octopus has eight arms.", "fr": "La pieuvre a huit bras." }] },
-    { "id": "nine", "en": "nine", "fr": "neuf", "image": "/images/vocabulary/nombres/nine.svg", "emoji": "9️⃣", "level": 2, "phrases": [{ "en": "I am nine years old.", "fr": "J'ai neuf ans." }] },
-    { "id": "ten", "en": "ten", "fr": "dix", "image": "/images/vocabulary/nombres/ten.svg", "emoji": "🔟", "level": 3, "phrases": [{ "en": "I count to ten.", "fr": "Je compte jusqu'à dix." }] },
-    { "id": "eleven", "en": "eleven", "fr": "onze", "image": "/images/vocabulary/nombres/eleven.svg", "emoji": "🔢", "level": 3, "phrases": [{ "en": "I have eleven toys.", "fr": "J'ai onze jouets." }] },
-    { "id": "twelve", "en": "twelve", "fr": "douze", "image": "/images/vocabulary/nombres/twelve.svg", "emoji": "🔢", "level": 3, "phrases": [{ "en": "There are twelve months.", "fr": "Il y a douze mois." }] },
-    { "id": "hundred", "en": "hundred", "fr": "cent", "image": "/images/vocabulary/nombres/hundred.svg", "emoji": "💯", "level": 3, "phrases": [{ "en": "I count to one hundred.", "fr": "Je compte jusqu'à cent." }] }
+    { "id": "six", "en": "six", "fr": "six", "image": "/images/vocabulary/nombres/six.svg", "emoji": "6️⃣", "level": 1, "phrases": [{ "en": "I am six years old.", "fr": "J'ai six ans." }] },
+    { "id": "seven", "en": "seven", "fr": "sept", "image": "/images/vocabulary/nombres/seven.svg", "emoji": "7️⃣", "level": 1, "phrases": [{ "en": "There are seven days.", "fr": "Il y a sept jours." }] },
+    { "id": "eight", "en": "eight", "fr": "huit", "image": "/images/vocabulary/nombres/eight.svg", "emoji": "8️⃣", "level": 1, "phrases": [{ "en": "The octopus has eight arms.", "fr": "La pieuvre a huit bras." }] },
+    { "id": "nine", "en": "nine", "fr": "neuf", "image": "/images/vocabulary/nombres/nine.svg", "emoji": "9️⃣", "level": 1, "phrases": [{ "en": "I am nine years old.", "fr": "J'ai neuf ans." }] },
+    { "id": "ten", "en": "ten", "fr": "dix", "image": "/images/vocabulary/nombres/ten.svg", "emoji": "🔟", "level": 2, "phrases": [{ "en": "I count to ten.", "fr": "Je compte jusqu'à dix." }] },
+    { "id": "eleven", "en": "eleven", "fr": "onze", "image": "/images/vocabulary/nombres/eleven.svg", "emoji": "🔢", "level": 2, "phrases": [{ "en": "I have eleven toys.", "fr": "J'ai onze jouets." }] },
+    { "id": "twelve", "en": "twelve", "fr": "douze", "image": "/images/vocabulary/nombres/twelve.svg", "emoji": "🔢", "level": 2, "phrases": [{ "en": "There are twelve months.", "fr": "Il y a douze mois." }] },
+    { "id": "twenty", "en": "twenty", "fr": "vingt", "image": "/images/vocabulary/nombres/twenty.svg", "emoji": "🔢", "level": 2, "phrases": [{ "en": "I count to twenty.", "fr": "Je compte jusqu'à vingt." }] },
+    { "id": "thirty", "en": "thirty", "fr": "trente", "image": "/images/vocabulary/nombres/thirty.svg", "emoji": "🔢", "level": 3, "phrases": [{ "en": "My mom is thirty years old.", "fr": "Ma maman a trente ans." }] },
+    { "id": "fifty", "en": "fifty", "fr": "cinquante", "image": "/images/vocabulary/nombres/fifty.svg", "emoji": "🔢", "level": 3, "phrases": [{ "en": "I count to fifty.", "fr": "Je compte jusqu'à cinquante." }] },
+    { "id": "hundred", "en": "hundred", "fr": "cent", "image": "/images/vocabulary/nombres/hundred.svg", "emoji": "💯", "level": 3, "phrases": [{ "en": "I count to one hundred.", "fr": "Je compte jusqu'à cent." }] },
+    { "id": "thousand", "en": "thousand", "fr": "mille", "image": "/images/vocabulary/nombres/thousand.svg", "emoji": "🔢", "level": 3, "phrases": [{ "en": "A thousand is a big number.", "fr": "Mille est un grand nombre." }] }
   ]
 }
