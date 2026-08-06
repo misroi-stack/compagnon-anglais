@@ -30,10 +30,16 @@ type Status =
   | "mic-error"
   | "no-speech";
 
+/** Après ce nombre d'essais infructueux sur le même mot, on valide quand même —
+ *  la reconnaissance vocale confond souvent des mots proches (ex: "tree"/"three")
+ *  et ça ne doit pas décourager un enfant qui prononce correctement. */
+const MAX_ATTEMPTS_BEFORE_AUTO_SUCCESS = 3;
+
 export function RepeatCheck({ profileId, theme, words, onExit }: RepeatCheckProps) {
   const [index, setIndex] = useState(0);
   const [status, setStatus] = useState<Status>("idle");
   const [heard, setHeard] = useState<string | null>(null);
+  const [attemptCount, setAttemptCount] = useState(0);
   const [progressMap, setProgressMap] = useState<Map<string, WordProgress>>(new Map());
   const [startTime, setStartTime] = useState(() => Date.now());
 
@@ -48,6 +54,7 @@ export function RepeatCheck({ profileId, theme, words, onExit }: RepeatCheckProp
   useEffect(() => {
     setStatus(isSpeechRecognitionSupported() ? "idle" : "unsupported");
     setHeard(null);
+    setAttemptCount(0);
     setStartTime(Date.now());
   }, [index]);
 
@@ -72,7 +79,17 @@ export function RepeatCheck({ profileId, theme, words, onExit }: RepeatCheckProp
     }
 
     setHeard(outcome.transcript);
-    const correct = normalizeForCompare(outcome.transcript) === normalizeForCompare(word.en);
+    const recognized = normalizeForCompare(outcome.transcript) === normalizeForCompare(word.en);
+
+    let correct = recognized;
+    if (!recognized) {
+      const newAttemptCount = attemptCount + 1;
+      setAttemptCount(newAttemptCount);
+      if (newAttemptCount >= MAX_ATTEMPTS_BEFORE_AUTO_SUCCESS) {
+        correct = true;
+      }
+    }
+
     setStatus(correct ? "correct" : "incorrect");
     if (!correct) speak(word.en);
 
