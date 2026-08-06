@@ -13,7 +13,11 @@ Dernière mise à jour : 2026-08-06
 - **Comptes parents avec authentification** (Supabase Auth — mots de passe hachés côté serveur) : toute l'app est maintenant derrière une connexion (`src/components/AuthGate.tsx` dans le layout racine). Inscription protégée par un code d'invitation (table `invite_codes`, seedée avec `BONJOUR` actif — code vérifié via la fonction RPC `is_invite_code_active` avant même de créer le compte, + un trigger DB en filet de sécurité). Les profils enfants sont rattachés à un parent (`profiles.parent_id`), accès verrouillé par famille via RLS (`auth.uid()`) sur profiles/word_progress/attempts. Migration `005_parent_accounts.sql`.
   - Compte de Simon : `misroi@gmail.com`, mot de passe temporaire `123456` (à changer plus tard, pas encore d'écran de gestion de compte). Simon, Simon 2 et Lily y sont rattachés — aucune perte de progression.
   - ⚠️ Le projet Supabase dev a la confirmation par email activée (réglage dashboard, pas modifiable depuis le code) — j'ai confirmé le compte de Simon manuellement en base pour ce premier compte. À vérifier/désactiver dans Authentication → Providers → Email si de nouveaux comptes doivent pouvoir se connecter sans cliquer un lien de confirmation.
-  - Gestion des codes (actif/inactif, liste) : pas construite — juste la structure DB prête pour un futur admin center.
+  - ⚠️ Le projet Supabase dev a aussi une limite de taux sur l'envoi d'emails de confirmation (`over_email_send_rate_limit`, plan gratuit) — gêne les inscriptions répétées en test rapproché. Pas un bug de l'app.
+- **Portail admin** (`/admin`, migration `006_admin_role.sql`) : route non reliée dans la navigation normale, protégée par un rôle (`parents.is_admin`, pas juste l'URL — vérifié côté app ET par RLS/RPC). Simon (`misroi@gmail.com`) est admin.
+  - Codes d'invitation : liste, création, activer/désactiver (`invite_codes`, policy `admins manage invite_codes` — les parents normaux n'y ont toujours aucun accès direct).
+  - Comptes parents : email, code utilisé, nombre de profils, dernière connexion — via la fonction RPC `admin_list_parents()` (`auth.users` n'est pas exposé par l'API REST, la fonction vérifie elle-même que l'appelant est admin).
+  - Profils désactivés (toutes familles) : réactivation en un clic (`reactivateProfile`).
 
 ## Fait
 
