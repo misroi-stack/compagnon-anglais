@@ -13,7 +13,10 @@ create table if not exists parents (
   id uuid primary key references auth.users(id) on delete cascade,
   email text not null,
   signup_code text not null references invite_codes(code),
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  -- Accès au portail admin séparé (/admin) — gestion des codes, vue d'ensemble
+  -- des familles, réactivation de profils désactivés.
+  is_admin boolean not null default false
 );
 
 create table if not exists profiles (
@@ -113,3 +116,56 @@ create policy "parents manage own children attempts" on attempts
   with check (exists (
     select 1 from profiles where profiles.id = attempts.profile_id and profiles.parent_id = auth.uid()
   ));
+
+-- Portail admin (/admin) : accès total en lecture/gestion des codes et des
+-- profils, en plus des policies ci-dessus qui limitent chaque parent normal
+-- à sa propre famille.
+create policy "admins manage invite_codes" on invite_codes
+  for all using (
+    exists (select 1 from parents me where me.id = auth.uid() and me.is_admin = true)
+  )
+  with check (
+    exists (select 1 from parents me where me.id = auth.uid() and me.is_admin = true)
+  );
+
+create policy "admins can read all profiles" on profiles
+  for select using (
+    exists (select 1 from parents me where me.id = auth.uid() and me.is_admin = true)
+  );
+
+create policy "admins can update all profiles" on profiles
+  for update using (
+    exists (select 1 from parents me where me.id = auth.uid() and me.is_admin = true)
+  )
+  with check (
+    exists (select 1 from parents me where me.id = auth.uid() and me.is_admin = true)
+  );
+
+-- Liste des comptes parents pour l'admin, avec dernière connexion. auth.users
+-- n'est pas exposé via l'API REST (schéma protégé), donc on passe par une
+-- fonction : elle vérifie elle-même que l'appelant est admin (sinon 0 ligne).
+create or replace function admin_list_parents()
+returns table (
+  id uuid,
+  email text,
+  created_at timestamptz,
+  signup_code text,
+  is_admin boolean,
+  last_sign_in_at timestamptz,
+  profile_count bigint
+)
+language sql
+security definer
+set search_path = public
+as $$
+  select
+    p.id, p.email, p.created_at, p.signup_code, p.is_admin,
+    u.last_sign_in_at,
+    (select count(*) from profiles pr where pr.parent_id = p.id) as profile_count
+  from parents p
+  join auth.users u on u.id = p.id
+  where exists (select 1 from parents me where me.id = auth.uid() and me.is_admin = true)
+  order by p.created_at desc;
+$$;
+
+grant execute on function admin_list_parents() to authenticated;
