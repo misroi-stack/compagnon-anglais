@@ -1,0 +1,21 @@
+{
+  "id": "verbes-jouer",
+  "name": "Jouer & créer",
+  "icon": "🎨",
+  "kind": "verbes",
+  "words": [
+    { "id": "v-play", "en": "play", "fr": "jouer", "image": "/images/vocabulary/verbes-jouer/play.svg", "emoji": "🧸", "level": 1, "phrases": [{ "en": "I play with my toys.", "fr": "Je joue avec mes jouets." }, { "en": "We play in the garden.", "fr": "Nous jouons dans le jardin." }] },
+    { "id": "v-sing", "en": "sing", "fr": "chanter", "image": "/images/vocabulary/verbes-jouer/sing.svg", "emoji": "🎤", "level": 1, "phrases": [{ "en": "I sing a song.", "fr": "Je chante une chanson." }, { "en": "We sing together.", "fr": "Nous chantons ensemble." }] },
+    { "id": "v-paint", "en": "paint", "fr": "peindre", "image": "/images/vocabulary/verbes-jouer/paint.svg", "emoji": "🖌️", "level": 1, "phrases": [{ "en": "I paint a picture.", "fr": "Je peins une image." }, { "en": "We paint with many colors.", "fr": "Nous peignons avec plein de couleurs." }] },
+    { "id": "v-build", "en": "build", "fr": "construire", "image": "/images/vocabulary/verbes-jouer/build.svg", "emoji": "🧱", "level": 1, "phrases": [{ "en": "I build a tower.", "fr": "Je construis une tour." }, { "en": "We build a sandcastle.", "fr": "Nous construisons un château de sable." }] },
+    { "id": "v-watch", "en": "watch", "fr": "regarder", "image": "/images/vocabulary/verbes-jouer/watch.svg", "emoji": "📺", "level": 1, "phrases": [{ "en": "I watch a movie.", "fr": "Je regarde un film." }, { "en": "We watch cartoons.", "fr": "Nous regardons des dessins animés." }] },
+    { "id": "v-laugh", "en": "laugh", "fr": "rire", "image": "/images/vocabulary/verbes-jouer/laugh.svg", "emoji": "😂", "level": 2, "phrases": [{ "en": "I laugh at the funny joke.", "fr": "Je ris de la blague drôle." }, { "en": "We laugh together.", "fr": "Nous rions ensemble." }] },
+    { "id": "v-smile", "en": "smile", "fr": "sourire", "image": "/images/vocabulary/verbes-jouer/smile.svg", "emoji": "😊", "level": 2, "phrases": [{ "en": "I smile at my friend.", "fr": "Je souris à mon ami." }, { "en": "We smile in the photo.", "fr": "Nous sourions sur la photo." }] },
+    { "id": "v-win", "en": "win", "fr": "gagner", "image": "/images/vocabulary/verbes-jouer/win.svg", "emoji": "🏆", "level": 2, "phrases": [{ "en": "I win the game.", "fr": "Je gagne la partie." }, { "en": "We win the race.", "fr": "Nous gagnons la course." }] },
+    { "id": "v-make", "en": "make", "fr": "fabriquer", "image": "/images/vocabulary/verbes-jouer/make.svg", "emoji": "🛠️", "level": 2, "phrases": [{ "en": "I make a card for my mom.", "fr": "Je fabrique une carte pour ma maman." }, { "en": "We make cookies.", "fr": "Nous fabriquons des biscuits." }] },
+    { "id": "v-cut", "en": "cut", "fr": "couper", "image": "/images/vocabulary/verbes-jouer/cut.svg", "emoji": "✂️", "level": 3, "phrases": [{ "en": "I cut the paper.", "fr": "Je coupe le papier." }, { "en": "We cut the cake.", "fr": "Nous coupons le gâteau." }] },
+    { "id": "v-choose", "en": "choose", "fr": "choisir", "image": "/images/vocabulary/verbes-jouer/choose.svg", "emoji": "👆", "level": 3, "phrases": [{ "en": "I choose a color.", "fr": "Je choisis une couleur." }, { "en": "We choose a game to play.", "fr": "Nous choisissons un jeu auquel jouer." }] },
+    { "id": "v-hide", "en": "hide", "fr": "se cacher", "image": "/images/vocabulary/verbes-jouer/hide.svg", "emoji": "🙈", "level": 3, "phrases": [{ "en": "I hide behind the tree.", "fr": "Je me cache derrière l'arbre." }, { "en": "We hide during the game.", "fr": "Nous nous cachons pendant le jeu." }] },
+    { "id": "v-find", "en": "find", "fr": "trouver", "image": "/images/vocabulary/verbes-jouer/find.svg", "emoji": "🔍", "level": 3, "phrases": [{ "en": "I find my toy.", "fr": "Je trouve mon jouet." }, { "en": "We find the treasure.", "fr": "Nous trouvons le trésor." }] }
+  ]
+}

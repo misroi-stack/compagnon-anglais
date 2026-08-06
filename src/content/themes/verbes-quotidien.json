@@ -1,0 +1,21 @@
+{
+  "id": "verbes-quotidien",
+  "name": "Actions du quotidien",
+  "icon": "🍽️",
+  "kind": "verbes",
+  "words": [
+    { "id": "v-eat", "en": "eat", "fr": "manger", "image": "/images/vocabulary/verbes-quotidien/eat.svg", "emoji": "🍽️", "level": 1, "phrases": [{ "en": "I eat breakfast every morning.", "fr": "Je mange le petit-déjeuner tous les matins." }, { "en": "We eat lunch at noon.", "fr": "Nous mangeons le déjeuner à midi." }] },
+    { "id": "v-drink", "en": "drink", "fr": "boire", "image": "/images/vocabulary/verbes-quotidien/drink.svg", "emoji": "🥤", "level": 1, "phrases": [{ "en": "I drink water when I am thirsty.", "fr": "Je bois de l'eau quand j'ai soif." }, { "en": "They drink milk at breakfast.", "fr": "Ils boivent du lait au petit-déjeuner." }] },
+    { "id": "v-sleep", "en": "sleep", "fr": "dormir", "image": "/images/vocabulary/verbes-quotidien/sleep.svg", "emoji": "😴", "level": 1, "phrases": [{ "en": "I sleep in my bed.", "fr": "Je dors dans mon lit." }, { "en": "Cats sleep a lot.", "fr": "Les chats dorment beaucoup." }] },
+    { "id": "v-wash", "en": "wash", "fr": "laver", "image": "/images/vocabulary/verbes-quotidien/wash.svg", "emoji": "🧼", "level": 1, "phrases": [{ "en": "I wash my hands before eating.", "fr": "Je me lave les mains avant de manger." }, { "en": "We wash the dishes together.", "fr": "Nous lavons la vaisselle ensemble." }] },
+    { "id": "v-open", "en": "open", "fr": "ouvrir", "image": "/images/vocabulary/verbes-quotidien/open.svg", "emoji": "🚪", "level": 1, "phrases": [{ "en": "I open the door.", "fr": "J'ouvre la porte." }, { "en": "Please open your book.", "fr": "Ouvre ton livre s'il te plaît." }] },
+    { "id": "v-close", "en": "close", "fr": "fermer", "image": "/images/vocabulary/verbes-quotidien/close.svg", "emoji": "🚪", "level": 2, "phrases": [{ "en": "I close the window at night.", "fr": "Je ferme la fenêtre le soir." }, { "en": "Please close the door.", "fr": "Ferme la porte s'il te plaît." }] },
+    { "id": "v-cook", "en": "cook", "fr": "cuisiner", "image": "/images/vocabulary/verbes-quotidien/cook.svg", "emoji": "👩‍🍳", "level": 2, "phrases": [{ "en": "My mom likes to cook dinner.", "fr": "Ma maman aime cuisiner le dîner." }, { "en": "We cook pasta on Sundays.", "fr": "Nous cuisinons des pâtes le dimanche." }] },
+    { "id": "v-help", "en": "help", "fr": "aider", "image": "/images/vocabulary/verbes-quotidien/help.svg", "emoji": "🤝", "level": 2, "phrases": [{ "en": "I help my little sister.", "fr": "J'aide ma petite sœur." }, { "en": "We help our friends.", "fr": "Nous aidons nos amis." }] },
+    { "id": "v-wait", "en": "wait", "fr": "attendre", "image": "/images/vocabulary/verbes-quotidien/wait.svg", "emoji": "⏳", "level": 2, "phrases": [{ "en": "I wait for the bus.", "fr": "J'attends le bus." }, { "en": "We wait for our turn.", "fr": "Nous attendons notre tour." }] },
+    { "id": "v-rest", "en": "rest", "fr": "se reposer", "image": "/images/vocabulary/verbes-quotidien/rest.svg", "emoji": "🛋️", "level": 3, "phrases": [{ "en": "I rest on the sofa.", "fr": "Je me repose sur le canapé." }, { "en": "We rest after lunch.", "fr": "Nous nous reposons après le déjeuner." }] },
+    { "id": "v-carry", "en": "carry", "fr": "porter", "image": "/images/vocabulary/verbes-quotidien/carry.svg", "emoji": "🎒", "level": 3, "phrases": [{ "en": "I carry heavy bags.", "fr": "Je porte des sacs lourds." }, { "en": "We carry the boxes upstairs.", "fr": "Nous portons les boîtes à l'étage." }] },
+    { "id": "v-clean", "en": "clean", "fr": "nettoyer", "image": "/images/vocabulary/verbes-quotidien/clean.svg", "emoji": "🧹", "level": 3, "phrases": [{ "en": "I clean my room.", "fr": "Je nettoie ma chambre." }, { "en": "We clean the classroom.", "fr": "Nous nettoyons la classe." }] },
+    { "id": "v-wear", "en": "wear", "fr": "porter", "image": "/images/vocabulary/verbes-quotidien/wear.svg", "emoji": "👕", "level": 3, "phrases": [{ "en": "I wear a hat in winter.", "fr": "Je porte un chapeau en hiver." }, { "en": "They wear blue shoes.", "fr": "Ils portent des chaussures bleues." }] }
+  ]
+}

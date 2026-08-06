@@ -1,0 +1,21 @@
+{
+  "id": "verbes-ecole",
+  "name": "À l'école",
+  "icon": "✏️",
+  "kind": "verbes",
+  "words": [
+    { "id": "v-read", "en": "read", "fr": "lire", "image": "/images/vocabulary/verbes-ecole/read.svg", "emoji": "📖", "level": 1, "phrases": [{ "en": "I read a book.", "fr": "Je lis un livre." }, { "en": "We read every night.", "fr": "Nous lisons tous les soirs." }] },
+    { "id": "v-write", "en": "write", "fr": "écrire", "image": "/images/vocabulary/verbes-ecole/write.svg", "emoji": "✍️", "level": 1, "phrases": [{ "en": "I write my name.", "fr": "J'écris mon nom." }, { "en": "We write in our notebooks.", "fr": "Nous écrivons dans nos cahiers." }] },
+    { "id": "v-listen", "en": "listen", "fr": "écouter", "image": "/images/vocabulary/verbes-ecole/listen.svg", "emoji": "👂", "level": 1, "phrases": [{ "en": "I listen to the teacher.", "fr": "J'écoute la maîtresse." }, { "en": "We listen to music.", "fr": "Nous écoutons de la musique." }] },
+    { "id": "v-speak", "en": "speak", "fr": "parler", "image": "/images/vocabulary/verbes-ecole/speak.svg", "emoji": "🗣️", "level": 1, "phrases": [{ "en": "I speak English at school.", "fr": "Je parle anglais à l'école." }, { "en": "We speak quietly in class.", "fr": "Nous parlons doucement en classe." }] },
+    { "id": "v-count", "en": "count", "fr": "compter", "image": "/images/vocabulary/verbes-ecole/count.svg", "emoji": "🔢", "level": 1, "phrases": [{ "en": "I count to ten.", "fr": "Je compte jusqu'à dix." }, { "en": "We count the apples.", "fr": "Nous comptons les pommes." }] },
+    { "id": "v-draw", "en": "draw", "fr": "dessiner", "image": "/images/vocabulary/verbes-ecole/draw.svg", "emoji": "🎨", "level": 2, "phrases": [{ "en": "I draw a picture.", "fr": "Je dessine une image." }, { "en": "We draw animals.", "fr": "Nous dessinons des animaux." }] },
+    { "id": "v-learn", "en": "learn", "fr": "apprendre", "image": "/images/vocabulary/verbes-ecole/learn.svg", "emoji": "🧠", "level": 2, "phrases": [{ "en": "I learn new words.", "fr": "J'apprends de nouveaux mots." }, { "en": "We learn English at school.", "fr": "Nous apprenons l'anglais à l'école." }] },
+    { "id": "v-ask", "en": "ask", "fr": "demander", "image": "/images/vocabulary/verbes-ecole/ask.svg", "emoji": "❓", "level": 2, "phrases": [{ "en": "I ask a question when I don't understand.", "fr": "Je pose une question quand je ne comprends pas." }, { "en": "We ask the teacher for help.", "fr": "Nous demandons de l'aide à la maîtresse." }] },
+    { "id": "v-answer", "en": "answer", "fr": "répondre", "image": "/images/vocabulary/verbes-ecole/answer.svg", "emoji": "💬", "level": 2, "phrases": [{ "en": "I answer correctly on the test.", "fr": "Je réponds correctement au contrôle." }, { "en": "We answer all the questions.", "fr": "Nous répondons à toutes les questions." }] },
+    { "id": "v-spell", "en": "spell", "fr": "épeler", "image": "/images/vocabulary/verbes-ecole/spell.svg", "emoji": "🔤", "level": 3, "phrases": [{ "en": "I spell my name.", "fr": "J'épelle mon nom." }, { "en": "We spell new words together.", "fr": "Nous épelons de nouveaux mots ensemble." }] },
+    { "id": "v-repeat", "en": "repeat", "fr": "répéter", "image": "/images/vocabulary/verbes-ecole/repeat.svg", "emoji": "🔁", "level": 3, "phrases": [{ "en": "I repeat the word.", "fr": "Je répète le mot." }, { "en": "We repeat after the teacher.", "fr": "Nous répétons après la maîtresse." }] },
+    { "id": "v-show", "en": "show", "fr": "montrer", "image": "/images/vocabulary/verbes-ecole/show.svg", "emoji": "👉", "level": 3, "phrases": [{ "en": "I show my drawing to the class.", "fr": "Je montre mon dessin à la classe." }, { "en": "We show our work.", "fr": "Nous montrons notre travail." }] },
+    { "id": "v-think", "en": "think", "fr": "penser", "image": "/images/vocabulary/verbes-ecole/think.svg", "emoji": "🤔", "level": 3, "phrases": [{ "en": "I think about my answer.", "fr": "Je réfléchis à ma réponse." }, { "en": "We think before we speak.", "fr": "Nous réfléchissons avant de parler." }] }
+  ]
+}

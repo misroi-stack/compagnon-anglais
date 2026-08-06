@@ -1,0 +1,21 @@
+{
+  "id": "verbes-bouger",
+  "name": "Bouger",
+  "icon": "🏃",
+  "kind": "verbes",
+  "words": [
+    { "id": "v-run", "en": "run", "fr": "courir", "image": "/images/vocabulary/verbes-bouger/run.svg", "emoji": "🏃", "level": 1, "phrases": [{ "en": "I run in the park.", "fr": "Je cours dans le parc." }, { "en": "We run every morning.", "fr": "Nous courons tous les matins." }] },
+    { "id": "v-walk", "en": "walk", "fr": "marcher", "image": "/images/vocabulary/verbes-bouger/walk.svg", "emoji": "🚶", "level": 1, "phrases": [{ "en": "I walk to school.", "fr": "Je marche jusqu'à l'école." }, { "en": "We walk in the garden.", "fr": "Nous marchons dans le jardin." }] },
+    { "id": "v-jump", "en": "jump", "fr": "sauter", "image": "/images/vocabulary/verbes-bouger/jump.svg", "emoji": "🤸", "level": 1, "phrases": [{ "en": "I jump on the trampoline.", "fr": "Je saute sur le trampoline." }, { "en": "They jump over the rope.", "fr": "Ils sautent par-dessus la corde." }] },
+    { "id": "v-swim", "en": "swim", "fr": "nager", "image": "/images/vocabulary/verbes-bouger/swim.svg", "emoji": "🏊", "level": 1, "phrases": [{ "en": "I swim in the pool.", "fr": "Je nage dans la piscine." }, { "en": "Fish swim in the water.", "fr": "Les poissons nagent dans l'eau." }] },
+    { "id": "v-sit", "en": "sit", "fr": "s'asseoir", "image": "/images/vocabulary/verbes-bouger/sit.svg", "emoji": "🪑", "level": 1, "phrases": [{ "en": "I sit on the chair.", "fr": "Je m'assois sur la chaise." }, { "en": "Please sit here.", "fr": "Assieds-toi ici s'il te plaît." }] },
+    { "id": "v-stand", "en": "stand", "fr": "se tenir debout", "image": "/images/vocabulary/verbes-bouger/stand.svg", "emoji": "🧍", "level": 2, "phrases": [{ "en": "I stand next to my desk.", "fr": "Je me tiens debout à côté de mon bureau." }, { "en": "We stand in a line.", "fr": "Nous nous tenons debout en file." }] },
+    { "id": "v-climb", "en": "climb", "fr": "grimper", "image": "/images/vocabulary/verbes-bouger/climb.svg", "emoji": "🧗", "level": 2, "phrases": [{ "en": "I climb the tree.", "fr": "Je grimpe à l'arbre." }, { "en": "We climb the stairs.", "fr": "Nous montons les escaliers." }] },
+    { "id": "v-fly", "en": "fly", "fr": "voler", "image": "/images/vocabulary/verbes-bouger/fly.svg", "emoji": "✈️", "level": 2, "phrases": [{ "en": "Birds fly in the sky.", "fr": "Les oiseaux volent dans le ciel." }, { "en": "I fly a kite.", "fr": "Je fais voler un cerf-volant." }] },
+    { "id": "v-dance", "en": "dance", "fr": "danser", "image": "/images/vocabulary/verbes-bouger/dance.svg", "emoji": "💃", "level": 2, "phrases": [{ "en": "I dance at the party.", "fr": "Je danse à la fête." }, { "en": "We dance every Friday.", "fr": "Nous dansons tous les vendredis." }] },
+    { "id": "v-throw", "en": "throw", "fr": "lancer", "image": "/images/vocabulary/verbes-bouger/throw.svg", "emoji": "🎯", "level": 3, "phrases": [{ "en": "I throw the ball to my friend.", "fr": "Je lance la balle à mon ami." }, { "en": "We throw snowballs in winter.", "fr": "Nous lançons des boules de neige en hiver." }] },
+    { "id": "v-catch", "en": "catch", "fr": "attraper", "image": "/images/vocabulary/verbes-bouger/catch.svg", "emoji": "🧤", "level": 3, "phrases": [{ "en": "I catch the ball when it comes to me.", "fr": "J'attrape la balle quand elle arrive vers moi." }, { "en": "We catch fish in the lake.", "fr": "Nous attrapons des poissons dans le lac." }] },
+    { "id": "v-ride", "en": "ride", "fr": "faire du vélo", "image": "/images/vocabulary/verbes-bouger/ride.svg", "emoji": "🚲", "level": 3, "phrases": [{ "en": "I ride my bike.", "fr": "Je fais du vélo." }, { "en": "We ride horses.", "fr": "Nous montons à cheval." }] },
+    { "id": "v-push", "en": "push", "fr": "pousser", "image": "/images/vocabulary/verbes-bouger/push.svg", "emoji": "🛒", "level": 3, "phrases": [{ "en": "I push the cart.", "fr": "Je pousse le chariot." }, { "en": "We push the door.", "fr": "Nous poussons la porte." }] }
+  ]
+}

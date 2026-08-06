@@ -153,17 +153,16 @@ function PlayPageContent({ params }: { params: Promise<{ profileId: string }> })
               <span className="text-base font-bold">Les mots</span>
             </motion.button>
 
-            <button
+            <motion.button
               type="button"
-              disabled
-              className="relative flex flex-col items-center gap-2 rounded-3xl bg-white/50 px-4 py-8 text-violet-300 opacity-60 shadow-md"
+              onClick={() => router.push(`/play/${profileId}?cat=verbes`)}
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05 }}
+              className="flex flex-col items-center gap-2 rounded-3xl bg-white px-4 py-8 text-violet-600 shadow-md"
             >
-              <span className="absolute -top-2 -right-2 rounded-full bg-violet-200 px-2 py-0.5 text-[10px] font-bold text-violet-500">
-                🔒 Bientôt
-              </span>
               <span className="text-5xl">🏃</span>
               <span className="text-base font-bold">Les verbes</span>
-            </button>
+            </motion.button>
           </div>
         </section>
 

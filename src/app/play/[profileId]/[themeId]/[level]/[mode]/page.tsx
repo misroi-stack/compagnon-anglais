@@ -7,13 +7,14 @@ import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { Flashcards } from "@/components/games/Flashcards";
 import { Quiz } from "@/components/games/Quiz";
 import { Associe } from "@/components/games/Associe";
+import { Phrase } from "@/components/games/Phrase";
 import { RepeatCheck } from "@/components/games/RepeatCheck";
 import { getProfile } from "@/lib/profiles";
 import type { Level, Theme, Word } from "@/types/content";
 import type { Profile } from "@/types/profile";
 import type { GameMode } from "@/types/progress";
 
-const VALID_MODES: GameMode[] = ["flashcards", "quiz", "associe", "repete"];
+const VALID_MODES: GameMode[] = ["flashcards", "quiz", "associe", "repete", "phrase"];
 
 interface RouteParams {
   profileId: string;
@@ -95,6 +96,16 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
     case "associe":
       return (
         <Associe
+          profileId={profileId}
+          mascotId={profile.mascot}
+          theme={theme}
+          words={words}
+          onExit={exitToModeHub}
+        />
+      );
+    case "phrase":
+      return (
+        <Phrase
           profileId={profileId}
           mascotId={profile.mascot}
           theme={theme}

@@ -47,7 +47,7 @@ create table if not exists attempts (
   profile_id uuid not null references profiles(id) on delete cascade,
   word_id text not null,
   theme_id text not null,
-  mode text not null check (mode in ('flashcards', 'quiz', 'associe', 'repete')),
+  mode text not null check (mode in ('flashcards', 'quiz', 'associe', 'repete', 'phrase')),
   correct boolean not null,
   response_time_ms integer not null,
   created_at timestamptz not null default now()

@@ -23,6 +23,10 @@ import metiers from "./themes/metiers.json";
 import ferme from "./themes/ferme.json";
 import ocean from "./themes/ocean.json";
 import espace from "./themes/espace.json";
+import verbesQuotidien from "./themes/verbes-quotidien.json";
+import verbesBouger from "./themes/verbes-bouger.json";
+import verbesEcole from "./themes/verbes-ecole.json";
+import verbesJouer from "./themes/verbes-jouer.json";
 
 export const themes: Theme[] = [
   animaux,
@@ -49,6 +53,10 @@ export const themes: Theme[] = [
   ferme,
   ocean,
   espace,
+  verbesQuotidien,
+  verbesBouger,
+  verbesEcole,
+  verbesJouer,
 ] as Theme[];
 
 export function getTheme(themeId: string): Theme | undefined {
