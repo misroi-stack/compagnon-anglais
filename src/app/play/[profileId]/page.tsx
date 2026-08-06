@@ -19,6 +19,7 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [themeStats, setThemeStats] = useState<ThemeStats[]>([]);
   const [isChangingMascot, setIsChangingMascot] = useState(false);
 
@@ -41,11 +42,17 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
       }
     }
 
-    load();
+    load().catch(() => {
+      if (!cancelled) setError("Impossible de charger le profil — vérifie ta connexion.");
+    });
     return () => {
       cancelled = true;
     };
   }, [profileId, router]);
+
+  if (error) {
+    return <LoadingIndicator fullScreen error={error} />;
+  }
 
   if (loading || !profile) {
     return <LoadingIndicator fullScreen />;

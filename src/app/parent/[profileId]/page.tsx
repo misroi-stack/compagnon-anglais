@@ -49,6 +49,7 @@ export default function ParentDashboardPage({ params }: { params: Promise<{ prof
   const router = useRouter();
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -84,11 +85,17 @@ export default function ParentDashboardPage({ params }: { params: Promise<{ prof
       }
     }
 
-    load();
+    load().catch(() => {
+      if (!cancelled) setError("Impossible de charger les statistiques — vérifie ta connexion.");
+    });
     return () => {
       cancelled = true;
     };
   }, [profileId, router]);
+
+  if (error) {
+    return <LoadingIndicator fullScreen error={error} />;
+  }
 
   if (loading || !data) {
     return <LoadingIndicator fullScreen />;

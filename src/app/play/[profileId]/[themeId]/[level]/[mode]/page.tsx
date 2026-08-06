@@ -31,6 +31,7 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
   const [theme, setTheme] = useState<Theme | null>(null);
   const [words, setWords] = useState<Word[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const isValidMode = VALID_MODES.includes(mode as GameMode);
   const isValidLevel = [1, 2, 3].includes(level);
@@ -58,7 +59,9 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
       }
     }
 
-    load();
+    load().catch(() => {
+      if (!cancelled) setError("Impossible de charger le jeu — vérifie ta connexion.");
+    });
     return () => {
       cancelled = true;
     };
@@ -66,6 +69,10 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
 
   function exitToModeHub() {
     router.push(`/play/${profileId}/${themeId}/${level}`);
+  }
+
+  if (error) {
+    return <LoadingIndicator fullScreen error={error} />;
   }
 
   if (loading || !profile || !theme) {

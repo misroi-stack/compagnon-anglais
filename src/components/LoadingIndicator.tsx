@@ -6,20 +6,35 @@ interface LoadingIndicatorProps {
   label?: string;
   /** Enveloppe dans un `<main>` plein écran — à utiliser quand rien d'autre n'est déjà affiché. */
   fullScreen?: boolean;
+  /** Si fourni, affiche un état d'erreur avec bouton de rechargement au lieu du spinner. */
+  error?: string | null;
 }
 
 /** Au-delà de ce délai, on suppose que ça bloque vraiment et on propose de recharger. */
 const SLOW_THRESHOLD_SEC = 8;
 
-export function LoadingIndicator({ label = "Chargement…", fullScreen = false }: LoadingIndicatorProps) {
+export function LoadingIndicator({ label = "Chargement…", fullScreen = false, error }: LoadingIndicatorProps) {
   const [elapsed, setElapsed] = useState(0);
 
   useEffect(() => {
+    if (error) return;
     const interval = setInterval(() => setElapsed((s) => s + 1), 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [error]);
 
-  const content = (
+  const content = error ? (
+    <div className="flex flex-col items-center gap-3 text-center">
+      <span className="text-3xl">⚠️</span>
+      <p className="max-w-xs text-sm text-rose-500">{error}</p>
+      <button
+        type="button"
+        onClick={() => window.location.reload()}
+        className="rounded-full bg-violet-100 px-4 py-2 text-sm font-semibold text-violet-600"
+      >
+        🔄 Recharger la page
+      </button>
+    </div>
+  ) : (
     <div className="flex flex-col items-center gap-3">
       <div className="h-8 w-8 animate-spin rounded-full border-4 border-violet-200 border-t-violet-500" />
       <p className="text-violet-400">

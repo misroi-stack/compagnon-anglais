@@ -29,6 +29,7 @@ export default function LevelPickerPage({
   const [theme, setTheme] = useState<Theme | null>(null);
   const [levelStats, setLevelStats] = useState<LevelStats[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -51,11 +52,17 @@ export default function LevelPickerPage({
       }
     }
 
-    load();
+    load().catch(() => {
+      if (!cancelled) setError("Impossible de charger le thème — vérifie ta connexion.");
+    });
     return () => {
       cancelled = true;
     };
   }, [profileId, themeId, router]);
+
+  if (error) {
+    return <LoadingIndicator fullScreen error={error} />;
+  }
 
   if (loading || !profile || !theme) {
     return <LoadingIndicator fullScreen />;

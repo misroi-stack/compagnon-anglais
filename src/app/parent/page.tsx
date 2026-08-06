@@ -11,10 +11,12 @@ export default function ParentPortalPage() {
   const router = useRouter();
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     getProfiles()
       .then(setProfiles)
+      .catch(() => setError("Impossible de charger les profils — vérifie ta connexion."))
       .finally(() => setLoading(false));
   }, []);
 
@@ -25,7 +27,9 @@ export default function ParentPortalPage() {
         <p className="mt-2 text-violet-500">Choisis un profil pour voir ses statistiques</p>
       </div>
 
-      {loading ? (
+      {error ? (
+        <LoadingIndicator error={error} />
+      ) : loading ? (
         <LoadingIndicator />
       ) : (
         <div className="flex flex-wrap items-center justify-center gap-6">

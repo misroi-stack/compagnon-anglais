@@ -10,6 +10,10 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  // Ne mettre en cache que les ressources de l'app elle-même — jamais les
+  // appels réseau vers Supabase (données dynamiques, jamais servir une
+  // réponse périmée quand le réseau est indisponible).
+  if (new URL(event.request.url).origin !== self.location.origin) return;
 
   event.respondWith(
     caches.open(CACHE_NAME).then(async (cache) => {

@@ -29,6 +29,7 @@ export default function ModeHubPage({ params }: { params: Promise<RouteParams> }
   const [theme, setTheme] = useState<Theme | null>(null);
   const [modeStats, setModeStats] = useState<ThemeModeStats[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (![1, 2, 3].includes(level)) {
@@ -56,11 +57,17 @@ export default function ModeHubPage({ params }: { params: Promise<RouteParams> }
       }
     }
 
-    load();
+    load().catch(() => {
+      if (!cancelled) setError("Impossible de charger le niveau — vérifie ta connexion.");
+    });
     return () => {
       cancelled = true;
     };
   }, [profileId, themeId, level, router]);
+
+  if (error) {
+    return <LoadingIndicator fullScreen error={error} />;
+  }
 
   if (loading || !profile || !theme) {
     return <LoadingIndicator fullScreen />;
