@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { MascotPicker } from "@/components/MascotPicker";
 import { ProfileCard } from "@/components/ProfileCard";
 import { getProfiles, createProfile } from "@/lib/profiles";
@@ -61,7 +62,7 @@ export default function Home() {
       )}
 
       {loading ? (
-        <p className="text-violet-400">Chargement des profils…</p>
+        <LoadingIndicator label="Chargement des profils…" />
       ) : (
         <div className="flex flex-wrap items-center justify-center gap-6">
           {profiles.map((profile) => (

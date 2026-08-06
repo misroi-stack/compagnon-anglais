@@ -3,6 +3,7 @@
 import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getTheme, wordsForLevel } from "@/content";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { Flashcards } from "@/components/games/Flashcards";
 import { Quiz } from "@/components/games/Quiz";
 import { Associe } from "@/components/games/Associe";
@@ -68,11 +69,7 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
   }
 
   if (loading || !profile || !theme) {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50">
-        <p className="text-violet-400">Chargement…</p>
-      </main>
-    );
+    return <LoadingIndicator fullScreen />;
   }
 
   switch (mode as GameMode) {

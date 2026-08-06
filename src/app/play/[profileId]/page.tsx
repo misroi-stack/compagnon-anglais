@@ -9,6 +9,7 @@ import { getMascotImage } from "@/lib/mascots";
 import { getProfile, updateProfileMascot } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
 import { getThemeStats, type ThemeStats } from "@/lib/theme-suggestion";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { MascotPicker } from "@/components/MascotPicker";
 import type { MascotId, Profile } from "@/types/profile";
 
@@ -47,11 +48,7 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
   }, [profileId, router]);
 
   if (loading || !profile) {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50">
-        <p className="text-violet-400">Chargement…</p>
-      </main>
-    );
+    return <LoadingIndicator fullScreen />;
   }
 
   async function handleChangeMascot(mascot: MascotId) {

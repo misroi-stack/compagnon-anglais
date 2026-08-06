@@ -4,6 +4,7 @@ import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { getTheme } from "@/content";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { getProfile } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
 import { getLevelStats, type LevelStats } from "@/lib/level-progress";
@@ -57,11 +58,7 @@ export default function LevelPickerPage({
   }, [profileId, themeId, router]);
 
   if (loading || !profile || !theme) {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50">
-        <p className="text-violet-400">Chargement…</p>
-      </main>
-    );
+    return <LoadingIndicator fullScreen />;
   }
 
   return (

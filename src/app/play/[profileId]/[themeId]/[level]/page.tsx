@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { getTheme, wordsForLevel } from "@/content";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { MODES } from "@/lib/modes";
 import { getProfile } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
@@ -62,11 +63,7 @@ export default function ModeHubPage({ params }: { params: Promise<RouteParams> }
   }, [profileId, themeId, level, router]);
 
   if (loading || !profile || !theme) {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50">
-        <p className="text-violet-400">Chargement…</p>
-      </main>
-    );
+    return <LoadingIndicator fullScreen />;
   }
 
   const wordCount = wordsForLevel(theme, level).length;

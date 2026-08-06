@@ -3,6 +3,7 @@
 import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { themes, getWordById } from "@/content";
 import { getMascotImage } from "@/lib/mascots";
 import { getProfile } from "@/lib/profiles";
@@ -90,11 +91,7 @@ export default function ParentDashboardPage({ params }: { params: Promise<{ prof
   }, [profileId, router]);
 
   if (loading || !data) {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50">
-        <p className="text-violet-400">Chargement…</p>
-      </main>
-    );
+    return <LoadingIndicator fullScreen />;
   }
 
   const { profile, overall, dayBuckets, weekBuckets, modeStats, themeStats, themeAttempts, struggling, strong } =

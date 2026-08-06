@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { ProfileCard } from "@/components/ProfileCard";
 import { getProfiles } from "@/lib/profiles";
 import type { Profile } from "@/types/profile";
@@ -25,7 +26,7 @@ export default function ParentPortalPage() {
       </div>
 
       {loading ? (
-        <p className="text-violet-400">Chargement…</p>
+        <LoadingIndicator />
       ) : (
         <div className="flex flex-wrap items-center justify-center gap-6">
           {profiles.map((profile) => (
