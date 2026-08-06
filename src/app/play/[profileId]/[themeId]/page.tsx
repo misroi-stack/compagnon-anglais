@@ -3,7 +3,7 @@
 import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { getTheme } from "@/content";
+import { getTheme, themeKind } from "@/content";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { getProfile } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
@@ -126,7 +126,7 @@ export default function LevelPickerPage({
 
       <button
         type="button"
-        onClick={() => router.push(`/play/${profileId}`)}
+        onClick={() => router.push(`/play/${profileId}?cat=${themeKind(theme)}`)}
         className="text-sm text-violet-400 underline"
       >
         Changer de thème

@@ -1,4 +1,4 @@
-import type { Level, Theme, Word } from "@/types/content";
+import type { Level, Theme, ThemeKind, Word } from "@/types/content";
 import animaux from "./themes/animaux.json";
 import couleurs from "./themes/couleurs.json";
 import nombres from "./themes/nombres.json";
@@ -53,6 +53,14 @@ export const themes: Theme[] = [
 
 export function getTheme(themeId: string): Theme | undefined {
   return themes.find((theme) => theme.id === themeId);
+}
+
+export function themeKind(theme: Theme): ThemeKind {
+  return theme.kind ?? "mots";
+}
+
+export function themesByKind(kind: ThemeKind): Theme[] {
+  return themes.filter((theme) => themeKind(theme) === kind);
 }
 
 const wordIndex = new Map<string, { word: Word; theme: Theme }>();

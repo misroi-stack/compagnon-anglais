@@ -1,10 +1,10 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, use, useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { themes } from "@/content";
+import { themesByKind } from "@/content";
 import { getMascotImage } from "@/lib/mascots";
 import { getProfile, updateProfileMascot } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
@@ -12,10 +12,21 @@ import { getThemeStats, type ThemeStats } from "@/lib/theme-suggestion";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { MascotPicker } from "@/components/MascotPicker";
 import type { MascotId, Profile } from "@/types/profile";
+import type { ThemeKind } from "@/types/content";
 
 export default function PlayPage({ params }: { params: Promise<{ profileId: string }> }) {
+  return (
+    <Suspense fallback={<LoadingIndicator fullScreen />}>
+      <PlayPageContent params={params} />
+    </Suspense>
+  );
+}
+
+function PlayPageContent({ params }: { params: Promise<{ profileId: string }> }) {
   const { profileId } = use(params);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const cat = searchParams.get("cat") as ThemeKind | null;
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
@@ -25,6 +36,7 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
 
   useEffect(() => {
     let cancelled = false;
+    setLoading(true);
 
     async function load() {
       const p = await getProfile(profileId);
@@ -32,8 +44,12 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
         router.replace("/");
         return;
       }
-      const progressMap = await getProgressForProfile(profileId);
-      const stats = getThemeStats(themes, progressMap);
+
+      let stats: ThemeStats[] = [];
+      if (cat) {
+        const progressMap = await getProgressForProfile(profileId);
+        stats = getThemeStats(themesByKind(cat), progressMap);
+      }
 
       if (!cancelled) {
         setProfile(p);
@@ -48,7 +64,7 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
     return () => {
       cancelled = true;
     };
-  }, [profileId, router]);
+  }, [profileId, cat, router]);
 
   if (error) {
     return <LoadingIndicator fullScreen error={error} />;
@@ -65,55 +81,103 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
     setIsChangingMascot(false);
   }
 
-  return (
-    <main className="flex min-h-screen flex-col items-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
-      <div className="flex items-center gap-3">
+  const header = (
+    <div className="flex items-center gap-3">
+      <button
+        type="button"
+        onClick={() => setIsChangingMascot(true)}
+        aria-label="Changer de mascotte"
+        className="relative rounded-full"
+      >
+        <Image
+          src={getMascotImage(profile.mascot)}
+          alt=""
+          width={80}
+          height={80}
+          className="h-16 w-16 object-contain"
+        />
+        <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-violet-500 text-xs shadow">
+          ✏️
+        </span>
+      </button>
+      <div>
+        <p className="text-sm text-violet-400">Salut</p>
+        <h1 className="text-2xl font-extrabold text-violet-700">{profile.name} !</h1>
+      </div>
+    </div>
+  );
+
+  const mascotModal = isChangingMascot && (
+    <div
+      className="fixed inset-0 z-20 flex items-center justify-center bg-black/40 px-4"
+      onClick={() => setIsChangingMascot(false)}
+    >
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        onClick={(e) => e.stopPropagation()}
+        className="flex w-full max-w-sm flex-col gap-5 rounded-3xl bg-white p-6 shadow-xl"
+      >
+        <h2 className="text-center text-2xl font-bold text-violet-700">Choisis ta mascotte</h2>
+        <MascotPicker value={profile.mascot} onChange={handleChangeMascot} />
         <button
           type="button"
-          onClick={() => setIsChangingMascot(true)}
-          aria-label="Changer de mascotte"
-          className="relative rounded-full"
-        >
-          <Image
-            src={getMascotImage(profile.mascot)}
-            alt=""
-            width={80}
-            height={80}
-            className="h-16 w-16 object-contain"
-          />
-          <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-violet-500 text-xs shadow">
-            ✏️
-          </span>
-        </button>
-        <div>
-          <p className="text-sm text-violet-400">Salut</p>
-          <h1 className="text-2xl font-extrabold text-violet-700">{profile.name} !</h1>
-        </div>
-      </div>
-
-      {isChangingMascot && (
-        <div
-          className="fixed inset-0 z-20 flex items-center justify-center bg-black/40 px-4"
           onClick={() => setIsChangingMascot(false)}
+          className="text-sm text-violet-400 underline"
         >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            onClick={(e) => e.stopPropagation()}
-            className="flex w-full max-w-sm flex-col gap-5 rounded-3xl bg-white p-6 shadow-xl"
-          >
-            <h2 className="text-center text-2xl font-bold text-violet-700">Choisis ta mascotte</h2>
-            <MascotPicker value={profile.mascot} onChange={handleChangeMascot} />
+          Annuler
+        </button>
+      </motion.div>
+    </div>
+  );
+
+  if (!cat) {
+    return (
+      <main className="flex min-h-screen flex-col items-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
+        {header}
+        {mascotModal}
+
+        <section className="flex w-full max-w-md flex-col items-center gap-2">
+          <h2 className="mb-2 text-center text-lg font-bold text-violet-600">
+            Qu&apos;est-ce qu&apos;on apprend aujourd&apos;hui ?
+          </h2>
+          <div className="grid w-full grid-cols-2 gap-4">
+            <motion.button
+              type="button"
+              onClick={() => router.push(`/play/${profileId}?cat=mots`)}
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05 }}
+              className="flex flex-col items-center gap-2 rounded-3xl bg-white px-4 py-8 text-violet-600 shadow-md"
+            >
+              <span className="text-5xl">📚</span>
+              <span className="text-base font-bold">Les mots</span>
+            </motion.button>
+
             <button
               type="button"
-              onClick={() => setIsChangingMascot(false)}
-              className="text-sm text-violet-400 underline"
+              disabled
+              className="relative flex flex-col items-center gap-2 rounded-3xl bg-white/50 px-4 py-8 text-violet-300 opacity-60 shadow-md"
             >
-              Annuler
+              <span className="absolute -top-2 -right-2 rounded-full bg-violet-200 px-2 py-0.5 text-[10px] font-bold text-violet-500">
+                🔒 Bientôt
+              </span>
+              <span className="text-5xl">🏃</span>
+              <span className="text-base font-bold">Les verbes</span>
             </button>
-          </motion.div>
-        </div>
-      )}
+          </div>
+        </section>
+
+        <button type="button" onClick={() => router.push("/")} className="text-sm text-violet-400 underline">
+          Changer de profil
+        </button>
+      </main>
+    );
+  }
+
+  return (
+    <main className="flex min-h-screen flex-col items-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
+      {header}
+      {mascotModal}
 
       <section className="w-full max-w-3xl">
         <h2 className="mb-1 text-center text-lg font-bold text-violet-600">Choisis un thème</h2>
@@ -157,13 +221,22 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
         </div>
       </section>
 
-      <button
-        type="button"
-        onClick={() => router.push("/")}
-        className="text-sm text-violet-400 underline"
-      >
-        Changer de profil
-      </button>
+      <div className="flex items-center gap-4">
+        <button
+          type="button"
+          onClick={() => router.push(`/play/${profileId}`)}
+          className="text-sm text-violet-400 underline"
+        >
+          ← Catégories
+        </button>
+        <button
+          type="button"
+          onClick={() => router.push("/")}
+          className="text-sm text-violet-400 underline"
+        >
+          Changer de profil
+        </button>
+      </div>
     </main>
   );
 }

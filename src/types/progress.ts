@@ -1,4 +1,4 @@
-export type GameMode = "flashcards" | "quiz" | "associe" | "repete";
+export type GameMode = "flashcards" | "quiz" | "associe" | "repete" | "phrase";
 
 export interface Attempt {
   profileId: string;

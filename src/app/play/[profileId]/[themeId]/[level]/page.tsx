@@ -4,9 +4,9 @@ import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { getTheme, wordsForLevel } from "@/content";
+import { getTheme, themeKind, wordsForLevel } from "@/content";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
-import { MODES } from "@/lib/modes";
+import { modesForKind } from "@/lib/modes";
 import { getProfile } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
 import { getMascotImage } from "@/lib/mascots";
@@ -74,8 +74,9 @@ export default function ModeHubPage({ params }: { params: Promise<RouteParams> }
   }
 
   const wordCount = wordsForLevel(theme, level).length;
+  const modes = modesForKind(themeKind(theme));
   const allGradedComplete = modeStats.length > 0 && modeStats.every((s) => s.complete);
-  const nextSuggestedMode = MODES.find((m) => {
+  const nextSuggestedMode = modes.find((m) => {
     const stats = modeStats.find((s) => s.mode === m.id);
     return stats ? !stats.complete : m.id === "flashcards";
   })?.id;
@@ -127,7 +128,7 @@ export default function ModeHubPage({ params }: { params: Promise<RouteParams> }
           Fais les 4 jeux pour bien apprendre ce niveau
         </p>
         <div className="grid grid-cols-2 gap-4">
-          {MODES.map((mode) => {
+          {modes.map((mode) => {
             const stats = modeStats.find((s) => s.mode === mode.id);
             const isSuggested = mode.id === nextSuggestedMode;
             return (

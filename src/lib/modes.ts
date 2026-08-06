@@ -1,3 +1,4 @@
+import type { ThemeKind } from "@/types/content";
 import type { GameMode } from "@/types/progress";
 
 export interface ModeInfo {
@@ -7,9 +8,23 @@ export interface ModeInfo {
   description: string;
 }
 
+/** Catalogue de tous les modes existants (libellés/emoji) — utilisé partout où on affiche un mode par son id, quelle que soit la catégorie. */
 export const MODES: ModeInfo[] = [
   { id: "flashcards", label: "Flashcards", emoji: "🃏", description: "Découvre les mots" },
   { id: "quiz", label: "Quiz", emoji: "❓", description: "Teste-toi" },
   { id: "associe", label: "Associe", emoji: "🔗", description: "Relie l'image au mot" },
+  { id: "phrase", label: "Phrase", emoji: "📝", description: "Complète la phrase" },
   { id: "repete", label: "Répète", emoji: "🎤", description: "Prononce le mot" },
 ];
+
+/** Quels modes chaque catégorie de thème utilise réellement, dans l'ordre d'affichage. */
+export const MODES_BY_KIND: Record<ThemeKind, GameMode[]> = {
+  mots: ["flashcards", "quiz", "associe", "repete"],
+  verbes: ["flashcards", "quiz", "phrase", "repete"],
+};
+
+const modeInfoById = new Map(MODES.map((m) => [m.id, m]));
+
+export function modesForKind(kind: ThemeKind): ModeInfo[] {
+  return MODES_BY_KIND[kind].map((id) => modeInfoById.get(id)!);
+}
