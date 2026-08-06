@@ -21,6 +21,7 @@ export async function getProfiles(): Promise<Profile[]> {
   const { data, error } = await supabase
     .from("profiles")
     .select("*")
+    .eq("active", true)
     .order("created_at", { ascending: true });
 
   if (error) throw error;
@@ -32,6 +33,7 @@ export async function getProfile(profileId: string): Promise<Profile | null> {
     .from("profiles")
     .select("*")
     .eq("id", profileId)
+    .eq("active", true)
     .maybeSingle();
 
   if (error) throw error;
@@ -59,6 +61,13 @@ export async function updateProfileMascot(profileId: string, mascot: MascotId): 
 
   if (error) throw error;
   return fromRow(data as ProfileRow);
+}
+
+/** "Supprime" un profil sans perdre ses données — masqué partout, réactivable
+ *  plus tard (base de données seulement, pour l'instant) via un futur portail admin. */
+export async function deactivateProfile(profileId: string): Promise<void> {
+  const { error } = await supabase.from("profiles").update({ active: false }).eq("id", profileId);
+  if (error) throw error;
 }
 
 export async function deleteProfile(profileId: string): Promise<void> {

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { themes, getWordById } from "@/content";
 import { getMascotImage } from "@/lib/mascots";
-import { getProfile } from "@/lib/profiles";
+import { getProfile, deactivateProfile } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
 import { getThemeStats, type ThemeStats } from "@/lib/theme-suggestion";
 import { MODES } from "@/lib/modes";
@@ -50,6 +50,8 @@ export default function ParentDashboardPage({ params }: { params: Promise<{ prof
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [confirmingDelete, setConfirmingDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -106,6 +108,17 @@ export default function ParentDashboardPage({ params }: { params: Promise<{ prof
 
   const maxDayMinutes = Math.max(...dayBuckets.map((d) => d.minutes), 1);
   const modeById = new Map(MODES.map((m) => [m.id, m]));
+
+  async function handleDelete() {
+    setDeleting(true);
+    try {
+      await deactivateProfile(profileId);
+      router.push("/parent");
+    } catch {
+      setDeleting(false);
+      setError("Impossible de supprimer le profil — vérifie ta connexion.");
+    }
+  }
 
   return (
     <main className="flex min-h-screen flex-col items-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
@@ -262,6 +275,44 @@ export default function ParentDashboardPage({ params }: { params: Promise<{ prof
           </section>
         </div>
       )}
+
+      <section className="w-full max-w-4xl rounded-3xl border-2 border-rose-100 bg-white p-6">
+        <h2 className="mb-3 font-bold text-rose-500">Zone dangereuse</h2>
+        {!confirmingDelete ? (
+          <button
+            type="button"
+            onClick={() => setConfirmingDelete(true)}
+            className="rounded-full bg-rose-50 px-4 py-2 text-sm font-semibold text-rose-500"
+          >
+            🗑️ Supprimer ce profil
+          </button>
+        ) : (
+          <div className="flex flex-col gap-3">
+            <p className="text-sm text-violet-600">
+              Le profil de {profile.name} et ses statistiques seront masqués de l&apos;app. Seul un accès admin
+              pourra les récupérer plus tard.
+            </p>
+            <div className="flex gap-3">
+              <button
+                type="button"
+                onClick={() => setConfirmingDelete(false)}
+                disabled={deleting}
+                className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-violet-600 shadow disabled:opacity-50"
+              >
+                Annuler
+              </button>
+              <button
+                type="button"
+                onClick={handleDelete}
+                disabled={deleting}
+                className="rounded-full bg-rose-500 px-4 py-2 text-sm font-semibold text-white shadow disabled:opacity-50"
+              >
+                {deleting ? "Suppression…" : "Oui, supprimer"}
+              </button>
+            </div>
+          </div>
+        )}
+      </section>
     </main>
   );
 }

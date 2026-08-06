@@ -4,7 +4,10 @@ create table if not exists profiles (
   id uuid primary key default gen_random_uuid(),
   name text not null,
   mascot text not null check (mascot in ('renard', 'hibou', 'dragon', 'panda')),
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  -- Désactivé plutôt que supprimé quand un parent "supprime" un profil depuis
+  -- l'espace parent — masqué partout, réactivable plus tard via un futur portail admin.
+  active boolean not null default true
 );
 
 create table if not exists word_progress (
