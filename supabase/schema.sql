@@ -3,7 +3,6 @@
 create table if not exists profiles (
   id uuid primary key default gen_random_uuid(),
   name text not null,
-  age text not null check (age in ('6', '9')),
   mascot text not null check (mascot in ('renard', 'hibou', 'dragon', 'panda')),
   created_at timestamptz not null default now()
 );

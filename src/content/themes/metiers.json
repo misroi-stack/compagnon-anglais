@@ -3,11 +3,17 @@
   "name": "Métiers",
   "icon": "👷",
   "words": [
-    { "id": "doctor", "en": "doctor", "fr": "docteur", "image": "/images/vocabulary/metiers/doctor.svg", "emoji": "🧑‍⚕️", "ageGroups": ["6", "9"], "phrases": [{ "en": "The doctor helps me.", "fr": "Le docteur m'aide." }] },
-    { "id": "firefighter", "en": "firefighter", "fr": "pompier", "image": "/images/vocabulary/metiers/firefighter.svg", "emoji": "🧑‍🚒", "ageGroups": ["6", "9"], "phrases": [{ "en": "He is a firefighter.", "fr": "Il est pompier." }] },
-    { "id": "police-officer", "en": "police officer", "fr": "policier", "image": "/images/vocabulary/metiers/police-officer.svg", "emoji": "👮", "ageGroups": ["6", "9"], "phrases": [{ "en": "The police officer is brave.", "fr": "Le policier est courageux." }] },
-    { "id": "chef", "en": "chef", "fr": "cuisinier", "image": "/images/vocabulary/metiers/chef.svg", "emoji": "🧑‍🍳", "ageGroups": ["9"], "phrases": [{ "en": "The chef cooks well.", "fr": "Le cuisinier cuisine bien." }] },
-    { "id": "farmer", "en": "farmer", "fr": "fermier", "image": "/images/vocabulary/metiers/farmer.svg", "emoji": "🧑‍🌾", "ageGroups": ["9"], "phrases": [{ "en": "The farmer works hard.", "fr": "Le fermier travaille dur." }] },
-    { "id": "pilot", "en": "pilot", "fr": "pilote", "image": "/images/vocabulary/metiers/pilot.svg", "emoji": "🧑‍✈️", "ageGroups": ["9"], "phrases": [{ "en": "The pilot flies the plane.", "fr": "Le pilote pilote l'avion." }] }
+    { "id": "doctor", "en": "doctor", "fr": "docteur", "image": "/images/vocabulary/metiers/doctor.svg", "emoji": "🧑‍⚕️", "level": 1, "phrases": [{ "en": "The doctor helps me.", "fr": "Le docteur m'aide." }] },
+    { "id": "firefighter", "en": "firefighter", "fr": "pompier", "image": "/images/vocabulary/metiers/firefighter.svg", "emoji": "🧑‍🚒", "level": 1, "phrases": [{ "en": "He is a firefighter.", "fr": "Il est pompier." }] },
+    { "id": "police-officer", "en": "police officer", "fr": "policier", "image": "/images/vocabulary/metiers/police-officer.svg", "emoji": "👮", "level": 1, "phrases": [{ "en": "The police officer is brave.", "fr": "Le policier est courageux." }] },
+    { "id": "teacher-job", "en": "teacher", "fr": "professeur", "image": "/images/vocabulary/metiers/teacher.svg", "emoji": "🧑‍🏫", "level": 1, "phrases": [{ "en": "The teacher is smart.", "fr": "Le professeur est intelligent." }] },
+    { "id": "chef", "en": "chef", "fr": "cuisinier", "image": "/images/vocabulary/metiers/chef.svg", "emoji": "🧑‍🍳", "level": 2, "phrases": [{ "en": "The chef cooks well.", "fr": "Le cuisinier cuisine bien." }] },
+    { "id": "farmer", "en": "farmer", "fr": "fermier", "image": "/images/vocabulary/metiers/farmer.svg", "emoji": "🧑‍🌾", "level": 2, "phrases": [{ "en": "The farmer works hard.", "fr": "Le fermier travaille dur." }] },
+    { "id": "pilot", "en": "pilot", "fr": "pilote", "image": "/images/vocabulary/metiers/pilot.svg", "emoji": "🧑‍✈️", "level": 2, "phrases": [{ "en": "The pilot flies the plane.", "fr": "Le pilote pilote l'avion." }] },
+    { "id": "dentist", "en": "dentist", "fr": "dentiste", "image": "/images/vocabulary/metiers/dentist.svg", "emoji": "🦷", "level": 2, "phrases": [{ "en": "The dentist checks my teeth.", "fr": "Le dentiste vérifie mes dents." }] },
+    { "id": "vet", "en": "vet", "fr": "vétérinaire", "image": "/images/vocabulary/metiers/vet.svg", "emoji": "🐾", "level": 3, "phrases": [{ "en": "The vet cares for animals.", "fr": "Le vétérinaire soigne les animaux." }] },
+    { "id": "singer", "en": "singer", "fr": "chanteur", "image": "/images/vocabulary/metiers/singer.svg", "emoji": "🎤", "level": 3, "phrases": [{ "en": "She is a singer.", "fr": "Elle est chanteuse." }] },
+    { "id": "artist", "en": "artist", "fr": "artiste", "image": "/images/vocabulary/metiers/artist.svg", "emoji": "🎨", "level": 3, "phrases": [{ "en": "He is an artist.", "fr": "Il est artiste." }] },
+    { "id": "scientist", "en": "scientist", "fr": "scientifique", "image": "/images/vocabulary/metiers/scientist.svg", "emoji": "🔬", "level": 3, "phrases": [{ "en": "The scientist studies stars.", "fr": "Le scientifique étudie les étoiles." }] }
   ]
 }

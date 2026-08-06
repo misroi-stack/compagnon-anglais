@@ -1,4 +1,4 @@
-export type AgeGroup = "6" | "9";
+export type Level = 1 | 2 | 3;
 
 export interface Phrase {
   en: string;
@@ -13,7 +13,8 @@ export interface Word {
   /** Placeholder emoji utilisé tant que les vraies illustrations ne sont pas prêtes. */
   emoji: string;
   audio?: string;
-  ageGroups: AgeGroup[];
+  /** Niveau de difficulté au sein du thème (1 = de base, 3 = le plus avancé). */
+  level: Level;
   phrases?: Phrase[];
 }
 

@@ -3,11 +3,17 @@
   "name": "Océan",
   "icon": "🌊",
   "words": [
-    { "id": "whale", "en": "whale", "fr": "baleine", "image": "/images/vocabulary/ocean/whale.svg", "emoji": "🐳", "ageGroups": ["6", "9"], "phrases": [{ "en": "The whale is huge.", "fr": "La baleine est énorme." }] },
-    { "id": "shark", "en": "shark", "fr": "requin", "image": "/images/vocabulary/ocean/shark.svg", "emoji": "🦈", "ageGroups": ["6", "9"], "phrases": [{ "en": "The shark is big.", "fr": "Le requin est grand." }] },
-    { "id": "octopus", "en": "octopus", "fr": "pieuvre", "image": "/images/vocabulary/ocean/octopus.svg", "emoji": "🐙", "ageGroups": ["9"], "phrases": [{ "en": "The octopus has eight arms.", "fr": "La pieuvre a huit bras." }] },
-    { "id": "crab", "en": "crab", "fr": "crabe", "image": "/images/vocabulary/ocean/crab.svg", "emoji": "🦀", "ageGroups": ["6", "9"], "phrases": [{ "en": "The crab walks sideways.", "fr": "Le crabe marche de côté." }] },
-    { "id": "starfish", "en": "starfish", "fr": "étoile de mer", "image": "/images/vocabulary/ocean/starfish.svg", "emoji": "⭐", "ageGroups": ["9"], "phrases": [{ "en": "I found a starfish.", "fr": "J'ai trouvé une étoile de mer." }] },
-    { "id": "turtle", "en": "turtle", "fr": "tortue", "image": "/images/vocabulary/ocean/turtle.svg", "emoji": "🐢", "ageGroups": ["6", "9"], "phrases": [{ "en": "The turtle swims slowly.", "fr": "La tortue nage lentement." }] }
+    { "id": "whale", "en": "whale", "fr": "baleine", "image": "/images/vocabulary/ocean/whale.svg", "emoji": "🐳", "level": 1, "phrases": [{ "en": "The whale is huge.", "fr": "La baleine est énorme." }] },
+    { "id": "shark", "en": "shark", "fr": "requin", "image": "/images/vocabulary/ocean/shark.svg", "emoji": "🦈", "level": 1, "phrases": [{ "en": "The shark is big.", "fr": "Le requin est grand." }] },
+    { "id": "crab", "en": "crab", "fr": "crabe", "image": "/images/vocabulary/ocean/crab.svg", "emoji": "🦀", "level": 1, "phrases": [{ "en": "The crab walks sideways.", "fr": "Le crabe marche de côté." }] },
+    { "id": "turtle", "en": "turtle", "fr": "tortue", "image": "/images/vocabulary/ocean/turtle.svg", "emoji": "🐢", "level": 1, "phrases": [{ "en": "The turtle swims slowly.", "fr": "La tortue nage lentement." }] },
+    { "id": "octopus", "en": "octopus", "fr": "pieuvre", "image": "/images/vocabulary/ocean/octopus.svg", "emoji": "🐙", "level": 2, "phrases": [{ "en": "The octopus has eight arms.", "fr": "La pieuvre a huit bras." }] },
+    { "id": "starfish", "en": "starfish", "fr": "étoile de mer", "image": "/images/vocabulary/ocean/starfish.svg", "emoji": "⭐", "level": 2, "phrases": [{ "en": "I found a starfish.", "fr": "J'ai trouvé une étoile de mer." }] },
+    { "id": "dolphin", "en": "dolphin", "fr": "dauphin", "image": "/images/vocabulary/ocean/dolphin.svg", "emoji": "🐬", "level": 2, "phrases": [{ "en": "The dolphin is smart.", "fr": "Le dauphin est intelligent." }] },
+    { "id": "seahorse", "en": "seahorse", "fr": "hippocampe", "image": "/images/vocabulary/ocean/seahorse.svg", "emoji": "🐠", "level": 2, "phrases": [{ "en": "The seahorse is tiny.", "fr": "L'hippocampe est minuscule." }] },
+    { "id": "jellyfish", "en": "jellyfish", "fr": "méduse", "image": "/images/vocabulary/ocean/jellyfish.svg", "emoji": "🎐", "level": 3, "phrases": [{ "en": "The jellyfish floats.", "fr": "La méduse flotte." }] },
+    { "id": "seal", "en": "seal", "fr": "phoque", "image": "/images/vocabulary/ocean/seal.svg", "emoji": "🦭", "level": 3, "phrases": [{ "en": "The seal swims fast.", "fr": "Le phoque nage vite." }] },
+    { "id": "wave", "en": "wave", "fr": "vague", "image": "/images/vocabulary/ocean/wave.svg", "emoji": "🌊", "level": 3, "phrases": [{ "en": "I like big waves.", "fr": "J'aime les grosses vagues." }] },
+    { "id": "shell", "en": "shell", "fr": "coquillage", "image": "/images/vocabulary/ocean/shell.svg", "emoji": "🐚", "level": 3, "phrases": [{ "en": "I found a shell.", "fr": "J'ai trouvé un coquillage." }] }
   ]
 }

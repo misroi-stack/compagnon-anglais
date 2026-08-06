@@ -1,5 +1,5 @@
-import { wordsForAge } from "@/content";
-import type { AgeGroup, Theme } from "@/types/content";
+import { wordsForLevel } from "@/content";
+import type { Level, Theme } from "@/types/content";
 import type { GameMode, WordProgress } from "@/types/progress";
 
 export interface ThemeModeStats {
@@ -11,13 +11,13 @@ export interface ThemeModeStats {
 
 const GRADED_MODES: GameMode[] = ["quiz", "associe", "repete"];
 
-/** Pour les 3 modes notés, combien de mots du thème ont déjà été réussis au moins une fois dans ce mode. */
+/** Pour les 3 modes notés, combien de mots de ce niveau ont déjà été réussis au moins une fois dans ce mode. */
 export function getThemeModeStats(
   theme: Theme,
-  age: AgeGroup,
+  level: Level,
   progressByWordId: Map<string, WordProgress>
 ): ThemeModeStats[] {
-  const words = wordsForAge(theme, age);
+  const words = wordsForLevel(theme, level);
 
   return GRADED_MODES.map((mode) => {
     const done = words.filter((w) => progressByWordId.get(w.id)?.successModes.includes(mode)).length;

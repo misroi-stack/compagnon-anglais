@@ -3,11 +3,18 @@
   "name": "Maison",
   "icon": "🏠",
   "words": [
-    { "id": "kitchen", "en": "kitchen", "fr": "cuisine", "image": "/images/vocabulary/maison/kitchen.svg", "emoji": "🍳", "ageGroups": ["6", "9"], "phrases": [{ "en": "Mom cooks in the kitchen.", "fr": "Maman cuisine dans la cuisine." }] },
-    { "id": "bedroom", "en": "bedroom", "fr": "chambre", "image": "/images/vocabulary/maison/bedroom.svg", "emoji": "🛏️", "ageGroups": ["6", "9"], "phrases": [{ "en": "I sleep in my bedroom.", "fr": "Je dors dans ma chambre." }] },
-    { "id": "bathroom", "en": "bathroom", "fr": "salle de bain", "image": "/images/vocabulary/maison/bathroom.svg", "emoji": "🛁", "ageGroups": ["9"], "phrases": [{ "en": "I wash in the bathroom.", "fr": "Je me lave dans la salle de bain." }] },
-    { "id": "door", "en": "door", "fr": "porte", "image": "/images/vocabulary/maison/door.svg", "emoji": "🚪", "ageGroups": ["6", "9"], "phrases": [{ "en": "Close the door.", "fr": "Ferme la porte." }] },
-    { "id": "window", "en": "window", "fr": "fenêtre", "image": "/images/vocabulary/maison/window.svg", "emoji": "🪟", "ageGroups": ["6", "9"], "phrases": [{ "en": "Open the window.", "fr": "Ouvre la fenêtre." }] },
-    { "id": "garden", "en": "garden", "fr": "jardin", "image": "/images/vocabulary/maison/garden.svg", "emoji": "🌳", "ageGroups": ["6", "9"], "phrases": [{ "en": "We play in the garden.", "fr": "On joue dans le jardin." }] }
+    { "id": "kitchen", "en": "kitchen", "fr": "cuisine", "image": "/images/vocabulary/maison/kitchen.svg", "emoji": "🍳", "level": 1, "phrases": [{ "en": "Mom cooks in the kitchen.", "fr": "Maman cuisine dans la cuisine." }] },
+    { "id": "bedroom", "en": "bedroom", "fr": "chambre", "image": "/images/vocabulary/maison/bedroom.svg", "emoji": "🛏️", "level": 1, "phrases": [{ "en": "I sleep in my bedroom.", "fr": "Je dors dans ma chambre." }] },
+    { "id": "bathroom", "en": "bathroom", "fr": "salle de bain", "image": "/images/vocabulary/maison/bathroom.svg", "emoji": "🛁", "level": 1, "phrases": [{ "en": "I wash in the bathroom.", "fr": "Je me lave dans la salle de bain." }] },
+    { "id": "door", "en": "door", "fr": "porte", "image": "/images/vocabulary/maison/door.svg", "emoji": "🚪", "level": 1, "phrases": [{ "en": "Close the door.", "fr": "Ferme la porte." }] },
+    { "id": "window", "en": "window", "fr": "fenêtre", "image": "/images/vocabulary/maison/window.svg", "emoji": "🪟", "level": 1, "phrases": [{ "en": "Open the window.", "fr": "Ouvre la fenêtre." }] },
+    { "id": "garden", "en": "garden", "fr": "jardin", "image": "/images/vocabulary/maison/garden.svg", "emoji": "🌳", "level": 2, "phrases": [{ "en": "We play in the garden.", "fr": "On joue dans le jardin." }] },
+    { "id": "living-room", "en": "living room", "fr": "salon", "image": "/images/vocabulary/maison/living-room.svg", "emoji": "🛋️", "level": 2, "phrases": [{ "en": "We watch TV in the living room.", "fr": "On regarde la télé dans le salon." }] },
+    { "id": "roof", "en": "roof", "fr": "toit", "image": "/images/vocabulary/maison/roof.svg", "emoji": "🏚️", "level": 2, "phrases": [{ "en": "The roof is red.", "fr": "Le toit est rouge." }] },
+    { "id": "stairs", "en": "stairs", "fr": "escalier", "image": "/images/vocabulary/maison/stairs.svg", "emoji": "🪜", "level": 2, "phrases": [{ "en": "I go up the stairs.", "fr": "Je monte l'escalier." }] },
+    { "id": "table", "en": "table", "fr": "table", "image": "/images/vocabulary/maison/table.svg", "emoji": "🪑", "level": 3, "phrases": [{ "en": "We eat at the table.", "fr": "On mange à table." }] },
+    { "id": "bed", "en": "bed", "fr": "lit", "image": "/images/vocabulary/maison/bed.svg", "emoji": "🛏️", "level": 3, "phrases": [{ "en": "I go to bed.", "fr": "Je vais au lit." }] },
+    { "id": "key", "en": "key", "fr": "clé", "image": "/images/vocabulary/maison/key.svg", "emoji": "🔑", "level": 3, "phrases": [{ "en": "I have a key.", "fr": "J'ai une clé." }] },
+    { "id": "lamp", "en": "lamp", "fr": "lampe", "image": "/images/vocabulary/maison/lamp.svg", "emoji": "💡", "level": 3, "phrases": [{ "en": "I turn on the lamp.", "fr": "J'allume la lampe." }] }
   ]
 }

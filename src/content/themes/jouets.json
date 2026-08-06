@@ -3,11 +3,17 @@
   "name": "Jouets",
   "icon": "🧸",
   "words": [
-    { "id": "teddy-bear", "en": "teddy bear", "fr": "ours en peluche", "image": "/images/vocabulary/jouets/teddy-bear.svg", "emoji": "🧸", "ageGroups": ["6", "9"], "phrases": [{ "en": "I love my teddy bear.", "fr": "J'aime mon ours en peluche." }] },
-    { "id": "doll", "en": "doll", "fr": "poupée", "image": "/images/vocabulary/jouets/doll.svg", "emoji": "🪆", "ageGroups": ["6", "9"], "phrases": [{ "en": "She has a doll.", "fr": "Elle a une poupée." }] },
-    { "id": "kite", "en": "kite", "fr": "cerf-volant", "image": "/images/vocabulary/jouets/kite.svg", "emoji": "🪁", "ageGroups": ["9"], "phrases": [{ "en": "I fly a kite.", "fr": "Je fais voler un cerf-volant." }] },
-    { "id": "blocks", "en": "blocks", "fr": "blocs", "image": "/images/vocabulary/jouets/blocks.svg", "emoji": "🧱", "ageGroups": ["6", "9"], "phrases": [{ "en": "I build with blocks.", "fr": "Je construis avec des blocs." }] },
-    { "id": "puzzle", "en": "puzzle", "fr": "puzzle", "image": "/images/vocabulary/jouets/puzzle.svg", "emoji": "🧩", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like this puzzle.", "fr": "J'aime ce puzzle." }] },
-    { "id": "robot", "en": "robot", "fr": "robot", "image": "/images/vocabulary/jouets/robot.svg", "emoji": "🤖", "ageGroups": ["9"], "phrases": [{ "en": "The robot can walk.", "fr": "Le robot peut marcher." }] }
+    { "id": "teddy-bear", "en": "teddy bear", "fr": "ours en peluche", "image": "/images/vocabulary/jouets/teddy-bear.svg", "emoji": "🧸", "level": 1, "phrases": [{ "en": "I love my teddy bear.", "fr": "J'aime mon ours en peluche." }] },
+    { "id": "doll", "en": "doll", "fr": "poupée", "image": "/images/vocabulary/jouets/doll.svg", "emoji": "🪆", "level": 1, "phrases": [{ "en": "She has a doll.", "fr": "Elle a une poupée." }] },
+    { "id": "blocks", "en": "blocks", "fr": "blocs", "image": "/images/vocabulary/jouets/blocks.svg", "emoji": "🧱", "level": 1, "phrases": [{ "en": "I build with blocks.", "fr": "Je construis avec des blocs." }] },
+    { "id": "puzzle", "en": "puzzle", "fr": "puzzle", "image": "/images/vocabulary/jouets/puzzle.svg", "emoji": "🧩", "level": 1, "phrases": [{ "en": "I like this puzzle.", "fr": "J'aime ce puzzle." }] },
+    { "id": "kite", "en": "kite", "fr": "cerf-volant", "image": "/images/vocabulary/jouets/kite.svg", "emoji": "🪁", "level": 2, "phrases": [{ "en": "I fly a kite.", "fr": "Je fais voler un cerf-volant." }] },
+    { "id": "robot", "en": "robot", "fr": "robot", "image": "/images/vocabulary/jouets/robot.svg", "emoji": "🤖", "level": 2, "phrases": [{ "en": "The robot can walk.", "fr": "Le robot peut marcher." }] },
+    { "id": "balloon", "en": "balloon", "fr": "ballon (gonflable)", "image": "/images/vocabulary/jouets/balloon.svg", "emoji": "🎈", "level": 2, "phrases": [{ "en": "I have a red balloon.", "fr": "J'ai un ballon rouge." }] },
+    { "id": "yo-yo", "en": "yo-yo", "fr": "yo-yo", "image": "/images/vocabulary/jouets/yo-yo.svg", "emoji": "🪀", "level": 2, "phrases": [{ "en": "I play with a yo-yo.", "fr": "Je joue avec un yo-yo." }] },
+    { "id": "top", "en": "top", "fr": "toupie", "image": "/images/vocabulary/jouets/top.svg", "emoji": "🌀", "level": 3, "phrases": [{ "en": "The top spins fast.", "fr": "La toupie tourne vite." }] },
+    { "id": "marbles", "en": "marbles", "fr": "billes", "image": "/images/vocabulary/jouets/marbles.svg", "emoji": "🔮", "level": 3, "phrases": [{ "en": "I play with marbles.", "fr": "Je joue aux billes." }] },
+    { "id": "board-game", "en": "board game", "fr": "jeu de société", "image": "/images/vocabulary/jouets/board-game.svg", "emoji": "🎲", "level": 3, "phrases": [{ "en": "I like board games.", "fr": "J'aime les jeux de société." }] },
+    { "id": "toy-car", "en": "toy car", "fr": "petite voiture", "image": "/images/vocabulary/jouets/toy-car.svg", "emoji": "🚙", "level": 3, "phrases": [{ "en": "I have a toy car.", "fr": "J'ai une petite voiture." }] }
   ]
 }

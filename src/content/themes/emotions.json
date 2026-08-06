@@ -3,11 +3,17 @@
   "name": "Émotions",
   "icon": "😊",
   "words": [
-    { "id": "happy", "en": "happy", "fr": "content", "image": "/images/vocabulary/emotions/happy.svg", "emoji": "😊", "ageGroups": ["6", "9"], "phrases": [{ "en": "I am happy.", "fr": "Je suis content." }] },
-    { "id": "sad", "en": "sad", "fr": "triste", "image": "/images/vocabulary/emotions/sad.svg", "emoji": "😢", "ageGroups": ["6", "9"], "phrases": [{ "en": "She is sad.", "fr": "Elle est triste." }] },
-    { "id": "angry", "en": "angry", "fr": "fâché", "image": "/images/vocabulary/emotions/angry.svg", "emoji": "😠", "ageGroups": ["6", "9"], "phrases": [{ "en": "He is angry.", "fr": "Il est fâché." }] },
-    { "id": "scared", "en": "scared", "fr": "effrayé", "image": "/images/vocabulary/emotions/scared.svg", "emoji": "😨", "ageGroups": ["9"], "phrases": [{ "en": "I am scared.", "fr": "J'ai peur." }] },
-    { "id": "tired", "en": "tired", "fr": "fatigué", "image": "/images/vocabulary/emotions/tired.svg", "emoji": "😴", "ageGroups": ["6", "9"], "phrases": [{ "en": "I am tired.", "fr": "Je suis fatigué." }] },
-    { "id": "surprised", "en": "surprised", "fr": "surpris", "image": "/images/vocabulary/emotions/surprised.svg", "emoji": "😲", "ageGroups": ["9"], "phrases": [{ "en": "She is surprised.", "fr": "Elle est surprise." }] }
+    { "id": "happy", "en": "happy", "fr": "content", "image": "/images/vocabulary/emotions/happy.svg", "emoji": "😊", "level": 1, "phrases": [{ "en": "I am happy.", "fr": "Je suis content." }] },
+    { "id": "sad", "en": "sad", "fr": "triste", "image": "/images/vocabulary/emotions/sad.svg", "emoji": "😢", "level": 1, "phrases": [{ "en": "She is sad.", "fr": "Elle est triste." }] },
+    { "id": "angry", "en": "angry", "fr": "fâché", "image": "/images/vocabulary/emotions/angry.svg", "emoji": "😠", "level": 1, "phrases": [{ "en": "He is angry.", "fr": "Il est fâché." }] },
+    { "id": "tired", "en": "tired", "fr": "fatigué", "image": "/images/vocabulary/emotions/tired.svg", "emoji": "😴", "level": 1, "phrases": [{ "en": "I am tired.", "fr": "Je suis fatigué." }] },
+    { "id": "scared", "en": "scared", "fr": "effrayé", "image": "/images/vocabulary/emotions/scared.svg", "emoji": "😨", "level": 2, "phrases": [{ "en": "I am scared.", "fr": "J'ai peur." }] },
+    { "id": "surprised", "en": "surprised", "fr": "surpris", "image": "/images/vocabulary/emotions/surprised.svg", "emoji": "😲", "level": 2, "phrases": [{ "en": "She is surprised.", "fr": "Elle est surprise." }] },
+    { "id": "excited", "en": "excited", "fr": "excité", "image": "/images/vocabulary/emotions/excited.svg", "emoji": "🤩", "level": 2, "phrases": [{ "en": "I am excited.", "fr": "Je suis excité." }] },
+    { "id": "shy", "en": "shy", "fr": "timide", "image": "/images/vocabulary/emotions/shy.svg", "emoji": "😳", "level": 2, "phrases": [{ "en": "He is shy.", "fr": "Il est timide." }] },
+    { "id": "proud", "en": "proud", "fr": "fier", "image": "/images/vocabulary/emotions/proud.svg", "emoji": "😌", "level": 3, "phrases": [{ "en": "I am proud.", "fr": "Je suis fier." }] },
+    { "id": "bored", "en": "bored", "fr": "ennuyé", "image": "/images/vocabulary/emotions/bored.svg", "emoji": "🥱", "level": 3, "phrases": [{ "en": "I am bored.", "fr": "Je m'ennuie." }] },
+    { "id": "worried", "en": "worried", "fr": "inquiet", "image": "/images/vocabulary/emotions/worried.svg", "emoji": "😟", "level": 3, "phrases": [{ "en": "She is worried.", "fr": "Elle est inquiète." }] },
+    { "id": "confused", "en": "confused", "fr": "confus", "image": "/images/vocabulary/emotions/confused.svg", "emoji": "😕", "level": 3, "phrases": [{ "en": "I am confused.", "fr": "Je suis confus." }] }
   ]
 }

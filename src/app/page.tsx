@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MascotPicker } from "@/components/MascotPicker";
 import { ProfileCard } from "@/components/ProfileCard";
 import { getProfiles, createProfile } from "@/lib/profiles";
-import type { AgeGroup } from "@/types/content";
 import type { MascotId, Profile } from "@/types/profile";
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [name, setName] = useState("");
-  const [age, setAge] = useState<AgeGroup>("6");
   const [mascot, setMascot] = useState<MascotId | null>(null);
 
   useEffect(() => {
@@ -29,7 +27,6 @@ export default function Home() {
 
   function resetForm() {
     setName("");
-    setAge("6");
     setMascot(null);
     setIsCreating(false);
   }
@@ -38,7 +35,7 @@ export default function Home() {
     if (!name.trim() || !mascot) return;
     setIsSaving(true);
     try {
-      const profile = await createProfile({ name: name.trim(), age, mascot });
+      const profile = await createProfile({ name: name.trim(), mascot });
       setProfiles((prev) => [...prev, profile]);
       resetForm();
     } catch {
@@ -115,26 +112,6 @@ export default function Home() {
                   className="rounded-xl border-2 border-violet-200 px-4 py-2 text-base font-normal text-violet-900 outline-none focus:border-violet-400"
                 />
               </label>
-
-              <div className="flex flex-col gap-1 text-sm font-semibold text-violet-600">
-                Âge
-                <div className="flex gap-3">
-                  {(["6", "9"] as AgeGroup[]).map((option) => (
-                    <button
-                      key={option}
-                      type="button"
-                      onClick={() => setAge(option)}
-                      className={`flex-1 rounded-xl py-2 font-bold ${
-                        age === option
-                          ? "bg-violet-500 text-white"
-                          : "bg-violet-100 text-violet-500"
-                      }`}
-                    >
-                      {option} ans
-                    </button>
-                  ))}
-                </div>
-              </div>
 
               <div className="flex flex-col gap-1 text-sm font-semibold text-violet-600">
                 Mascotte

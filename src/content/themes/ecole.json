@@ -3,11 +3,18 @@
   "name": "École",
   "icon": "🏫",
   "words": [
-    { "id": "book", "en": "book", "fr": "livre", "image": "/images/vocabulary/ecole/book.svg", "emoji": "📖", "ageGroups": ["6", "9"], "phrases": [{ "en": "I read a book.", "fr": "Je lis un livre." }] },
-    { "id": "pencil", "en": "pencil", "fr": "crayon", "image": "/images/vocabulary/ecole/pencil.svg", "emoji": "✏️", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have a pencil.", "fr": "J'ai un crayon." }] },
-    { "id": "bag", "en": "bag", "fr": "sac", "image": "/images/vocabulary/ecole/bag.svg", "emoji": "🎒", "ageGroups": ["6", "9"], "phrases": [{ "en": "My bag is heavy.", "fr": "Mon sac est lourd." }] },
-    { "id": "chair", "en": "chair", "fr": "chaise", "image": "/images/vocabulary/ecole/chair.svg", "emoji": "🪑", "ageGroups": ["6", "9"], "phrases": [{ "en": "Sit on the chair.", "fr": "Assieds-toi sur la chaise." }] },
-    { "id": "teacher", "en": "teacher", "fr": "maîtresse", "image": "/images/vocabulary/ecole/teacher.svg", "emoji": "🧑‍🏫", "ageGroups": ["9"], "phrases": [{ "en": "The teacher is nice.", "fr": "La maîtresse est gentille." }] },
-    { "id": "ruler", "en": "ruler", "fr": "règle", "image": "/images/vocabulary/ecole/ruler.svg", "emoji": "📏", "ageGroups": ["9"], "phrases": [{ "en": "I use a ruler.", "fr": "J'utilise une règle." }] }
+    { "id": "book", "en": "book", "fr": "livre", "image": "/images/vocabulary/ecole/book.svg", "emoji": "📖", "level": 1, "phrases": [{ "en": "I read a book.", "fr": "Je lis un livre." }] },
+    { "id": "pencil", "en": "pencil", "fr": "crayon", "image": "/images/vocabulary/ecole/pencil.svg", "emoji": "✏️", "level": 1, "phrases": [{ "en": "I have a pencil.", "fr": "J'ai un crayon." }] },
+    { "id": "bag", "en": "bag", "fr": "sac", "image": "/images/vocabulary/ecole/bag.svg", "emoji": "🎒", "level": 1, "phrases": [{ "en": "My bag is heavy.", "fr": "Mon sac est lourd." }] },
+    { "id": "chair", "en": "chair", "fr": "chaise", "image": "/images/vocabulary/ecole/chair.svg", "emoji": "🪑", "level": 1, "phrases": [{ "en": "Sit on the chair.", "fr": "Assieds-toi sur la chaise." }] },
+    { "id": "ruler", "en": "ruler", "fr": "règle", "image": "/images/vocabulary/ecole/ruler.svg", "emoji": "📏", "level": 1, "phrases": [{ "en": "I use a ruler.", "fr": "J'utilise une règle." }] },
+    { "id": "teacher", "en": "teacher", "fr": "maîtresse", "image": "/images/vocabulary/ecole/teacher.svg", "emoji": "🧑‍🏫", "level": 2, "phrases": [{ "en": "The teacher is nice.", "fr": "La maîtresse est gentille." }] },
+    { "id": "scissors", "en": "scissors", "fr": "ciseaux", "image": "/images/vocabulary/ecole/scissors.svg", "emoji": "✂️", "level": 2, "phrases": [{ "en": "I use scissors.", "fr": "J'utilise des ciseaux." }] },
+    { "id": "glue", "en": "glue", "fr": "colle", "image": "/images/vocabulary/ecole/glue.svg", "emoji": "🧴", "level": 2, "phrases": [{ "en": "I use glue.", "fr": "J'utilise de la colle." }] },
+    { "id": "eraser", "en": "eraser", "fr": "gomme", "image": "/images/vocabulary/ecole/eraser.svg", "emoji": "🧽", "level": 2, "phrases": [{ "en": "I need an eraser.", "fr": "J'ai besoin d'une gomme." }] },
+    { "id": "notebook", "en": "notebook", "fr": "cahier", "image": "/images/vocabulary/ecole/notebook.svg", "emoji": "📓", "level": 3, "phrases": [{ "en": "I write in my notebook.", "fr": "J'écris dans mon cahier." }] },
+    { "id": "classroom", "en": "classroom", "fr": "salle de classe", "image": "/images/vocabulary/ecole/classroom.svg", "emoji": "🏫", "level": 3, "phrases": [{ "en": "We are in the classroom.", "fr": "On est dans la salle de classe." }] },
+    { "id": "homework", "en": "homework", "fr": "devoirs", "image": "/images/vocabulary/ecole/homework.svg", "emoji": "📝", "level": 3, "phrases": [{ "en": "I do my homework.", "fr": "Je fais mes devoirs." }] },
+    { "id": "playground", "en": "playground", "fr": "cour de récré", "image": "/images/vocabulary/ecole/playground.svg", "emoji": "🛝", "level": 3, "phrases": [{ "en": "I play in the playground.", "fr": "Je joue dans la cour de récré." }] }
   ]
 }

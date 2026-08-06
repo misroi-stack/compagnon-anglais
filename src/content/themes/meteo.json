@@ -3,11 +3,17 @@
   "name": "Météo",
   "icon": "🌦️",
   "words": [
-    { "id": "sun", "en": "sun", "fr": "soleil", "image": "/images/vocabulary/meteo/sun.svg", "emoji": "☀️", "ageGroups": ["6", "9"], "phrases": [{ "en": "The sun is bright.", "fr": "Le soleil est brillant." }] },
-    { "id": "rain", "en": "rain", "fr": "pluie", "image": "/images/vocabulary/meteo/rain.svg", "emoji": "🌧️", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like the rain.", "fr": "J'aime la pluie." }] },
-    { "id": "cloud", "en": "cloud", "fr": "nuage", "image": "/images/vocabulary/meteo/cloud.svg", "emoji": "☁️", "ageGroups": ["6", "9"], "phrases": [{ "en": "I see a cloud.", "fr": "Je vois un nuage." }] },
-    { "id": "snow", "en": "snow", "fr": "neige", "image": "/images/vocabulary/meteo/snow.svg", "emoji": "❄️", "ageGroups": ["6", "9"], "phrases": [{ "en": "I play in the snow.", "fr": "Je joue dans la neige." }] },
-    { "id": "wind", "en": "wind", "fr": "vent", "image": "/images/vocabulary/meteo/wind.svg", "emoji": "💨", "ageGroups": ["9"], "phrases": [{ "en": "The wind is strong.", "fr": "Le vent est fort." }] },
-    { "id": "storm", "en": "storm", "fr": "orage", "image": "/images/vocabulary/meteo/storm.svg", "emoji": "⛈️", "ageGroups": ["9"], "phrases": [{ "en": "There is a storm.", "fr": "Il y a un orage." }] }
+    { "id": "sun", "en": "sun", "fr": "soleil", "image": "/images/vocabulary/meteo/sun.svg", "emoji": "☀️", "level": 1, "phrases": [{ "en": "The sun is bright.", "fr": "Le soleil est brillant." }] },
+    { "id": "rain", "en": "rain", "fr": "pluie", "image": "/images/vocabulary/meteo/rain.svg", "emoji": "🌧️", "level": 1, "phrases": [{ "en": "I like the rain.", "fr": "J'aime la pluie." }] },
+    { "id": "cloud", "en": "cloud", "fr": "nuage", "image": "/images/vocabulary/meteo/cloud.svg", "emoji": "☁️", "level": 1, "phrases": [{ "en": "I see a cloud.", "fr": "Je vois un nuage." }] },
+    { "id": "snow", "en": "snow", "fr": "neige", "image": "/images/vocabulary/meteo/snow.svg", "emoji": "❄️", "level": 1, "phrases": [{ "en": "I play in the snow.", "fr": "Je joue dans la neige." }] },
+    { "id": "wind", "en": "wind", "fr": "vent", "image": "/images/vocabulary/meteo/wind.svg", "emoji": "💨", "level": 2, "phrases": [{ "en": "The wind is strong.", "fr": "Le vent est fort." }] },
+    { "id": "storm", "en": "storm", "fr": "orage", "image": "/images/vocabulary/meteo/storm.svg", "emoji": "⛈️", "level": 2, "phrases": [{ "en": "There is a storm.", "fr": "Il y a un orage." }] },
+    { "id": "rainbow", "en": "rainbow", "fr": "arc-en-ciel", "image": "/images/vocabulary/meteo/rainbow.svg", "emoji": "🌈", "level": 2, "phrases": [{ "en": "I see a rainbow.", "fr": "Je vois un arc-en-ciel." }] },
+    { "id": "fog", "en": "fog", "fr": "brouillard", "image": "/images/vocabulary/meteo/fog.svg", "emoji": "🌫️", "level": 2, "phrases": [{ "en": "There is fog today.", "fr": "Il y a du brouillard aujourd'hui." }] },
+    { "id": "lightning", "en": "lightning", "fr": "éclair", "image": "/images/vocabulary/meteo/lightning.svg", "emoji": "⚡", "level": 3, "phrases": [{ "en": "I see lightning.", "fr": "Je vois un éclair." }] },
+    { "id": "hot", "en": "hot", "fr": "chaud", "image": "/images/vocabulary/meteo/hot.svg", "emoji": "🥵", "level": 3, "phrases": [{ "en": "It is hot today.", "fr": "Il fait chaud aujourd'hui." }] },
+    { "id": "cold", "en": "cold", "fr": "froid", "image": "/images/vocabulary/meteo/cold.svg", "emoji": "🥶", "level": 3, "phrases": [{ "en": "It is cold today.", "fr": "Il fait froid aujourd'hui." }] },
+    { "id": "hail", "en": "hail", "fr": "grêle", "image": "/images/vocabulary/meteo/hail.svg", "emoji": "🧊", "level": 3, "phrases": [{ "en": "I hear hail.", "fr": "J'entends de la grêle." }] }
   ]
 }

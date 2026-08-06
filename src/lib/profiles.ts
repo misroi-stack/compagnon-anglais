@@ -1,11 +1,9 @@
 import { supabase } from "@/lib/supabase";
-import type { AgeGroup } from "@/types/content";
 import type { MascotId, Profile } from "@/types/profile";
 
 interface ProfileRow {
   id: string;
   name: string;
-  age: string;
   mascot: string;
   created_at: string;
 }
@@ -14,7 +12,6 @@ function fromRow(row: ProfileRow): Profile {
   return {
     id: row.id,
     name: row.name,
-    age: row.age as AgeGroup,
     mascot: row.mascot as MascotId,
     createdAt: row.created_at,
   };
@@ -41,14 +38,10 @@ export async function getProfile(profileId: string): Promise<Profile | null> {
   return data ? fromRow(data as ProfileRow) : null;
 }
 
-export async function createProfile(input: {
-  name: string;
-  age: AgeGroup;
-  mascot: MascotId;
-}): Promise<Profile> {
+export async function createProfile(input: { name: string; mascot: MascotId }): Promise<Profile> {
   const { data, error } = await supabase
     .from("profiles")
-    .insert({ name: input.name, age: input.age, mascot: input.mascot })
+    .insert({ name: input.name, mascot: input.mascot })
     .select()
     .single();
 

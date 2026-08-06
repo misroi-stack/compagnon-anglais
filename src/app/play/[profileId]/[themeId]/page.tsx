@@ -3,16 +3,20 @@
 import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { getTheme, wordsForAge } from "@/content";
-import { MODES } from "@/lib/modes";
+import { getTheme } from "@/content";
 import { getProfile } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
-import { getThemeModeStats, type ThemeModeStats } from "@/lib/theme-mode-stats";
+import { getLevelStats, type LevelStats } from "@/lib/level-progress";
 import type { Theme } from "@/types/content";
 import type { Profile } from "@/types/profile";
-import type { GameMode } from "@/types/progress";
 
-export default function ThemeHubPage({
+const LEVEL_LABELS: Record<number, string> = {
+  1: "Niveau 1",
+  2: "Niveau 2",
+  3: "Niveau 3",
+};
+
+export default function LevelPickerPage({
   params,
 }: {
   params: Promise<{ profileId: string; themeId: string }>;
@@ -22,7 +26,7 @@ export default function ThemeHubPage({
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [theme, setTheme] = useState<Theme | null>(null);
-  const [modeStats, setModeStats] = useState<ThemeModeStats[]>([]);
+  const [levelStats, setLevelStats] = useState<LevelStats[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,12 +40,12 @@ export default function ThemeHubPage({
         return;
       }
       const progressMap = await getProgressForProfile(profileId);
-      const stats = getThemeModeStats(t, p.age, progressMap);
+      const stats = getLevelStats(t, progressMap);
 
       if (!cancelled) {
         setProfile(p);
         setTheme(t);
-        setModeStats(stats);
+        setLevelStats(stats);
         setLoading(false);
       }
     }
@@ -60,67 +64,61 @@ export default function ThemeHubPage({
     );
   }
 
-  const wordCount = wordsForAge(theme, profile.age).length;
-  const allGradedComplete = modeStats.length > 0 && modeStats.every((s) => s.complete);
-  const nextSuggestedMode = MODES.find((m) => {
-    const stats = modeStats.find((s) => s.mode === m.id);
-    return stats ? !stats.complete : m.id === "flashcards";
-  })?.id;
-
   return (
     <main className="flex min-h-screen flex-col items-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
       <div className="flex flex-col items-center gap-1">
         <span className="text-6xl">{theme.icon}</span>
         <h1 className="text-2xl font-extrabold text-violet-700">{theme.name}</h1>
-        <p className="text-sm text-violet-400">{wordCount} mots à explorer</p>
+        <p className="text-sm text-violet-400">Choisis un niveau</p>
       </div>
 
-      {allGradedComplete && (
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700"
-        >
-          🎉 Les 4 jeux sont faits pour ce thème !
-        </motion.p>
-      )}
-
-      <section className="w-full max-w-md">
-        <p className="mb-3 text-center text-sm font-semibold text-violet-500">
-          Fais les 4 jeux pour bien apprendre ce thème
-        </p>
-        <div className="grid grid-cols-2 gap-4">
-          {MODES.map((mode) => {
-            const stats = modeStats.find((s) => s.mode === mode.id);
-            const isSuggested = mode.id === nextSuggestedMode;
-            return (
-              <motion.button
-                key={mode.id}
-                type="button"
-                onClick={() => router.push(`/play/${profileId}/${themeId}/${mode.id}`)}
-                whileTap={{ scale: 0.95 }}
-                whileHover={{ scale: 1.05 }}
-                className={`relative flex flex-col items-center gap-1 rounded-2xl px-4 py-5 shadow-md ${
-                  isSuggested ? "bg-violet-500 text-white" : "bg-white text-violet-600"
-                }`}
-              >
-                {stats?.complete && (
-                  <span className="absolute -top-2 -right-2 rounded-full bg-emerald-400 px-2 py-0.5 text-xs font-bold text-white">
-                    ✓
-                  </span>
+      <div className="flex w-full max-w-md flex-col gap-4">
+        {levelStats.map((stats) => {
+          const percent = stats.total ? Math.round((stats.touched / stats.total) * 100) : 0;
+          return (
+            <motion.button
+              key={stats.level}
+              type="button"
+              disabled={!stats.unlocked}
+              onClick={() => router.push(`/play/${profileId}/${themeId}/${stats.level}`)}
+              whileTap={stats.unlocked ? { scale: 0.97 } : undefined}
+              whileHover={stats.unlocked ? { scale: 1.02 } : undefined}
+              className={`flex items-center gap-4 rounded-2xl p-4 text-left shadow-md ${
+                stats.unlocked ? "bg-white" : "bg-white/50 opacity-60"
+              }`}
+            >
+              <span className="text-4xl">{stats.unlocked ? "🔓" : "🔒"}</span>
+              <div className="flex-1">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-violet-700">{LEVEL_LABELS[stats.level]}</span>
+                  {stats.complete && (
+                    <span className="rounded-full bg-emerald-400 px-2 py-0.5 text-xs font-bold text-white">
+                      ✓
+                    </span>
+                  )}
+                </div>
+                {stats.unlocked ? (
+                  <>
+                    <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-violet-100">
+                      <div
+                        style={{ width: `${percent}%` }}
+                        className="h-full rounded-full bg-emerald-400"
+                      />
+                    </div>
+                    <p className="mt-1 text-xs text-violet-400">
+                      {stats.touched}/{stats.total} mots vus • {stats.mastered}/{stats.total} maîtrisés
+                    </p>
+                  </>
+                ) : (
+                  <p className="mt-1 text-xs text-violet-400">
+                    Termine le niveau {stats.level - 1} pour débloquer
+                  </p>
                 )}
-                <span className="text-3xl">{mode.emoji}</span>
-                <span className="text-sm font-semibold">{mode.label}</span>
-                {stats && (
-                  <span className={`text-[10px] ${isSuggested ? "text-white/80" : "text-violet-400"}`}>
-                    {stats.done}/{stats.total} réussis
-                  </span>
-                )}
-              </motion.button>
-            );
-          })}
-        </div>
-      </section>
+              </div>
+            </motion.button>
+          );
+        })}
+      </div>
 
       <button
         type="button"

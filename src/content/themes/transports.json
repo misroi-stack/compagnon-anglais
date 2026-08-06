@@ -3,11 +3,18 @@
   "name": "Transports",
   "icon": "🚗",
   "words": [
-    { "id": "car", "en": "car", "fr": "voiture", "image": "/images/vocabulary/transports/car.svg", "emoji": "🚗", "ageGroups": ["6", "9"], "phrases": [{ "en": "We go by car.", "fr": "On y va en voiture." }] },
-    { "id": "bus", "en": "bus", "fr": "bus", "image": "/images/vocabulary/transports/bus.svg", "emoji": "🚌", "ageGroups": ["6", "9"], "phrases": [{ "en": "I take the bus.", "fr": "Je prends le bus." }] },
-    { "id": "bike", "en": "bike", "fr": "vélo", "image": "/images/vocabulary/transports/bike.svg", "emoji": "🚲", "ageGroups": ["6", "9"], "phrases": [{ "en": "I ride my bike.", "fr": "Je fais du vélo." }] },
-    { "id": "train", "en": "train", "fr": "train", "image": "/images/vocabulary/transports/train.svg", "emoji": "🚆", "ageGroups": ["6", "9"], "phrases": [{ "en": "The train is fast.", "fr": "Le train est rapide." }] },
-    { "id": "plane", "en": "plane", "fr": "avion", "image": "/images/vocabulary/transports/plane.svg", "emoji": "✈️", "ageGroups": ["6", "9"], "phrases": [{ "en": "The plane flies high.", "fr": "L'avion vole haut." }] },
-    { "id": "boat", "en": "boat", "fr": "bateau", "image": "/images/vocabulary/transports/boat.svg", "emoji": "⛵", "ageGroups": ["9"], "phrases": [{ "en": "The boat is on the water.", "fr": "Le bateau est sur l'eau." }] }
+    { "id": "car", "en": "car", "fr": "voiture", "image": "/images/vocabulary/transports/car.svg", "emoji": "🚗", "level": 1, "phrases": [{ "en": "We go by car.", "fr": "On y va en voiture." }] },
+    { "id": "bus", "en": "bus", "fr": "bus", "image": "/images/vocabulary/transports/bus.svg", "emoji": "🚌", "level": 1, "phrases": [{ "en": "I take the bus.", "fr": "Je prends le bus." }] },
+    { "id": "bike", "en": "bike", "fr": "vélo", "image": "/images/vocabulary/transports/bike.svg", "emoji": "🚲", "level": 1, "phrases": [{ "en": "I ride my bike.", "fr": "Je fais du vélo." }] },
+    { "id": "train", "en": "train", "fr": "train", "image": "/images/vocabulary/transports/train.svg", "emoji": "🚆", "level": 1, "phrases": [{ "en": "The train is fast.", "fr": "Le train est rapide." }] },
+    { "id": "plane", "en": "plane", "fr": "avion", "image": "/images/vocabulary/transports/plane.svg", "emoji": "✈️", "level": 1, "phrases": [{ "en": "The plane flies high.", "fr": "L'avion vole haut." }] },
+    { "id": "boat", "en": "boat", "fr": "bateau", "image": "/images/vocabulary/transports/boat.svg", "emoji": "⛵", "level": 2, "phrases": [{ "en": "The boat is on the water.", "fr": "Le bateau est sur l'eau." }] },
+    { "id": "motorcycle", "en": "motorcycle", "fr": "moto", "image": "/images/vocabulary/transports/motorcycle.svg", "emoji": "🏍️", "level": 2, "phrases": [{ "en": "He rides a motorcycle.", "fr": "Il conduit une moto." }] },
+    { "id": "truck", "en": "truck", "fr": "camion", "image": "/images/vocabulary/transports/truck.svg", "emoji": "🚚", "level": 2, "phrases": [{ "en": "The truck is big.", "fr": "Le camion est grand." }] },
+    { "id": "taxi", "en": "taxi", "fr": "taxi", "image": "/images/vocabulary/transports/taxi.svg", "emoji": "🚕", "level": 2, "phrases": [{ "en": "We take a taxi.", "fr": "On prend un taxi." }] },
+    { "id": "helicopter", "en": "helicopter", "fr": "hélicoptère", "image": "/images/vocabulary/transports/helicopter.svg", "emoji": "🚁", "level": 3, "phrases": [{ "en": "The helicopter flies.", "fr": "L'hélicoptère vole." }] },
+    { "id": "rocket", "en": "rocket", "fr": "fusée", "image": "/images/vocabulary/transports/rocket.svg", "emoji": "🚀", "level": 3, "phrases": [{ "en": "The rocket goes up.", "fr": "La fusée monte." }] },
+    { "id": "scooter", "en": "scooter", "fr": "trottinette", "image": "/images/vocabulary/transports/scooter.svg", "emoji": "🛴", "level": 3, "phrases": [{ "en": "I ride a scooter.", "fr": "Je fais de la trottinette." }] },
+    { "id": "subway", "en": "subway", "fr": "métro", "image": "/images/vocabulary/transports/subway.svg", "emoji": "🚇", "level": 3, "phrases": [{ "en": "We take the subway.", "fr": "On prend le métro." }] }
   ]
 }

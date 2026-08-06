@@ -1,6 +1,6 @@
 # Plan — Compagnon Anglais
 
-App pour aider deux enfants (6 ans et 9 ans) à apprendre l'anglais, construite sur des principes pédagogiques établis plutôt que sur une simple liste de features.
+App pour aider des enfants à apprendre l'anglais, construite sur des principes pédagogiques établis plutôt que sur une simple liste de features. La difficulté n'est plus liée à l'âge du profil : chaque thème a sa propre progression en 3 niveaux (voir "Niveaux par thème" ci-dessous), et tous les profils suivent le même parcours.
 
 ## Fondations pédagogiques
 
@@ -11,7 +11,8 @@ App pour aider deux enfants (6 ans et 9 ans) à apprendre l'anglais, construite 
   3. **Rappel** (Associe) — recall actif sans indice de traduction visible
   4. **Production** (Répète-et-vérifie) — l'enfant produit le mot à l'oral
   - Un mot n'est marqué **"maîtrisé"** qu'après réussite dans au moins 3 des 4 étapes, à des sessions différentes (pas un coup de chance ponctuel)
-- **Contenu ancré sur un référentiel reconnu** : vocabulaire et structures inspirés des listes **Cambridge English Qualifications for Young Learners** (Starters ≈ 6-8 ans, Movers ≈ 8-10 ans) plutôt qu'une liste de mots inventée — garantit un contenu réellement adapté à l'âge et utile.
+- **Contenu ancré sur un référentiel reconnu** : vocabulaire et structures inspirés des listes **Cambridge English Qualifications for Young Learners** (Starters/Movers) plutôt qu'une liste de mots inventée. Le niveau (1/2/3, voir ci-dessous) reflète la difficulté du vocabulaire lui-même, pas l'âge de l'enfant.
+- **Niveaux par thème, pas par âge** : chaque thème est découpé en 3 niveaux de vocabulaire (mots de base → plus avancés), avec déblocage progressif — niveau 2 s'ouvre une fois le niveau 1 pratiqué, niveau 3 une fois le niveau 2 pratiqué. Les niveaux déjà débloqués restent accessibles indéfiniment (on peut toujours revenir réviser un niveau précédent). Remplace l'ancienne logique de filtrage du contenu par âge du profil (6 ans / 9 ans) : plus simple, ça s'adapte au rythme réel de chaque enfant plutôt qu'à son âge déclaré.
 - **Mini-phrases, pas que des mots isolés** : chaque thème inclut quelques patrons de phrase répétés ("I like ___", "It is a ___", "She has a ___") pour connecter vocabulaire, pronoms et verbes simples en contexte, sans grammaire explicite.
 - **Feedback correctif** : en cas d'erreur, on montre/réentend la bonne réponse avant de continuer — jamais juste "faux, réessaie".
 - **Sessions courtes et mixtes** (5-10 min) : mélange de mots nouveaux et de mots à réviser dans une même session (pas bloc séparé), objectif affiché en début de session.
@@ -19,15 +20,13 @@ App pour aider deux enfants (6 ans et 9 ans) à apprendre l'anglais, construite 
 
 ## Utilisateurs
 
-- Écran de sélection de profil au démarrage (2 profils : nom, âge, mascotte)
-- Contenu, niveau de langue et complexité des phrases adaptés à l'âge du profil actif :
-  - **6 ans** : mots isolés, recognition surtout (étapes 1-2 prioritaires), phrases très courtes en soutien
-  - **9 ans** : mots + mini-phrases, production encouragée plus tôt (étapes 3-4 introduites plus vite)
+- Écran de sélection de profil au démarrage (nom + mascotte, pas d'âge — la progression se fait par niveau, pas par âge déclaré)
+- Chaque profil a sa propre progression indépendante par thème/niveau/mot
 
 ## Modes de jeu (les 4 étapes du parcours, jouables librement mais suivies individuellement)
 
 1. **Flashcards** — mot + image + traduction + écoute
-2. **Quiz** — QCM (image→mot, mot→traduction, écoute→choix), inclut quelques mini-phrases à trous pour le profil 9 ans
+2. **Quiz** — QCM (image→mot, mot→traduction, écoute→choix)
 3. **Associe** — relier chaque image à son mot anglais (deux colonnes visibles, on touche une image puis un mot), sans traduction affichée. Remplace l'idée initiale de jeu "Memory" (cartes cachées) : testé avec un vrai enfant, ça évaluait surtout la mémoire de position plutôt que le vocabulaire anglais.
 4. **Répète-et-vérifie** — l'enfant prononce le mot/la mini-phrase, reconnaissance vocale valide (V1 : API native navigateur)
 
@@ -73,7 +72,7 @@ Un exercice bien dessiné reste un exercice — ce qui fait un vrai jeu, c'est l
 
 ## Contenu visuel & stratégie graphique
 
-- **Contenu et présentation séparés** : chaque mot référence un identifiant d'image ; un "pack visuel" fait le lien vers les assets réels. Permet d'ajouter plus tard d'autres styles (par âge ou préférence d'enfant) sans toucher au contenu pédagogique (JSON).
+- **Contenu et présentation séparés** : chaque mot référence un identifiant d'image ; un "pack visuel" fait le lien vers les assets réels. Permet d'ajouter plus tard d'autres styles (par préférence d'enfant) sans toucher au contenu pédagogique (JSON).
 - **V1 : un seul pack, très coloré et invitant**, cohérent sur toute l'app (vocabulaire + UI)
 - **Images de vocabulaire (150-300)** : bibliothèque libre de droits, style flat/rond coloré adapté aux enfants — rapide et gratuit
 - **Mascottes (4)** : générées par toi, à déposer dans le projet une fois le code démarré (ex: `public/images/mascots/renard.png`, etc. — format PNG/SVG fond transparent, on précisera les dimensions exactes au moment de coder l'écran de sélection)

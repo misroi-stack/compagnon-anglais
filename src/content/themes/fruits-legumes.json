@@ -3,11 +3,18 @@
   "name": "Fruits & légumes",
   "icon": "🍎",
   "words": [
-    { "id": "apple", "en": "apple", "fr": "pomme", "image": "/images/vocabulary/fruits-legumes/apple.svg", "emoji": "🍎", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like apples.", "fr": "J'aime les pommes." }] },
-    { "id": "banana", "en": "banana", "fr": "banane", "image": "/images/vocabulary/fruits-legumes/banana.svg", "emoji": "🍌", "ageGroups": ["6", "9"], "phrases": [{ "en": "The monkey eats a banana.", "fr": "Le singe mange une banane." }] },
-    { "id": "carrot", "en": "carrot", "fr": "carotte", "image": "/images/vocabulary/fruits-legumes/carrot.svg", "emoji": "🥕", "ageGroups": ["6", "9"], "phrases": [{ "en": "The rabbit eats a carrot.", "fr": "Le lapin mange une carotte." }] },
-    { "id": "potato", "en": "potato", "fr": "pomme de terre", "image": "/images/vocabulary/fruits-legumes/potato.svg", "emoji": "🥔", "ageGroups": ["9"], "phrases": [{ "en": "I like potatoes.", "fr": "J'aime les pommes de terre." }] },
-    { "id": "tomato", "en": "tomato", "fr": "tomate", "image": "/images/vocabulary/fruits-legumes/tomato.svg", "emoji": "🍅", "ageGroups": ["6", "9"], "phrases": [{ "en": "The tomato is red.", "fr": "La tomate est rouge." }] },
-    { "id": "strawberry", "en": "strawberry", "fr": "fraise", "image": "/images/vocabulary/fruits-legumes/strawberry.svg", "emoji": "🍓", "ageGroups": ["6", "9"], "phrases": [{ "en": "She has a strawberry.", "fr": "Elle a une fraise." }] }
+    { "id": "apple", "en": "apple", "fr": "pomme", "image": "/images/vocabulary/fruits-legumes/apple.svg", "emoji": "🍎", "level": 1, "phrases": [{ "en": "I like apples.", "fr": "J'aime les pommes." }] },
+    { "id": "banana", "en": "banana", "fr": "banane", "image": "/images/vocabulary/fruits-legumes/banana.svg", "emoji": "🍌", "level": 1, "phrases": [{ "en": "The monkey eats a banana.", "fr": "Le singe mange une banane." }] },
+    { "id": "carrot", "en": "carrot", "fr": "carotte", "image": "/images/vocabulary/fruits-legumes/carrot.svg", "emoji": "🥕", "level": 1, "phrases": [{ "en": "The rabbit eats a carrot.", "fr": "Le lapin mange une carotte." }] },
+    { "id": "tomato", "en": "tomato", "fr": "tomate", "image": "/images/vocabulary/fruits-legumes/tomato.svg", "emoji": "🍅", "level": 1, "phrases": [{ "en": "The tomato is red.", "fr": "La tomate est rouge." }] },
+    { "id": "strawberry", "en": "strawberry", "fr": "fraise", "image": "/images/vocabulary/fruits-legumes/strawberry.svg", "emoji": "🍓", "level": 1, "phrases": [{ "en": "She has a strawberry.", "fr": "Elle a une fraise." }] },
+    { "id": "potato", "en": "potato", "fr": "pomme de terre", "image": "/images/vocabulary/fruits-legumes/potato.svg", "emoji": "🥔", "level": 2, "phrases": [{ "en": "I like potatoes.", "fr": "J'aime les pommes de terre." }] },
+    { "id": "orange", "en": "orange", "fr": "orange", "image": "/images/vocabulary/fruits-legumes/orange.svg", "emoji": "🍊", "level": 2, "phrases": [{ "en": "I eat an orange.", "fr": "Je mange une orange." }] },
+    { "id": "grapes", "en": "grapes", "fr": "raisin", "image": "/images/vocabulary/fruits-legumes/grapes.svg", "emoji": "🍇", "level": 2, "phrases": [{ "en": "I like grapes.", "fr": "J'aime le raisin." }] },
+    { "id": "corn", "en": "corn", "fr": "maïs", "image": "/images/vocabulary/fruits-legumes/corn.svg", "emoji": "🌽", "level": 2, "phrases": [{ "en": "I eat corn.", "fr": "Je mange du maïs." }] },
+    { "id": "watermelon", "en": "watermelon", "fr": "pastèque", "image": "/images/vocabulary/fruits-legumes/watermelon.svg", "emoji": "🍉", "level": 3, "phrases": [{ "en": "I like watermelon.", "fr": "J'aime la pastèque." }] },
+    { "id": "pineapple", "en": "pineapple", "fr": "ananas", "image": "/images/vocabulary/fruits-legumes/pineapple.svg", "emoji": "🍍", "level": 3, "phrases": [{ "en": "I like pineapple.", "fr": "J'aime l'ananas." }] },
+    { "id": "onion", "en": "onion", "fr": "oignon", "image": "/images/vocabulary/fruits-legumes/onion.svg", "emoji": "🧅", "level": 3, "phrases": [{ "en": "I cut an onion.", "fr": "Je coupe un oignon." }] },
+    { "id": "broccoli", "en": "broccoli", "fr": "brocoli", "image": "/images/vocabulary/fruits-legumes/broccoli.svg", "emoji": "🥦", "level": 3, "phrases": [{ "en": "I eat broccoli.", "fr": "Je mange du brocoli." }] }
   ]
 }

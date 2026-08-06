@@ -1,4 +1,4 @@
-import type { AgeGroup, Theme } from "@/types/content";
+import type { Level, Theme } from "@/types/content";
 import animaux from "./themes/animaux.json";
 import couleurs from "./themes/couleurs.json";
 import nombres from "./themes/nombres.json";
@@ -55,6 +55,10 @@ export function getTheme(themeId: string): Theme | undefined {
   return themes.find((theme) => theme.id === themeId);
 }
 
-export function wordsForAge(theme: Theme, age: AgeGroup) {
-  return theme.words.filter((word) => word.ageGroups.includes(age));
+export function wordsForLevel(theme: Theme, level: Level) {
+  return theme.words.filter((word) => word.level === level);
+}
+
+export function wordsUpToLevel(theme: Theme, level: Level) {
+  return theme.words.filter((word) => word.level <= level);
 }

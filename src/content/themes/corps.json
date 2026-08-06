@@ -3,11 +3,18 @@
   "name": "Corps humain",
   "icon": "🧍",
   "words": [
-    { "id": "eye", "en": "eye", "fr": "œil", "image": "/images/vocabulary/corps/eye.svg", "emoji": "👁️", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have blue eyes.", "fr": "J'ai les yeux bleus." }] },
-    { "id": "hand", "en": "hand", "fr": "main", "image": "/images/vocabulary/corps/hand.svg", "emoji": "✋", "ageGroups": ["6", "9"], "phrases": [{ "en": "Wash your hands.", "fr": "Lave-toi les mains." }] },
-    { "id": "foot", "en": "foot", "fr": "pied", "image": "/images/vocabulary/corps/foot.svg", "emoji": "🦶", "ageGroups": ["6", "9"], "phrases": [{ "en": "My foot hurts.", "fr": "Mon pied me fait mal." }] },
-    { "id": "nose", "en": "nose", "fr": "nez", "image": "/images/vocabulary/corps/nose.svg", "emoji": "👃", "ageGroups": ["6", "9"], "phrases": [{ "en": "Touch your nose.", "fr": "Touche ton nez." }] },
-    { "id": "ear", "en": "ear", "fr": "oreille", "image": "/images/vocabulary/corps/ear.svg", "emoji": "👂", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have two ears.", "fr": "J'ai deux oreilles." }] },
-    { "id": "mouth", "en": "mouth", "fr": "bouche", "image": "/images/vocabulary/corps/mouth.svg", "emoji": "👄", "ageGroups": ["9"], "phrases": [{ "en": "Open your mouth.", "fr": "Ouvre la bouche." }] }
+    { "id": "eye", "en": "eye", "fr": "œil", "image": "/images/vocabulary/corps/eye.svg", "emoji": "👁️", "level": 1, "phrases": [{ "en": "I have blue eyes.", "fr": "J'ai les yeux bleus." }] },
+    { "id": "hand", "en": "hand", "fr": "main", "image": "/images/vocabulary/corps/hand.svg", "emoji": "✋", "level": 1, "phrases": [{ "en": "Wash your hands.", "fr": "Lave-toi les mains." }] },
+    { "id": "foot", "en": "foot", "fr": "pied", "image": "/images/vocabulary/corps/foot.svg", "emoji": "🦶", "level": 1, "phrases": [{ "en": "My foot hurts.", "fr": "Mon pied me fait mal." }] },
+    { "id": "nose", "en": "nose", "fr": "nez", "image": "/images/vocabulary/corps/nose.svg", "emoji": "👃", "level": 1, "phrases": [{ "en": "Touch your nose.", "fr": "Touche ton nez." }] },
+    { "id": "ear", "en": "ear", "fr": "oreille", "image": "/images/vocabulary/corps/ear.svg", "emoji": "👂", "level": 1, "phrases": [{ "en": "I have two ears.", "fr": "J'ai deux oreilles." }] },
+    { "id": "mouth", "en": "mouth", "fr": "bouche", "image": "/images/vocabulary/corps/mouth.svg", "emoji": "👄", "level": 2, "phrases": [{ "en": "Open your mouth.", "fr": "Ouvre la bouche." }] },
+    { "id": "head", "en": "head", "fr": "tête", "image": "/images/vocabulary/corps/head.svg", "emoji": "🗣️", "level": 2, "phrases": [{ "en": "My head hurts.", "fr": "J'ai mal à la tête." }] },
+    { "id": "arm", "en": "arm", "fr": "bras", "image": "/images/vocabulary/corps/arm.svg", "emoji": "💪", "level": 2, "phrases": [{ "en": "I have strong arms.", "fr": "J'ai des bras forts." }] },
+    { "id": "leg", "en": "leg", "fr": "jambe", "image": "/images/vocabulary/corps/leg.svg", "emoji": "🦵", "level": 2, "phrases": [{ "en": "My leg is long.", "fr": "Ma jambe est longue." }] },
+    { "id": "hair", "en": "hair", "fr": "cheveux", "image": "/images/vocabulary/corps/hair.svg", "emoji": "💇", "level": 3, "phrases": [{ "en": "I have long hair.", "fr": "J'ai les cheveux longs." }] },
+    { "id": "tooth", "en": "tooth", "fr": "dent", "image": "/images/vocabulary/corps/tooth.svg", "emoji": "🦷", "level": 3, "phrases": [{ "en": "I brush my tooth.", "fr": "Je brosse ma dent." }] },
+    { "id": "finger", "en": "finger", "fr": "doigt", "image": "/images/vocabulary/corps/finger.svg", "emoji": "👆", "level": 3, "phrases": [{ "en": "I point my finger.", "fr": "Je pointe mon doigt." }] },
+    { "id": "shoulder", "en": "shoulder", "fr": "épaule", "image": "/images/vocabulary/corps/shoulder.svg", "emoji": "🤷", "level": 3, "phrases": [{ "en": "My shoulder hurts.", "fr": "Mon épaule me fait mal." }] }
   ]
 }

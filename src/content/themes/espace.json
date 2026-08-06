@@ -3,11 +3,17 @@
   "name": "Espace",
   "icon": "🚀",
   "words": [
-    { "id": "star", "en": "star", "fr": "étoile", "image": "/images/vocabulary/espace/star.svg", "emoji": "🌟", "ageGroups": ["6", "9"], "phrases": [{ "en": "I see a star.", "fr": "Je vois une étoile." }] },
-    { "id": "moon", "en": "moon", "fr": "lune", "image": "/images/vocabulary/espace/moon.svg", "emoji": "🌙", "ageGroups": ["6", "9"], "phrases": [{ "en": "I see the moon.", "fr": "Je vois la lune." }] },
-    { "id": "rocket", "en": "rocket", "fr": "fusée", "image": "/images/vocabulary/espace/rocket.svg", "emoji": "🚀", "ageGroups": ["6", "9"], "phrases": [{ "en": "The rocket goes up.", "fr": "La fusée monte." }] },
-    { "id": "astronaut", "en": "astronaut", "fr": "astronaute", "image": "/images/vocabulary/espace/astronaut.svg", "emoji": "🧑‍🚀", "ageGroups": ["9"], "phrases": [{ "en": "The astronaut flies far.", "fr": "L'astronaute vole loin." }] },
-    { "id": "planet", "en": "planet", "fr": "planète", "image": "/images/vocabulary/espace/planet.svg", "emoji": "🪐", "ageGroups": ["9"], "phrases": [{ "en": "Earth is a planet.", "fr": "La Terre est une planète." }] },
-    { "id": "sun", "en": "sun", "fr": "soleil", "image": "/images/vocabulary/espace/sun.svg", "emoji": "☀️", "ageGroups": ["6", "9"], "phrases": [{ "en": "The sun is a star.", "fr": "Le soleil est une étoile." }] }
+    { "id": "star", "en": "star", "fr": "étoile", "image": "/images/vocabulary/espace/star.svg", "emoji": "🌟", "level": 1, "phrases": [{ "en": "I see a star.", "fr": "Je vois une étoile." }] },
+    { "id": "moon", "en": "moon", "fr": "lune", "image": "/images/vocabulary/espace/moon.svg", "emoji": "🌙", "level": 1, "phrases": [{ "en": "I see the moon.", "fr": "Je vois la lune." }] },
+    { "id": "sun", "en": "sun", "fr": "soleil", "image": "/images/vocabulary/espace/sun.svg", "emoji": "☀️", "level": 1, "phrases": [{ "en": "The sun is a star.", "fr": "Le soleil est une étoile." }] },
+    { "id": "rocket", "en": "rocket", "fr": "fusée", "image": "/images/vocabulary/espace/rocket.svg", "emoji": "🚀", "level": 1, "phrases": [{ "en": "The rocket goes up.", "fr": "La fusée monte." }] },
+    { "id": "planet", "en": "planet", "fr": "planète", "image": "/images/vocabulary/espace/planet.svg", "emoji": "🪐", "level": 2, "phrases": [{ "en": "Earth is a planet.", "fr": "La Terre est une planète." }] },
+    { "id": "astronaut", "en": "astronaut", "fr": "astronaute", "image": "/images/vocabulary/espace/astronaut.svg", "emoji": "🧑‍🚀", "level": 2, "phrases": [{ "en": "The astronaut flies far.", "fr": "L'astronaute vole loin." }] },
+    { "id": "earth", "en": "Earth", "fr": "Terre", "image": "/images/vocabulary/espace/earth.svg", "emoji": "🌍", "level": 2, "phrases": [{ "en": "We live on Earth.", "fr": "On vit sur Terre." }] },
+    { "id": "spaceship", "en": "spaceship", "fr": "vaisseau spatial", "image": "/images/vocabulary/espace/spaceship.svg", "emoji": "🛸", "level": 2, "phrases": [{ "en": "The spaceship flies fast.", "fr": "Le vaisseau spatial vole vite." }] },
+    { "id": "galaxy", "en": "galaxy", "fr": "galaxie", "image": "/images/vocabulary/espace/galaxy.svg", "emoji": "🌌", "level": 3, "phrases": [{ "en": "The galaxy is huge.", "fr": "La galaxie est immense." }] },
+    { "id": "comet", "en": "comet", "fr": "comète", "image": "/images/vocabulary/espace/comet.svg", "emoji": "☄️", "level": 3, "phrases": [{ "en": "I see a comet.", "fr": "Je vois une comète." }] },
+    { "id": "alien", "en": "alien", "fr": "extraterrestre", "image": "/images/vocabulary/espace/alien.svg", "emoji": "👽", "level": 3, "phrases": [{ "en": "The alien is green.", "fr": "L'extraterrestre est vert." }] },
+    { "id": "telescope", "en": "telescope", "fr": "télescope", "image": "/images/vocabulary/espace/telescope.svg", "emoji": "🔭", "level": 3, "phrases": [{ "en": "I look through the telescope.", "fr": "Je regarde à travers le télescope." }] }
   ]
 }

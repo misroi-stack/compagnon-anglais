@@ -3,11 +3,17 @@
   "name": "Formes",
   "icon": "🔺",
   "words": [
-    { "id": "circle", "en": "circle", "fr": "cercle", "image": "/images/vocabulary/formes/circle.svg", "emoji": "⭕", "ageGroups": ["6", "9"], "phrases": [{ "en": "The ball is a circle.", "fr": "Le ballon est un cercle." }] },
-    { "id": "square", "en": "square", "fr": "carré", "image": "/images/vocabulary/formes/square.svg", "emoji": "⬛", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is a square.", "fr": "C'est un carré." }] },
-    { "id": "triangle", "en": "triangle", "fr": "triangle", "image": "/images/vocabulary/formes/triangle.svg", "emoji": "🔺", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is a triangle.", "fr": "C'est un triangle." }] },
-    { "id": "star", "en": "star", "fr": "étoile", "image": "/images/vocabulary/formes/star.svg", "emoji": "⭐", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is a star.", "fr": "C'est une étoile." }] },
-    { "id": "heart", "en": "heart", "fr": "cœur", "image": "/images/vocabulary/formes/heart.svg", "emoji": "❤️", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is a heart.", "fr": "C'est un cœur." }] },
-    { "id": "diamond", "en": "diamond", "fr": "losange", "image": "/images/vocabulary/formes/diamond.svg", "emoji": "🔷", "ageGroups": ["9"], "phrases": [{ "en": "It is a diamond.", "fr": "C'est un losange." }] }
+    { "id": "circle", "en": "circle", "fr": "cercle", "image": "/images/vocabulary/formes/circle.svg", "emoji": "⭕", "level": 1, "phrases": [{ "en": "The ball is a circle.", "fr": "Le ballon est un cercle." }] },
+    { "id": "square", "en": "square", "fr": "carré", "image": "/images/vocabulary/formes/square.svg", "emoji": "⬛", "level": 1, "phrases": [{ "en": "It is a square.", "fr": "C'est un carré." }] },
+    { "id": "triangle", "en": "triangle", "fr": "triangle", "image": "/images/vocabulary/formes/triangle.svg", "emoji": "🔺", "level": 1, "phrases": [{ "en": "It is a triangle.", "fr": "C'est un triangle." }] },
+    { "id": "heart", "en": "heart", "fr": "cœur", "image": "/images/vocabulary/formes/heart.svg", "emoji": "❤️", "level": 1, "phrases": [{ "en": "It is a heart.", "fr": "C'est un cœur." }] },
+    { "id": "star", "en": "star", "fr": "étoile", "image": "/images/vocabulary/formes/star.svg", "emoji": "⭐", "level": 2, "phrases": [{ "en": "It is a star.", "fr": "C'est une étoile." }] },
+    { "id": "diamond", "en": "diamond", "fr": "losange", "image": "/images/vocabulary/formes/diamond.svg", "emoji": "🔷", "level": 2, "phrases": [{ "en": "It is a diamond.", "fr": "C'est un losange." }] },
+    { "id": "oval", "en": "oval", "fr": "ovale", "image": "/images/vocabulary/formes/oval.svg", "emoji": "🥚", "level": 2, "phrases": [{ "en": "The egg is an oval.", "fr": "L'œuf est un ovale." }] },
+    { "id": "rectangle", "en": "rectangle", "fr": "rectangle", "image": "/images/vocabulary/formes/rectangle.svg", "emoji": "📱", "level": 2, "phrases": [{ "en": "The phone is a rectangle.", "fr": "Le téléphone est un rectangle." }] },
+    { "id": "pentagon", "en": "pentagon", "fr": "pentagone", "image": "/images/vocabulary/formes/pentagon.svg", "emoji": "⬠", "level": 3, "phrases": [{ "en": "It is a pentagon.", "fr": "C'est un pentagone." }] },
+    { "id": "hexagon", "en": "hexagon", "fr": "hexagone", "image": "/images/vocabulary/formes/hexagon.svg", "emoji": "⬡", "level": 3, "phrases": [{ "en": "The bee makes a hexagon.", "fr": "L'abeille fait un hexagone." }] },
+    { "id": "cross", "en": "cross", "fr": "croix", "image": "/images/vocabulary/formes/cross.svg", "emoji": "➕", "level": 3, "phrases": [{ "en": "It is a cross.", "fr": "C'est une croix." }] },
+    { "id": "arrow", "en": "arrow", "fr": "flèche", "image": "/images/vocabulary/formes/arrow.svg", "emoji": "➡️", "level": 3, "phrases": [{ "en": "It is an arrow.", "fr": "C'est une flèche." }] }
   ]
 }

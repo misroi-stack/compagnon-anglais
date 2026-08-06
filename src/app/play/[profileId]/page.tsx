@@ -28,7 +28,7 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
         return;
       }
       const progressMap = await getProgressForProfile(profileId);
-      const stats = getThemeStats(themes, p.age, progressMap);
+      const stats = getThemeStats(themes, progressMap);
 
       if (!cancelled) {
         setProfile(p);

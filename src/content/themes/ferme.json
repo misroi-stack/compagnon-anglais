@@ -3,11 +3,17 @@
   "name": "Ferme",
   "icon": "🚜",
   "words": [
-    { "id": "cow", "en": "cow", "fr": "vache", "image": "/images/vocabulary/ferme/cow.svg", "emoji": "🐄", "ageGroups": ["6", "9"], "phrases": [{ "en": "The cow says moo.", "fr": "La vache fait meuh." }] },
-    { "id": "pig", "en": "pig", "fr": "cochon", "image": "/images/vocabulary/ferme/pig.svg", "emoji": "🐷", "ageGroups": ["6", "9"], "phrases": [{ "en": "The pig is pink.", "fr": "Le cochon est rose." }] },
-    { "id": "sheep", "en": "sheep", "fr": "mouton", "image": "/images/vocabulary/ferme/sheep.svg", "emoji": "🐑", "ageGroups": ["6", "9"], "phrases": [{ "en": "I see a sheep.", "fr": "Je vois un mouton." }] },
-    { "id": "chicken", "en": "chicken", "fr": "poule", "image": "/images/vocabulary/ferme/chicken.svg", "emoji": "🐔", "ageGroups": ["6", "9"], "phrases": [{ "en": "The chicken lays eggs.", "fr": "La poule pond des œufs." }] },
-    { "id": "duck", "en": "duck", "fr": "canard", "image": "/images/vocabulary/ferme/duck.svg", "emoji": "🦆", "ageGroups": ["6", "9"], "phrases": [{ "en": "The duck swims.", "fr": "Le canard nage." }] },
-    { "id": "tractor", "en": "tractor", "fr": "tracteur", "image": "/images/vocabulary/ferme/tractor.svg", "emoji": "🚜", "ageGroups": ["9"], "phrases": [{ "en": "The farmer drives a tractor.", "fr": "Le fermier conduit un tracteur." }] }
+    { "id": "cow", "en": "cow", "fr": "vache", "image": "/images/vocabulary/ferme/cow.svg", "emoji": "🐄", "level": 1, "phrases": [{ "en": "The cow says moo.", "fr": "La vache fait meuh." }] },
+    { "id": "pig", "en": "pig", "fr": "cochon", "image": "/images/vocabulary/ferme/pig.svg", "emoji": "🐷", "level": 1, "phrases": [{ "en": "The pig is pink.", "fr": "Le cochon est rose." }] },
+    { "id": "sheep", "en": "sheep", "fr": "mouton", "image": "/images/vocabulary/ferme/sheep.svg", "emoji": "🐑", "level": 1, "phrases": [{ "en": "I see a sheep.", "fr": "Je vois un mouton." }] },
+    { "id": "chicken", "en": "chicken", "fr": "poule", "image": "/images/vocabulary/ferme/chicken.svg", "emoji": "🐔", "level": 1, "phrases": [{ "en": "The chicken lays eggs.", "fr": "La poule pond des œufs." }] },
+    { "id": "duck", "en": "duck", "fr": "canard", "image": "/images/vocabulary/ferme/duck.svg", "emoji": "🦆", "level": 2, "phrases": [{ "en": "The duck swims.", "fr": "Le canard nage." }] },
+    { "id": "tractor", "en": "tractor", "fr": "tracteur", "image": "/images/vocabulary/ferme/tractor.svg", "emoji": "🚜", "level": 2, "phrases": [{ "en": "The farmer drives a tractor.", "fr": "Le fermier conduit un tracteur." }] },
+    { "id": "goat", "en": "goat", "fr": "chèvre", "image": "/images/vocabulary/ferme/goat.svg", "emoji": "🐐", "level": 2, "phrases": [{ "en": "The goat eats grass.", "fr": "La chèvre mange de l'herbe." }] },
+    { "id": "horse", "en": "horse", "fr": "cheval", "image": "/images/vocabulary/ferme/horse.svg", "emoji": "🐴", "level": 2, "phrases": [{ "en": "The horse runs fast.", "fr": "Le cheval court vite." }] },
+    { "id": "barn", "en": "barn", "fr": "grange", "image": "/images/vocabulary/ferme/barn.svg", "emoji": "🏚️", "level": 3, "phrases": [{ "en": "The animals sleep in the barn.", "fr": "Les animaux dorment dans la grange." }] },
+    { "id": "rooster", "en": "rooster", "fr": "coq", "image": "/images/vocabulary/ferme/rooster.svg", "emoji": "🐓", "level": 3, "phrases": [{ "en": "The rooster wakes us up.", "fr": "Le coq nous réveille." }] },
+    { "id": "haystack", "en": "haystack", "fr": "botte de foin", "image": "/images/vocabulary/ferme/haystack.svg", "emoji": "🌾", "level": 3, "phrases": [{ "en": "I jump in the haystack.", "fr": "Je saute dans la botte de foin." }] },
+    { "id": "field", "en": "field", "fr": "champ", "image": "/images/vocabulary/ferme/field.svg", "emoji": "🌻", "level": 3, "phrases": [{ "en": "The field is big.", "fr": "Le champ est grand." }] }
   ]
 }

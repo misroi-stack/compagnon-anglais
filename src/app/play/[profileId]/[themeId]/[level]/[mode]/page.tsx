@@ -2,13 +2,13 @@
 
 import { use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { getTheme, wordsForAge } from "@/content";
+import { getTheme, wordsForLevel } from "@/content";
 import { Flashcards } from "@/components/games/Flashcards";
 import { Quiz } from "@/components/games/Quiz";
 import { Associe } from "@/components/games/Associe";
 import { RepeatCheck } from "@/components/games/RepeatCheck";
 import { getProfile } from "@/lib/profiles";
-import type { Theme, Word } from "@/types/content";
+import type { Level, Theme, Word } from "@/types/content";
 import type { Profile } from "@/types/profile";
 import type { GameMode } from "@/types/progress";
 
@@ -17,12 +17,14 @@ const VALID_MODES: GameMode[] = ["flashcards", "quiz", "associe", "repete"];
 interface RouteParams {
   profileId: string;
   themeId: string;
+  level: string;
   mode: string;
 }
 
 export default function GamePage({ params }: { params: Promise<RouteParams> }) {
-  const { profileId, themeId, mode } = use(params);
+  const { profileId, themeId, level: levelParam, mode } = use(params);
   const router = useRouter();
+  const level = Number(levelParam) as Level;
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [theme, setTheme] = useState<Theme | null>(null);
@@ -30,10 +32,11 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
   const [loading, setLoading] = useState(true);
 
   const isValidMode = VALID_MODES.includes(mode as GameMode);
+  const isValidLevel = [1, 2, 3].includes(level);
 
   useEffect(() => {
-    if (!isValidMode) {
-      router.replace(`/play/${profileId}`);
+    if (!isValidMode || !isValidLevel) {
+      router.replace(`/play/${profileId}/${themeId}`);
       return;
     }
 
@@ -49,7 +52,7 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
       if (!cancelled) {
         setProfile(p);
         setTheme(t);
-        setWords(wordsForAge(t, p.age));
+        setWords(wordsForLevel(t, level));
         setLoading(false);
       }
     }
@@ -58,10 +61,10 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
     return () => {
       cancelled = true;
     };
-  }, [profileId, themeId, isValidMode, router]);
+  }, [profileId, themeId, level, isValidMode, isValidLevel, router]);
 
-  function exitToThemeHub() {
-    router.push(`/play/${profileId}/${themeId}`);
+  function exitToModeHub() {
+    router.push(`/play/${profileId}/${themeId}/${level}`);
   }
 
   if (loading || !profile || !theme) {
@@ -74,23 +77,14 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
 
   switch (mode as GameMode) {
     case "flashcards":
-      return <Flashcards theme={theme} words={words} onExit={exitToThemeHub} />;
+      return <Flashcards theme={theme} words={words} onExit={exitToModeHub} />;
     case "quiz":
-      return (
-        <Quiz profileId={profileId} theme={theme} words={words} onExit={exitToThemeHub} />
-      );
+      return <Quiz profileId={profileId} theme={theme} words={words} onExit={exitToModeHub} />;
     case "associe":
-      return (
-        <Associe profileId={profileId} theme={theme} words={words} onExit={exitToThemeHub} />
-      );
+      return <Associe profileId={profileId} theme={theme} words={words} onExit={exitToModeHub} />;
     case "repete":
       return (
-        <RepeatCheck
-          profileId={profileId}
-          theme={theme}
-          words={words}
-          onExit={exitToThemeHub}
-        />
+        <RepeatCheck profileId={profileId} theme={theme} words={words} onExit={exitToModeHub} />
       );
     default:
       return (
@@ -98,7 +92,7 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
           <p className="text-violet-500">Ce mode arrive très bientôt 🚧</p>
           <button
             type="button"
-            onClick={exitToThemeHub}
+            onClick={exitToModeHub}
             className="rounded-full bg-violet-600 px-6 py-3 font-bold text-white shadow"
           >
             Retour

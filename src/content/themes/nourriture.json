@@ -3,12 +3,18 @@
   "name": "Nourriture",
   "icon": "🍽️",
   "words": [
-    { "id": "bread", "en": "bread", "fr": "pain", "image": "/images/vocabulary/nourriture/bread.svg", "emoji": "🍞", "ageGroups": ["6", "9"], "phrases": [{ "en": "I eat bread.", "fr": "Je mange du pain." }] },
-    { "id": "milk", "en": "milk", "fr": "lait", "image": "/images/vocabulary/nourriture/milk.svg", "emoji": "🥛", "ageGroups": ["6", "9"], "phrases": [{ "en": "I drink milk.", "fr": "Je bois du lait." }] },
-    { "id": "cheese", "en": "cheese", "fr": "fromage", "image": "/images/vocabulary/nourriture/cheese.svg", "emoji": "🧀", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like cheese.", "fr": "J'aime le fromage." }] },
-    { "id": "egg", "en": "egg", "fr": "œuf", "image": "/images/vocabulary/nourriture/egg.svg", "emoji": "🥚", "ageGroups": ["6", "9"], "phrases": [{ "en": "I eat an egg.", "fr": "Je mange un œuf." }] },
-    { "id": "cake", "en": "cake", "fr": "gâteau", "image": "/images/vocabulary/nourriture/cake.svg", "emoji": "🍰", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like cake.", "fr": "J'aime le gâteau." }] },
-    { "id": "water", "en": "water", "fr": "eau", "image": "/images/vocabulary/nourriture/water.svg", "emoji": "💧", "ageGroups": ["6", "9"], "phrases": [{ "en": "I drink water.", "fr": "Je bois de l'eau." }] },
-    { "id": "soup", "en": "soup", "fr": "soupe", "image": "/images/vocabulary/nourriture/soup.svg", "emoji": "🍲", "ageGroups": ["9"], "phrases": [{ "en": "I eat soup.", "fr": "Je mange de la soupe." }] }
+    { "id": "bread", "en": "bread", "fr": "pain", "image": "/images/vocabulary/nourriture/bread.svg", "emoji": "🍞", "level": 1, "phrases": [{ "en": "I eat bread.", "fr": "Je mange du pain." }] },
+    { "id": "milk", "en": "milk", "fr": "lait", "image": "/images/vocabulary/nourriture/milk.svg", "emoji": "🥛", "level": 1, "phrases": [{ "en": "I drink milk.", "fr": "Je bois du lait." }] },
+    { "id": "cheese", "en": "cheese", "fr": "fromage", "image": "/images/vocabulary/nourriture/cheese.svg", "emoji": "🧀", "level": 1, "phrases": [{ "en": "I like cheese.", "fr": "J'aime le fromage." }] },
+    { "id": "egg", "en": "egg", "fr": "œuf", "image": "/images/vocabulary/nourriture/egg.svg", "emoji": "🥚", "level": 1, "phrases": [{ "en": "I eat an egg.", "fr": "Je mange un œuf." }] },
+    { "id": "water", "en": "water", "fr": "eau", "image": "/images/vocabulary/nourriture/water.svg", "emoji": "💧", "level": 1, "phrases": [{ "en": "I drink water.", "fr": "Je bois de l'eau." }] },
+    { "id": "cake", "en": "cake", "fr": "gâteau", "image": "/images/vocabulary/nourriture/cake.svg", "emoji": "🍰", "level": 2, "phrases": [{ "en": "I like cake.", "fr": "J'aime le gâteau." }] },
+    { "id": "soup", "en": "soup", "fr": "soupe", "image": "/images/vocabulary/nourriture/soup.svg", "emoji": "🍲", "level": 2, "phrases": [{ "en": "I eat soup.", "fr": "Je mange de la soupe." }] },
+    { "id": "rice", "en": "rice", "fr": "riz", "image": "/images/vocabulary/nourriture/rice.svg", "emoji": "🍚", "level": 2, "phrases": [{ "en": "I eat rice.", "fr": "Je mange du riz." }] },
+    { "id": "pasta", "en": "pasta", "fr": "pâtes", "image": "/images/vocabulary/nourriture/pasta.svg", "emoji": "🍝", "level": 2, "phrases": [{ "en": "I like pasta.", "fr": "J'aime les pâtes." }] },
+    { "id": "juice", "en": "juice", "fr": "jus", "image": "/images/vocabulary/nourriture/juice.svg", "emoji": "🧃", "level": 3, "phrases": [{ "en": "I drink juice.", "fr": "Je bois du jus." }] },
+    { "id": "honey", "en": "honey", "fr": "miel", "image": "/images/vocabulary/nourriture/honey.svg", "emoji": "🍯", "level": 3, "phrases": [{ "en": "I like honey.", "fr": "J'aime le miel." }] },
+    { "id": "sandwich", "en": "sandwich", "fr": "sandwich", "image": "/images/vocabulary/nourriture/sandwich.svg", "emoji": "🥪", "level": 3, "phrases": [{ "en": "I eat a sandwich.", "fr": "Je mange un sandwich." }] },
+    { "id": "salad", "en": "salad", "fr": "salade", "image": "/images/vocabulary/nourriture/salad.svg", "emoji": "🥗", "level": 3, "phrases": [{ "en": "I eat a salad.", "fr": "Je mange une salade." }] }
   ]
 }

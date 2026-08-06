@@ -3,12 +3,18 @@
   "name": "Famille",
   "icon": "👨‍👩‍👧",
   "words": [
-    { "id": "mother", "en": "mother", "fr": "maman", "image": "/images/vocabulary/famille/mother.svg", "emoji": "👩", "ageGroups": ["6", "9"], "phrases": [{ "en": "I love my mother.", "fr": "J'aime ma maman." }] },
-    { "id": "father", "en": "father", "fr": "papa", "image": "/images/vocabulary/famille/father.svg", "emoji": "👨", "ageGroups": ["6", "9"], "phrases": [{ "en": "My father is tall.", "fr": "Mon papa est grand." }] },
-    { "id": "sister", "en": "sister", "fr": "sœur", "image": "/images/vocabulary/famille/sister.svg", "emoji": "👧", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have a sister.", "fr": "J'ai une sœur." }] },
-    { "id": "brother", "en": "brother", "fr": "frère", "image": "/images/vocabulary/famille/brother.svg", "emoji": "👦", "ageGroups": ["6", "9"], "phrases": [{ "en": "He is my brother.", "fr": "C'est mon frère." }] },
-    { "id": "baby", "en": "baby", "fr": "bébé", "image": "/images/vocabulary/famille/baby.svg", "emoji": "👶", "ageGroups": ["6", "9"], "phrases": [{ "en": "The baby is sleeping.", "fr": "Le bébé dort." }] },
-    { "id": "grandmother", "en": "grandmother", "fr": "grand-mère", "image": "/images/vocabulary/famille/grandmother.svg", "emoji": "👵", "ageGroups": ["9"], "phrases": [{ "en": "My grandmother is kind.", "fr": "Ma grand-mère est gentille." }] },
-    { "id": "grandfather", "en": "grandfather", "fr": "grand-père", "image": "/images/vocabulary/famille/grandfather.svg", "emoji": "👴", "ageGroups": ["9"], "phrases": [{ "en": "My grandfather tells stories.", "fr": "Mon grand-père raconte des histoires." }] }
+    { "id": "mother", "en": "mother", "fr": "maman", "image": "/images/vocabulary/famille/mother.svg", "emoji": "👩", "level": 1, "phrases": [{ "en": "I love my mother.", "fr": "J'aime ma maman." }] },
+    { "id": "father", "en": "father", "fr": "papa", "image": "/images/vocabulary/famille/father.svg", "emoji": "👨", "level": 1, "phrases": [{ "en": "My father is tall.", "fr": "Mon papa est grand." }] },
+    { "id": "sister", "en": "sister", "fr": "sœur", "image": "/images/vocabulary/famille/sister.svg", "emoji": "👧", "level": 1, "phrases": [{ "en": "I have a sister.", "fr": "J'ai une sœur." }] },
+    { "id": "brother", "en": "brother", "fr": "frère", "image": "/images/vocabulary/famille/brother.svg", "emoji": "👦", "level": 1, "phrases": [{ "en": "He is my brother.", "fr": "C'est mon frère." }] },
+    { "id": "baby", "en": "baby", "fr": "bébé", "image": "/images/vocabulary/famille/baby.svg", "emoji": "👶", "level": 1, "phrases": [{ "en": "The baby is sleeping.", "fr": "Le bébé dort." }] },
+    { "id": "grandmother", "en": "grandmother", "fr": "grand-mère", "image": "/images/vocabulary/famille/grandmother.svg", "emoji": "👵", "level": 2, "phrases": [{ "en": "My grandmother is kind.", "fr": "Ma grand-mère est gentille." }] },
+    { "id": "grandfather", "en": "grandfather", "fr": "grand-père", "image": "/images/vocabulary/famille/grandfather.svg", "emoji": "👴", "level": 2, "phrases": [{ "en": "My grandfather tells stories.", "fr": "Mon grand-père raconte des histoires." }] },
+    { "id": "aunt", "en": "aunt", "fr": "tante", "image": "/images/vocabulary/famille/aunt.svg", "emoji": "👩‍🦱", "level": 2, "phrases": [{ "en": "My aunt visits us.", "fr": "Ma tante nous rend visite." }] },
+    { "id": "uncle", "en": "uncle", "fr": "oncle", "image": "/images/vocabulary/famille/uncle.svg", "emoji": "🧔", "level": 2, "phrases": [{ "en": "My uncle is funny.", "fr": "Mon oncle est drôle." }] },
+    { "id": "cousin", "en": "cousin", "fr": "cousin", "image": "/images/vocabulary/famille/cousin.svg", "emoji": "🧑", "level": 3, "phrases": [{ "en": "I play with my cousin.", "fr": "Je joue avec mon cousin." }] },
+    { "id": "husband", "en": "husband", "fr": "mari", "image": "/images/vocabulary/famille/husband.svg", "emoji": "🤵", "level": 3, "phrases": [{ "en": "He is her husband.", "fr": "Il est son mari." }] },
+    { "id": "wife", "en": "wife", "fr": "femme", "image": "/images/vocabulary/famille/wife.svg", "emoji": "👰", "level": 3, "phrases": [{ "en": "She is his wife.", "fr": "Elle est sa femme." }] },
+    { "id": "friend", "en": "friend", "fr": "ami", "image": "/images/vocabulary/famille/friend.svg", "emoji": "🧑‍🤝‍🧑", "level": 3, "phrases": [{ "en": "She is my friend.", "fr": "Elle est mon amie." }] }
   ]
 }

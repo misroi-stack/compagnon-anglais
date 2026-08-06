@@ -3,11 +3,18 @@
   "name": "Vêtements",
   "icon": "👕",
   "words": [
-    { "id": "shirt", "en": "shirt", "fr": "chemise", "image": "/images/vocabulary/vetements/shirt.svg", "emoji": "👕", "ageGroups": ["6", "9"], "phrases": [{ "en": "I wear a shirt.", "fr": "Je porte une chemise." }] },
-    { "id": "pants", "en": "pants", "fr": "pantalon", "image": "/images/vocabulary/vetements/pants.svg", "emoji": "👖", "ageGroups": ["6", "9"], "phrases": [{ "en": "I wear pants.", "fr": "Je porte un pantalon." }] },
-    { "id": "shoes", "en": "shoes", "fr": "chaussures", "image": "/images/vocabulary/vetements/shoes.svg", "emoji": "👟", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have new shoes.", "fr": "J'ai de nouvelles chaussures." }] },
-    { "id": "hat", "en": "hat", "fr": "chapeau", "image": "/images/vocabulary/vetements/hat.svg", "emoji": "🎩", "ageGroups": ["6", "9"], "phrases": [{ "en": "I wear a hat.", "fr": "Je porte un chapeau." }] },
-    { "id": "socks", "en": "socks", "fr": "chaussettes", "image": "/images/vocabulary/vetements/socks.svg", "emoji": "🧦", "ageGroups": ["6", "9"], "phrases": [{ "en": "I wear socks.", "fr": "Je porte des chaussettes." }] },
-    { "id": "dress", "en": "dress", "fr": "robe", "image": "/images/vocabulary/vetements/dress.svg", "emoji": "👗", "ageGroups": ["9"], "phrases": [{ "en": "She wears a dress.", "fr": "Elle porte une robe." }] }
+    { "id": "shirt", "en": "shirt", "fr": "chemise", "image": "/images/vocabulary/vetements/shirt.svg", "emoji": "👕", "level": 1, "phrases": [{ "en": "I wear a shirt.", "fr": "Je porte une chemise." }] },
+    { "id": "pants", "en": "pants", "fr": "pantalon", "image": "/images/vocabulary/vetements/pants.svg", "emoji": "👖", "level": 1, "phrases": [{ "en": "I wear pants.", "fr": "Je porte un pantalon." }] },
+    { "id": "shoes", "en": "shoes", "fr": "chaussures", "image": "/images/vocabulary/vetements/shoes.svg", "emoji": "👟", "level": 1, "phrases": [{ "en": "I have new shoes.", "fr": "J'ai de nouvelles chaussures." }] },
+    { "id": "hat", "en": "hat", "fr": "chapeau", "image": "/images/vocabulary/vetements/hat.svg", "emoji": "🎩", "level": 1, "phrases": [{ "en": "I wear a hat.", "fr": "Je porte un chapeau." }] },
+    { "id": "socks", "en": "socks", "fr": "chaussettes", "image": "/images/vocabulary/vetements/socks.svg", "emoji": "🧦", "level": 1, "phrases": [{ "en": "I wear socks.", "fr": "Je porte des chaussettes." }] },
+    { "id": "dress", "en": "dress", "fr": "robe", "image": "/images/vocabulary/vetements/dress.svg", "emoji": "👗", "level": 2, "phrases": [{ "en": "She wears a dress.", "fr": "Elle porte une robe." }] },
+    { "id": "jacket", "en": "jacket", "fr": "veste", "image": "/images/vocabulary/vetements/jacket.svg", "emoji": "🧥", "level": 2, "phrases": [{ "en": "I wear a jacket.", "fr": "Je porte une veste." }] },
+    { "id": "gloves", "en": "gloves", "fr": "gants", "image": "/images/vocabulary/vetements/gloves.svg", "emoji": "🧤", "level": 2, "phrases": [{ "en": "I wear gloves.", "fr": "Je porte des gants." }] },
+    { "id": "scarf", "en": "scarf", "fr": "écharpe", "image": "/images/vocabulary/vetements/scarf.svg", "emoji": "🧣", "level": 2, "phrases": [{ "en": "I wear a scarf.", "fr": "Je porte une écharpe." }] },
+    { "id": "pyjamas", "en": "pyjamas", "fr": "pyjama", "image": "/images/vocabulary/vetements/pyjamas.svg", "emoji": "🩱", "level": 3, "phrases": [{ "en": "I wear pyjamas at night.", "fr": "Je porte un pyjama la nuit." }] },
+    { "id": "boots", "en": "boots", "fr": "bottes", "image": "/images/vocabulary/vetements/boots.svg", "emoji": "🥾", "level": 3, "phrases": [{ "en": "I wear boots.", "fr": "Je porte des bottes." }] },
+    { "id": "belt", "en": "belt", "fr": "ceinture", "image": "/images/vocabulary/vetements/belt.svg", "emoji": "🥋", "level": 3, "phrases": [{ "en": "I wear a belt.", "fr": "Je porte une ceinture." }] },
+    { "id": "swimsuit", "en": "swimsuit", "fr": "maillot de bain", "image": "/images/vocabulary/vetements/swimsuit.svg", "emoji": "👙", "level": 3, "phrases": [{ "en": "I wear a swimsuit.", "fr": "Je porte un maillot de bain." }] }
   ]
 }

@@ -3,12 +3,18 @@
   "name": "Jours de la semaine",
   "icon": "📅",
   "words": [
-    { "id": "monday", "en": "Monday", "fr": "lundi", "image": "/images/vocabulary/jours/monday.svg", "emoji": "📅", "ageGroups": ["9"], "phrases": [{ "en": "School starts on Monday.", "fr": "L'école commence lundi." }] },
-    { "id": "tuesday", "en": "Tuesday", "fr": "mardi", "image": "/images/vocabulary/jours/tuesday.svg", "emoji": "📅", "ageGroups": ["9"], "phrases": [{ "en": "I have swimming on Tuesday.", "fr": "J'ai natation le mardi." }] },
-    { "id": "wednesday", "en": "Wednesday", "fr": "mercredi", "image": "/images/vocabulary/jours/wednesday.svg", "emoji": "📅", "ageGroups": ["9"], "phrases": [{ "en": "There is no school on Wednesday.", "fr": "Il n'y a pas d'école le mercredi." }] },
-    { "id": "thursday", "en": "Thursday", "fr": "jeudi", "image": "/images/vocabulary/jours/thursday.svg", "emoji": "📅", "ageGroups": ["9"], "phrases": [{ "en": "I see my friends on Thursday.", "fr": "Je vois mes amis le jeudi." }] },
-    { "id": "friday", "en": "Friday", "fr": "vendredi", "image": "/images/vocabulary/jours/friday.svg", "emoji": "📅", "ageGroups": ["9"], "phrases": [{ "en": "I like Friday.", "fr": "J'aime le vendredi." }] },
-    { "id": "saturday", "en": "Saturday", "fr": "samedi", "image": "/images/vocabulary/jours/saturday.svg", "emoji": "🎉", "ageGroups": ["9"], "phrases": [{ "en": "I play on Saturday.", "fr": "Je joue le samedi." }] },
-    { "id": "sunday", "en": "Sunday", "fr": "dimanche", "image": "/images/vocabulary/jours/sunday.svg", "emoji": "☀️", "ageGroups": ["9"], "phrases": [{ "en": "We rest on Sunday.", "fr": "On se repose le dimanche." }] }
+    { "id": "monday", "en": "Monday", "fr": "lundi", "image": "/images/vocabulary/jours/monday.svg", "emoji": "📅", "level": 1, "phrases": [{ "en": "School starts on Monday.", "fr": "L'école commence lundi." }] },
+    { "id": "tuesday", "en": "Tuesday", "fr": "mardi", "image": "/images/vocabulary/jours/tuesday.svg", "emoji": "📅", "level": 1, "phrases": [{ "en": "I have swimming on Tuesday.", "fr": "J'ai natation le mardi." }] },
+    { "id": "wednesday", "en": "Wednesday", "fr": "mercredi", "image": "/images/vocabulary/jours/wednesday.svg", "emoji": "📅", "level": 1, "phrases": [{ "en": "There is no school on Wednesday.", "fr": "Il n'y a pas d'école le mercredi." }] },
+    { "id": "thursday", "en": "Thursday", "fr": "jeudi", "image": "/images/vocabulary/jours/thursday.svg", "emoji": "📅", "level": 1, "phrases": [{ "en": "I see my friends on Thursday.", "fr": "Je vois mes amis le jeudi." }] },
+    { "id": "friday", "en": "Friday", "fr": "vendredi", "image": "/images/vocabulary/jours/friday.svg", "emoji": "📅", "level": 1, "phrases": [{ "en": "I like Friday.", "fr": "J'aime le vendredi." }] },
+    { "id": "saturday", "en": "Saturday", "fr": "samedi", "image": "/images/vocabulary/jours/saturday.svg", "emoji": "🎉", "level": 2, "phrases": [{ "en": "I play on Saturday.", "fr": "Je joue le samedi." }] },
+    { "id": "sunday", "en": "Sunday", "fr": "dimanche", "image": "/images/vocabulary/jours/sunday.svg", "emoji": "☀️", "level": 2, "phrases": [{ "en": "We rest on Sunday.", "fr": "On se repose le dimanche." }] },
+    { "id": "today", "en": "today", "fr": "aujourd'hui", "image": "/images/vocabulary/jours/today.svg", "emoji": "👉", "level": 2, "phrases": [{ "en": "Today is a good day.", "fr": "Aujourd'hui est une bonne journée." }] },
+    { "id": "tomorrow", "en": "tomorrow", "fr": "demain", "image": "/images/vocabulary/jours/tomorrow.svg", "emoji": "➡️", "level": 2, "phrases": [{ "en": "See you tomorrow.", "fr": "À demain." }] },
+    { "id": "yesterday", "en": "yesterday", "fr": "hier", "image": "/images/vocabulary/jours/yesterday.svg", "emoji": "⬅️", "level": 3, "phrases": [{ "en": "I played yesterday.", "fr": "J'ai joué hier." }] },
+    { "id": "week", "en": "week", "fr": "semaine", "image": "/images/vocabulary/jours/week.svg", "emoji": "📆", "level": 3, "phrases": [{ "en": "I have school this week.", "fr": "J'ai l'école cette semaine." }] },
+    { "id": "morning", "en": "morning", "fr": "matin", "image": "/images/vocabulary/jours/morning.svg", "emoji": "🌅", "level": 3, "phrases": [{ "en": "I wake up in the morning.", "fr": "Je me réveille le matin." }] },
+    { "id": "night", "en": "night", "fr": "nuit", "image": "/images/vocabulary/jours/night.svg", "emoji": "🌙", "level": 3, "phrases": [{ "en": "I sleep at night.", "fr": "Je dors la nuit." }] }
   ]
 }

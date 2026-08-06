@@ -3,11 +3,18 @@
   "name": "Couleurs",
   "icon": "🎨",
   "words": [
-    { "id": "red", "en": "red", "fr": "rouge", "image": "/images/vocabulary/couleurs/red.svg", "emoji": "🔴", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is red.", "fr": "C'est rouge." }] },
-    { "id": "blue", "en": "blue", "fr": "bleu", "image": "/images/vocabulary/couleurs/blue.svg", "emoji": "🔵", "ageGroups": ["6", "9"], "phrases": [{ "en": "I like blue.", "fr": "J'aime le bleu." }] },
-    { "id": "yellow", "en": "yellow", "fr": "jaune", "image": "/images/vocabulary/couleurs/yellow.svg", "emoji": "🟡", "ageGroups": ["6", "9"], "phrases": [{ "en": "It is yellow.", "fr": "C'est jaune." }] },
-    { "id": "green", "en": "green", "fr": "vert", "image": "/images/vocabulary/couleurs/green.svg", "emoji": "🟢", "ageGroups": ["6", "9"], "phrases": [{ "en": "She likes green.", "fr": "Elle aime le vert." }] },
-    { "id": "purple", "en": "purple", "fr": "violet", "image": "/images/vocabulary/couleurs/purple.svg", "emoji": "🟣", "ageGroups": ["9"], "phrases": [{ "en": "It is purple.", "fr": "C'est violet." }] },
-    { "id": "orange", "en": "orange", "fr": "orange", "image": "/images/vocabulary/couleurs/orange.svg", "emoji": "🟠", "ageGroups": ["6", "9"], "phrases": [{ "en": "I have an orange ball.", "fr": "J'ai une balle orange." }] }
+    { "id": "red", "en": "red", "fr": "rouge", "image": "/images/vocabulary/couleurs/red.svg", "emoji": "🔴", "level": 1, "phrases": [{ "en": "It is red.", "fr": "C'est rouge." }] },
+    { "id": "blue", "en": "blue", "fr": "bleu", "image": "/images/vocabulary/couleurs/blue.svg", "emoji": "🔵", "level": 1, "phrases": [{ "en": "I like blue.", "fr": "J'aime le bleu." }] },
+    { "id": "yellow", "en": "yellow", "fr": "jaune", "image": "/images/vocabulary/couleurs/yellow.svg", "emoji": "🟡", "level": 1, "phrases": [{ "en": "It is yellow.", "fr": "C'est jaune." }] },
+    { "id": "green", "en": "green", "fr": "vert", "image": "/images/vocabulary/couleurs/green.svg", "emoji": "🟢", "level": 1, "phrases": [{ "en": "She likes green.", "fr": "Elle aime le vert." }] },
+    { "id": "orange", "en": "orange", "fr": "orange", "image": "/images/vocabulary/couleurs/orange.svg", "emoji": "🟠", "level": 1, "phrases": [{ "en": "I have an orange ball.", "fr": "J'ai une balle orange." }] },
+    { "id": "purple", "en": "purple", "fr": "violet", "image": "/images/vocabulary/couleurs/purple.svg", "emoji": "🟣", "level": 2, "phrases": [{ "en": "It is purple.", "fr": "C'est violet." }] },
+    { "id": "pink", "en": "pink", "fr": "rose", "image": "/images/vocabulary/couleurs/pink.svg", "emoji": "🩷", "level": 2, "phrases": [{ "en": "I like pink.", "fr": "J'aime le rose." }] },
+    { "id": "black", "en": "black", "fr": "noir", "image": "/images/vocabulary/couleurs/black.svg", "emoji": "⚫", "level": 2, "phrases": [{ "en": "The cat is black.", "fr": "Le chat est noir." }] },
+    { "id": "white", "en": "white", "fr": "blanc", "image": "/images/vocabulary/couleurs/white.svg", "emoji": "⚪", "level": 2, "phrases": [{ "en": "The snow is white.", "fr": "La neige est blanche." }] },
+    { "id": "brown", "en": "brown", "fr": "marron", "image": "/images/vocabulary/couleurs/brown.svg", "emoji": "🟤", "level": 3, "phrases": [{ "en": "The dog is brown.", "fr": "Le chien est marron." }] },
+    { "id": "gray", "en": "gray", "fr": "gris", "image": "/images/vocabulary/couleurs/gray.svg", "emoji": "🩶", "level": 3, "phrases": [{ "en": "The cloud is gray.", "fr": "Le nuage est gris." }] },
+    { "id": "gold", "en": "gold", "fr": "doré", "image": "/images/vocabulary/couleurs/gold.svg", "emoji": "🥇", "level": 3, "phrases": [{ "en": "The star is gold.", "fr": "L'étoile est dorée." }] },
+    { "id": "rainbow", "en": "rainbow", "fr": "arc-en-ciel", "image": "/images/vocabulary/couleurs/rainbow.svg", "emoji": "🌈", "level": 3, "phrases": [{ "en": "I see a rainbow.", "fr": "Je vois un arc-en-ciel." }] }
   ]
 }

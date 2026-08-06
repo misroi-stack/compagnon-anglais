@@ -3,11 +3,17 @@
   "name": "Nature",
   "icon": "🌳",
   "words": [
-    { "id": "tree", "en": "tree", "fr": "arbre", "image": "/images/vocabulary/nature/tree.svg", "emoji": "🌳", "ageGroups": ["6", "9"], "phrases": [{ "en": "I climb the tree.", "fr": "Je grimpe à l'arbre." }] },
-    { "id": "flower", "en": "flower", "fr": "fleur", "image": "/images/vocabulary/nature/flower.svg", "emoji": "🌸", "ageGroups": ["6", "9"], "phrases": [{ "en": "I see a flower.", "fr": "Je vois une fleur." }] },
-    { "id": "leaf", "en": "leaf", "fr": "feuille", "image": "/images/vocabulary/nature/leaf.svg", "emoji": "🍃", "ageGroups": ["6", "9"], "phrases": [{ "en": "The leaf is green.", "fr": "La feuille est verte." }] },
-    { "id": "mountain", "en": "mountain", "fr": "montagne", "image": "/images/vocabulary/nature/mountain.svg", "emoji": "⛰️", "ageGroups": ["9"], "phrases": [{ "en": "The mountain is tall.", "fr": "La montagne est haute." }] },
-    { "id": "river", "en": "river", "fr": "rivière", "image": "/images/vocabulary/nature/river.svg", "emoji": "🌊", "ageGroups": ["9"], "phrases": [{ "en": "The river is long.", "fr": "La rivière est longue." }] },
-    { "id": "rock", "en": "rock", "fr": "roche", "image": "/images/vocabulary/nature/rock.svg", "emoji": "🪨", "ageGroups": ["6", "9"], "phrases": [{ "en": "I sit on the rock.", "fr": "Je m'assois sur la roche." }] }
+    { "id": "tree", "en": "tree", "fr": "arbre", "image": "/images/vocabulary/nature/tree.svg", "emoji": "🌳", "level": 1, "phrases": [{ "en": "I climb the tree.", "fr": "Je grimpe à l'arbre." }] },
+    { "id": "flower", "en": "flower", "fr": "fleur", "image": "/images/vocabulary/nature/flower.svg", "emoji": "🌸", "level": 1, "phrases": [{ "en": "I see a flower.", "fr": "Je vois une fleur." }] },
+    { "id": "leaf", "en": "leaf", "fr": "feuille", "image": "/images/vocabulary/nature/leaf.svg", "emoji": "🍃", "level": 1, "phrases": [{ "en": "The leaf is green.", "fr": "La feuille est verte." }] },
+    { "id": "rock", "en": "rock", "fr": "roche", "image": "/images/vocabulary/nature/rock.svg", "emoji": "🪨", "level": 1, "phrases": [{ "en": "I sit on the rock.", "fr": "Je m'assois sur la roche." }] },
+    { "id": "mountain", "en": "mountain", "fr": "montagne", "image": "/images/vocabulary/nature/mountain.svg", "emoji": "⛰️", "level": 2, "phrases": [{ "en": "The mountain is tall.", "fr": "La montagne est haute." }] },
+    { "id": "river", "en": "river", "fr": "rivière", "image": "/images/vocabulary/nature/river.svg", "emoji": "🌊", "level": 2, "phrases": [{ "en": "The river is long.", "fr": "La rivière est longue." }] },
+    { "id": "forest", "en": "forest", "fr": "forêt", "image": "/images/vocabulary/nature/forest.svg", "emoji": "🌲", "level": 2, "phrases": [{ "en": "I walk in the forest.", "fr": "Je marche dans la forêt." }] },
+    { "id": "lake", "en": "lake", "fr": "lac", "image": "/images/vocabulary/nature/lake.svg", "emoji": "🏞️", "level": 2, "phrases": [{ "en": "We swim in the lake.", "fr": "On nage dans le lac." }] },
+    { "id": "sky", "en": "sky", "fr": "ciel", "image": "/images/vocabulary/nature/sky.svg", "emoji": "🌌", "level": 3, "phrases": [{ "en": "The sky is blue.", "fr": "Le ciel est bleu." }] },
+    { "id": "grass", "en": "grass", "fr": "herbe", "image": "/images/vocabulary/nature/grass.svg", "emoji": "🌱", "level": 3, "phrases": [{ "en": "I sit on the grass.", "fr": "Je m'assois sur l'herbe." }] },
+    { "id": "desert", "en": "desert", "fr": "désert", "image": "/images/vocabulary/nature/desert.svg", "emoji": "🏜️", "level": 3, "phrases": [{ "en": "The desert is hot.", "fr": "Le désert est chaud." }] },
+    { "id": "volcano", "en": "volcano", "fr": "volcan", "image": "/images/vocabulary/nature/volcano.svg", "emoji": "🌋", "level": 3, "phrases": [{ "en": "The volcano is dangerous.", "fr": "Le volcan est dangereux." }] }
   ]
 }

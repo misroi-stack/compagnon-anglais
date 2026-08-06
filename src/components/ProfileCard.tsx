@@ -22,7 +22,6 @@ export function ProfileCard({ profile, onSelect }: ProfileCardProps) {
     >
       <span className="text-6xl">{mascot.emoji}</span>
       <span className="text-xl font-bold">{profile.name}</span>
-      <span className="text-sm opacity-90">{profile.age} ans</span>
     </motion.button>
   );
 }
