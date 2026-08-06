@@ -50,7 +50,6 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: Repea
 
   const word = words[index];
   const isLast = index === words.length - 1;
-  const answered = status === "correct" || status === "incorrect";
 
   useEffect(() => {
     getProgressForProfile(profileId).then(setProgressMap);
@@ -64,9 +63,10 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: Repea
   }, [index]);
 
   async function handleListen() {
-    if (status === "listening") return;
+    if (status === "listening" || status === "correct") return;
     setStatus("listening");
     setHeard(null);
+    setStartTime(Date.now());
 
     const outcome = await listenOnce("en-US");
 
@@ -119,12 +119,6 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: Repea
       return;
     }
     setIndex((i) => i + 1);
-  }
-
-  function retry() {
-    setStatus("idle");
-    setHeard(null);
-    setStartTime(Date.now());
   }
 
   const mascotPose: MascotPose =
@@ -205,10 +199,14 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: Repea
             <button
               type="button"
               onClick={handleListen}
-              disabled={status === "listening" || answered}
+              disabled={status === "listening" || status === "correct"}
               className="rounded-full bg-violet-600 px-8 py-4 text-2xl text-white shadow disabled:opacity-50"
             >
-              {status === "listening" ? "🎙️ J'écoute…" : "🎤 Répète le mot"}
+              {status === "listening"
+                ? "🎙️ J'écoute…"
+                : status === "incorrect"
+                  ? "🔁 Réessaie"
+                  : "🎤 Répète le mot"}
             </button>
           )}
 
@@ -248,22 +246,13 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: Repea
       </div>
 
       {status === "incorrect" && (
-        <div className="flex gap-4">
-          <button
-            type="button"
-            onClick={retry}
-            className="rounded-full bg-violet-600 px-8 py-3 font-bold text-white shadow"
-          >
-            🔁 Réessayer
-          </button>
-          <button
-            type="button"
-            onClick={next}
-            className="rounded-full bg-white px-6 py-3 font-bold text-violet-600 shadow"
-          >
-            Passer →
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={next}
+          className="rounded-full bg-white px-6 py-3 font-bold text-violet-600 shadow"
+        >
+          Passer →
+        </button>
       )}
 
       {(status === "correct" || status === "unsupported" || status === "mic-error") && (
