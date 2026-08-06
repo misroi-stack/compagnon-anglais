@@ -6,10 +6,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { themes } from "@/content";
 import { getMascotImage } from "@/lib/mascots";
-import { getProfile } from "@/lib/profiles";
+import { getProfile, updateProfileMascot } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
 import { getThemeStats, type ThemeStats } from "@/lib/theme-suggestion";
-import type { Profile } from "@/types/profile";
+import { MascotPicker } from "@/components/MascotPicker";
+import type { MascotId, Profile } from "@/types/profile";
 
 export default function PlayPage({ params }: { params: Promise<{ profileId: string }> }) {
   const { profileId } = use(params);
@@ -18,6 +19,7 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const [themeStats, setThemeStats] = useState<ThemeStats[]>([]);
+  const [isChangingMascot, setIsChangingMascot] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -52,21 +54,62 @@ export default function PlayPage({ params }: { params: Promise<{ profileId: stri
     );
   }
 
+  async function handleChangeMascot(mascot: MascotId) {
+    if (!profile) return;
+    const updated = await updateProfileMascot(profile.id, mascot);
+    setProfile(updated);
+    setIsChangingMascot(false);
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center gap-8 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50 px-6 py-10">
       <div className="flex items-center gap-3">
-        <Image
-          src={getMascotImage(profile.mascot)}
-          alt=""
-          width={80}
-          height={80}
-          className="h-16 w-16 object-contain"
-        />
+        <button
+          type="button"
+          onClick={() => setIsChangingMascot(true)}
+          aria-label="Changer de mascotte"
+          className="relative rounded-full"
+        >
+          <Image
+            src={getMascotImage(profile.mascot)}
+            alt=""
+            width={80}
+            height={80}
+            className="h-16 w-16 object-contain"
+          />
+          <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-violet-500 text-xs shadow">
+            ✏️
+          </span>
+        </button>
         <div>
           <p className="text-sm text-violet-400">Salut</p>
           <h1 className="text-2xl font-extrabold text-violet-700">{profile.name} !</h1>
         </div>
       </div>
+
+      {isChangingMascot && (
+        <div
+          className="fixed inset-0 z-20 flex items-center justify-center bg-black/40 px-4"
+          onClick={() => setIsChangingMascot(false)}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            onClick={(e) => e.stopPropagation()}
+            className="flex w-full max-w-sm flex-col gap-5 rounded-3xl bg-white p-6 shadow-xl"
+          >
+            <h2 className="text-center text-2xl font-bold text-violet-700">Choisis ta mascotte</h2>
+            <MascotPicker value={profile.mascot} onChange={handleChangeMascot} />
+            <button
+              type="button"
+              onClick={() => setIsChangingMascot(false)}
+              className="text-sm text-violet-400 underline"
+            >
+              Annuler
+            </button>
+          </motion.div>
+        </div>
+      )}
 
       <section className="w-full max-w-3xl">
         <h2 className="mb-1 text-center text-lg font-bold text-violet-600">Choisis un thème</h2>

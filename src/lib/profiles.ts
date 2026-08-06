@@ -49,6 +49,18 @@ export async function createProfile(input: { name: string; mascot: MascotId }): 
   return fromRow(data as ProfileRow);
 }
 
+export async function updateProfileMascot(profileId: string, mascot: MascotId): Promise<Profile> {
+  const { data, error } = await supabase
+    .from("profiles")
+    .update({ mascot })
+    .eq("id", profileId)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return fromRow(data as ProfileRow);
+}
+
 export async function deleteProfile(profileId: string): Promise<void> {
   const { error } = await supabase.from("profiles").delete().eq("id", profileId);
   if (error) throw error;
