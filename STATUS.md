@@ -2,6 +2,8 @@
 
 Dernière mise à jour : 2026-08-06
 
+- **Catégorie Verbes** — voir [PLAN-VERBES.md](PLAN-VERBES.md) pour le détail complet (terminé, phases 1 et 2). Écran de catégorie sur `/play/[profileId]` (📚 Mots / 🏃 Verbes), grille de thèmes derrière `?cat=mots|verbes` (query param plutôt qu'un segment `[category]`, pour éviter la collision Next.js avec `[themeId]`). 4 groupes de verbes (52 mots) : Actions du quotidien, Bouger, À l'école, Jouer & créer — ids préfixés `v-` pour ne pas fusionner leur progression avec un nom homonyme (watch/play/drink). Nouveau jeu **Phrase** (`src/components/games/Phrase.tsx`, mode `phrase`) remplace Associe pour les verbes : dérive le trou automatiquement en cherchant le verbe (mot entier) dans une de ses phrases d'exemple — vérifié par `scripts/verify-content.mjs`, à relancer après tout ajout de contenu verbe. Migration `007_add_phrase_mode.sql` (appliquée en dev). `leitner.ts`, `level-progress.ts` et le dashboard parent n'ont demandé aucune modification.
+
 - Son de succès (petit arpège synthétisé via Web Audio API, `src/lib/sound.ts`) joué à la complétion de Quiz, Associe et Répète — pas de fichier audio à gérer.
 - Répète-et-vérifie : le bouton micro sert aussi de bouton "réessayer" (un seul tap après une réponse incorrecte relance l'écoute), et un mot répété 2-3 fois d'affilée par l'enfant (ex: "dog dog", fréquent quand la reconnaissance n'a rien capté au premier essai) compte comme correct (`matchesSpokenWord` dans `src/lib/speech-recognition.ts`).
 - Flashcards : bouton 🔊 dédié pour écouter la phrase d'exemple, séparé du bouton d'écoute du mot seul.
