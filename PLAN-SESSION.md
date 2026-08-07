@@ -6,6 +6,8 @@ Plan rédigé le 2026-08-07 (Opus, avant passage à Sonnet pour l'implémentatio
 
 `src/lib/leitner.ts` a déjà tout ce qu'il faut (boîtes 1-5, `nextReviewAt`, `isDueForReview()`), mais rien dans l'app ne l'utilise pour choisir quels mots montrer. Le jeu prend toujours `wordsForLevel(theme, level)` — tous les mots du niveau, dans l'ordre du JSON. Ce plan ajoute le premier vrai consommateur de `isDueForReview()`.
 
+⚠️ **Ce plan est strictement additif.** Le parcours actuel par thème (`/play/[profileId]?cat=mots` → choisir un thème → niveau → mode, ex: Couleurs → Associe) reste **100% inchangé** — même routes, même code, mêmes composants. C'est le chemin préféré de la fille de l'utilisateur, confirmé explicitement avec lui : ne touchez à *aucun* fichier de ce parcours existant pour l'implémenter, à l'exception du seul changement rétrocompatible décrit en §5 (prop optionnelle sur Quiz/Phrase/RepeatCheck, sans effet si absente). La Session du jour est un chemin **en plus**, pas un remplacement.
+
 ## Décisions verrouillées (confirmées avec l'utilisateur — ne pas re-débattre)
 
 | Décision | Choix |
