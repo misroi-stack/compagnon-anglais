@@ -56,6 +56,11 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit, onItemC
 
   const word = words[index];
   const isLast = index === words.length - 1;
+  /** Niveau 3 (le plus avancé) avec phrase d'exemple : on fait lire la phrase
+   *  entière à voix haute plutôt que le mot seul — voir IDEAS.md priorité 4,
+   *  point 4. Réservé au niveau plutôt qu'à un âge (retiré du modèle). */
+  const phrase = word.level === 3 ? word.phrases?.[0] : undefined;
+  const targetText = phrase ? phrase.en : word.en;
 
   useEffect(() => {
     getProgressForProfile(profileId).then(setProgressMap);
@@ -95,7 +100,7 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit, onItemC
     }
 
     setHeard(outcome.transcript);
-    const recognized = matchesSpokenWord(outcome.transcript, word.en);
+    const recognized = matchesSpokenWord(outcome.transcript, targetText);
 
     let correct = recognized;
     if (!recognized) {
@@ -107,7 +112,7 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit, onItemC
     }
 
     setStatus(correct ? "correct" : "incorrect");
-    if (!correct) speak(word.en);
+    if (!correct) speak(targetText);
     setWasRemembered(wasRecentlyMissed(progressMap.get(word.id)));
 
     const updated = await recordAttempt(
@@ -197,11 +202,18 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit, onItemC
           className="flex w-full flex-col items-center gap-5 rounded-3xl bg-white p-10 shadow-xl"
         >
           <span className="text-7xl">{word.emoji}</span>
-          <h2 className="text-4xl font-extrabold text-violet-700">{word.en}</h2>
+          {phrase ? (
+            <>
+              <h2 className="text-center text-2xl font-extrabold text-violet-700">{phrase.en}</h2>
+              <p className="text-center text-sm text-violet-400">{phrase.fr}</p>
+            </>
+          ) : (
+            <h2 className="text-4xl font-extrabold text-violet-700">{word.en}</h2>
+          )}
 
           <button
             type="button"
-            onClick={() => speak(word.en)}
+            onClick={() => speak(targetText)}
             className="rounded-full bg-amber-400 px-6 py-2 font-bold text-white shadow"
           >
             🔊 Écouter
@@ -226,7 +238,9 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit, onItemC
                 ? "🎙️ J'écoute…"
                 : status === "incorrect"
                   ? "🔁 Réessaie"
-                  : "🎤 Répète le mot"}
+                  : phrase
+                    ? "🎤 Répète la phrase"
+                    : "🎤 Répète le mot"}
             </button>
           )}
 
@@ -258,7 +272,8 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit, onItemC
             >
               <p className="font-semibold text-rose-500">Presque ! Essaie encore 💪</p>
               <p className="mt-1 text-sm text-rose-400">
-                J&apos;ai entendu &quot;{heard}&quot;, le mot est &quot;{word.en}&quot;
+                J&apos;ai entendu &quot;{heard}&quot;, {phrase ? "la phrase est" : "le mot est"} &quot;{targetText}
+                &quot;
               </p>
             </motion.div>
           )}

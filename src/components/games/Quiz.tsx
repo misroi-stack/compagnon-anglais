@@ -59,7 +59,8 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
     setWasRemembered(false);
     setRetried(false);
     if (question.type === "listen") speak(word.en);
-  }, [index, question.type, word.en]);
+    else if (question.type === "sentence") speak(question.promptEn!);
+  }, [index, question.type, question.promptEn, word.en]);
 
   /** Réessai correctif immédiat : après une erreur, on repropose la même question
    *  une fois avant de passer à la suivante — reproduire tout de suite après avoir
@@ -74,7 +75,7 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
     if (answered) return;
     setSelected(option);
     const correct = option === question.correctAnswer;
-    if (!correct) speak(word.en);
+    if (!correct) speak(question.type === "sentence" ? question.promptEn! : word.en);
     setWasRemembered(wasRecentlyMissed(progressMap.get(word.id)));
 
     const updated = await recordAttempt(
@@ -155,6 +156,17 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
           <>
             <p className="text-sm text-violet-400">Quelle est la traduction ?</p>
             <h2 className="text-4xl font-extrabold text-violet-700">{word.en}</h2>
+          </>
+        ) : question.type === "sentence" ? (
+          <>
+            <p className="text-sm text-violet-400">Écoute la phrase et choisis la bonne traduction</p>
+            <button
+              type="button"
+              onClick={() => speak(question.promptEn!)}
+              className="rounded-full bg-amber-400 px-8 py-4 text-3xl shadow"
+            >
+              🔊
+            </button>
           </>
         ) : (
           <>
