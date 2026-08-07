@@ -56,23 +56,29 @@ export function normalizeForCompare(text: string): string {
     .replace(/[^a-z0-9\s]/g, "");
 }
 
-/** Compare ce qui a été entendu au mot cible, en acceptant que l'enfant l'ait
- *  répété 2 ou 3 fois d'affilée (ex: "dog dog") — ça arrive souvent quand la
- *  reconnaissance vocale ne capte rien au premier essai, et ça ne doit pas
- *  compter comme faux. */
+/** Vrai si la séquence de `targetTokens` apparaît telle quelle, à la suite, n'importe où dans `heardTokens`. */
+function containsWordSequence(heardTokens: string[], targetTokens: string[]): boolean {
+  for (let start = 0; start <= heardTokens.length - targetTokens.length; start++) {
+    let matches = true;
+    for (let i = 0; i < targetTokens.length; i++) {
+      if (heardTokens[start + i] !== targetTokens[i]) {
+        matches = false;
+        break;
+      }
+    }
+    if (matches) return true;
+  }
+  return false;
+}
+
+/** Compare ce qui a été entendu au mot cible : correct dès que le mot cible est
+ *  présent tel quel dans ce qui a été dit, même entouré d'autres mots (ex.
+ *  l'enfant hésite à voix haute, "euh… non… dog") — l'important est qu'il ait
+ *  fini par prononcer le bon mot, pas que ce soit la seule chose entendue. Ça
+ *  couvre aussi le cas où l'enfant le répète plusieurs fois d'affilée. */
 export function matchesSpokenWord(transcript: string, target: string): boolean {
   const heardTokens = normalizeForCompare(transcript).split(/\s+/).filter(Boolean);
   const targetTokens = normalizeForCompare(target).split(/\s+/).filter(Boolean);
   if (targetTokens.length === 0 || heardTokens.length === 0) return false;
-  if (heardTokens.length % targetTokens.length !== 0) return false;
-
-  const repeats = heardTokens.length / targetTokens.length;
-  if (repeats < 1 || repeats > 3) return false;
-
-  for (let r = 0; r < repeats; r++) {
-    for (let i = 0; i < targetTokens.length; i++) {
-      if (heardTokens[r * targetTokens.length + i] !== targetTokens[i]) return false;
-    }
-  }
-  return true;
+  return containsWordSequence(heardTokens, targetTokens);
 }
