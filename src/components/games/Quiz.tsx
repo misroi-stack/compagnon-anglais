@@ -35,6 +35,7 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
   const [selected, setSelected] = useState<string | null>(null);
   const [startTime, setStartTime] = useState(() => Date.now());
   const [wasRemembered, setWasRemembered] = useState(false);
+  const [retried, setRetried] = useState(false);
 
   const word = words[index];
   const question = useMemo(
@@ -56,8 +57,18 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
     setSelected(null);
     setStartTime(Date.now());
     setWasRemembered(false);
+    setRetried(false);
     if (question.type === "listen") speak(word.en);
   }, [index, question.type, word.en]);
+
+  /** Réessai correctif immédiat : après une erreur, on repropose la même question
+   *  une fois avant de passer à la suivante — reproduire tout de suite après avoir
+   *  vu la bonne réponse ancre bien mieux que la simple exposition. */
+  function retry() {
+    setSelected(null);
+    setStartTime(Date.now());
+    setRetried(true);
+  }
 
   async function handleSelect(option: string) {
     if (answered) return;
@@ -208,14 +219,24 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
         )}
       </motion.div>
 
-      {answered && (
+      {answered && selected !== question.correctAnswer && !retried ? (
         <button
           type="button"
-          onClick={next}
-          className="rounded-full bg-violet-600 px-8 py-3 font-bold text-white shadow"
+          onClick={retry}
+          className="rounded-full bg-amber-500 px-8 py-3 font-bold text-white shadow"
         >
-          {isLast ? "Terminé 🎉" : "Suivant →"}
+          🔁 Réessaie
         </button>
+      ) : (
+        answered && (
+          <button
+            type="button"
+            onClick={next}
+            className="rounded-full bg-violet-600 px-8 py-3 font-bold text-white shadow"
+          >
+            {isLast ? "Terminé 🎉" : "Suivant →"}
+          </button>
+        )
       )}
     </main>
   );

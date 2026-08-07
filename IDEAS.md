@@ -57,7 +57,7 @@ Ces trois points se greffent l'un sur l'autre et devraient être pensés ensembl
 
 ## Priorité 4 — Profondeur pédagogique
 
-- [ ] **3. Réessai correctif immédiat** — en Quiz/Associe/Phrase, une erreur affiche « C'était X » puis on passe ; le mot n'est jamais reproduit dans la foulée. Reproduire *tout de suite* après avoir vu la réponse est bien plus efficace que la simple exposition. `RepeatCheck` le fait déjà (bouton réessayer) — les trois autres devraient aussi.
+- [x] **3. Réessai correctif immédiat** — en Quiz/Associe/Phrase, une erreur affiche « C'était X » puis on passe ; le mot n'est jamais reproduit dans la foulée. Reproduire *tout de suite* après avoir vu la réponse est bien plus efficace que la simple exposition. `RepeatCheck` le fait déjà (bouton réessayer) — les trois autres devraient aussi. *Livré le 2026-08-07 pour Quiz et Phrase (bouton "🔁 Réessaie", une seule relance puis on passe, que la 2ᵉ tentative soit bonne ou non — chaque tentative reste un vrai `Attempt` enregistré). Associe n'a rien demandé : une paire fausse s'annule déjà toute seule après 600ms et se re-propose immédiatement, c'était déjà cette mécanique par construction.*
 
 - [ ] **4. Monter au niveau de la phrase** — ~700 phrases d'exemple en base, utilisées seulement en affichage (Flashcards) et en texte à trou (Phrase). Rien ne teste la **compréhension orale d'une phrase** ni la **lecture à voix haute d'une phrase**. Marche suivante évidente pour un 9 ans, contenu déjà là.
 
