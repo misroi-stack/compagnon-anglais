@@ -4,10 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { GameHeader } from "./GameHeader";
+import { MascotBubble } from "./MascotBubble";
 import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
 import { getMascotImage } from "@/lib/mascots";
 import { playSuccessSound } from "@/lib/sound";
+import { wasRecentlyMissed } from "@/lib/mascot-lines";
 import type { Theme, Word } from "@/types/content";
 import type { MascotId } from "@/types/profile";
 import type { WordProgress } from "@/types/progress";
@@ -42,6 +44,7 @@ export function Associe({ profileId, mascotId, theme, words, onExit, onItemCompl
   const [startTime] = useState(() => Date.now());
 
   const isComplete = matched.size === pool.length;
+  const rememberedWord = pool.find((w) => wasRecentlyMissed(progressMap.get(w.id)));
 
   useEffect(() => {
     getProgressForProfile(profileId).then(setProgressMap);
@@ -132,7 +135,18 @@ export function Associe({ profileId, mascotId, theme, words, onExit, onItemCompl
           </button>
         </motion.div>
       ) : (
-        <div className="flex w-full max-w-md justify-between gap-6">
+        <>
+          <div className="w-full max-w-md">
+            <MascotBubble
+              mascotId={mascotId}
+              text={
+                rememberedWord
+                  ? `Attention à "${rememberedWord.en}", tu l'avais raté la dernière fois !`
+                  : "Relie chaque image à son mot !"
+              }
+            />
+          </div>
+          <div className="flex w-full max-w-md justify-between gap-6">
           <div className="flex flex-1 flex-col gap-3">
             {emojiColumn.map((word) => {
               const isMatched = matched.has(word.id);
@@ -188,7 +202,8 @@ export function Associe({ profileId, mascotId, theme, words, onExit, onItemCompl
               );
             })}
           </div>
-        </div>
+          </div>
+        </>
       )}
     </main>
   );

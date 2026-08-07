@@ -4,12 +4,14 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { GameHeader } from "./GameHeader";
+import { MascotBubble } from "./MascotBubble";
 import { buildQuestion } from "@/lib/quiz";
 import { speak } from "@/lib/speech";
 import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
 import { getMascotImage } from "@/lib/mascots";
 import { playSuccessSound } from "@/lib/sound";
+import { pickCelebrationLine, pickPromptLine, wasRecentlyMissed } from "@/lib/mascot-lines";
 import type { Theme, Word } from "@/types/content";
 import type { MascotId } from "@/types/profile";
 import type { WordProgress } from "@/types/progress";
@@ -32,6 +34,7 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
   const [progressMap, setProgressMap] = useState<Map<string, WordProgress>>(new Map());
   const [selected, setSelected] = useState<string | null>(null);
   const [startTime, setStartTime] = useState(() => Date.now());
+  const [wasRemembered, setWasRemembered] = useState(false);
 
   const word = words[index];
   const question = useMemo(
@@ -52,6 +55,7 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
   useEffect(() => {
     setSelected(null);
     setStartTime(Date.now());
+    setWasRemembered(false);
     if (question.type === "listen") speak(word.en);
   }, [index, question.type, word.en]);
 
@@ -60,6 +64,7 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
     setSelected(option);
     const correct = option === question.correctAnswer;
     if (!correct) speak(word.en);
+    setWasRemembered(wasRecentlyMissed(progressMap.get(word.id)));
 
     const updated = await recordAttempt(
       {
@@ -125,6 +130,10 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
         onExit={onExit}
       />
 
+      <div className="w-full max-w-md">
+        <MascotBubble mascotId={mascotId} text={pickPromptLine(progressMap.get(word.id), index)} />
+      </div>
+
       <motion.div
         key={word.id}
         initial={{ opacity: 0, y: 20 }}
@@ -189,7 +198,11 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
             <p
               className={`font-semibold ${selected === question.correctAnswer ? "text-emerald-600" : "text-rose-500"}`}
             >
-              {selected === question.correctAnswer ? "Bravo ! 🎉" : `C'était "${question.correctAnswer}"`}
+              {selected === question.correctAnswer
+                ? wasRemembered
+                  ? pickCelebrationLine(index)
+                  : "Bravo ! 🎉"
+                : `C'était "${question.correctAnswer}"`}
             </p>
           </motion.div>
         )}

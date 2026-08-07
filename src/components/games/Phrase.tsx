@@ -4,12 +4,14 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { GameHeader } from "./GameHeader";
+import { MascotBubble } from "./MascotBubble";
 import { buildPhraseQuestion } from "@/lib/phrase";
 import { speak } from "@/lib/speech";
 import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
 import { getMascotImage } from "@/lib/mascots";
 import { playSuccessSound } from "@/lib/sound";
+import { pickCelebrationLine, pickPromptLine, wasRecentlyMissed } from "@/lib/mascot-lines";
 import type { Theme, Word } from "@/types/content";
 import type { MascotId } from "@/types/profile";
 import type { WordProgress } from "@/types/progress";
@@ -40,6 +42,7 @@ export function Phrase({
   const [progressMap, setProgressMap] = useState<Map<string, WordProgress>>(new Map());
   const [selected, setSelected] = useState<string | null>(null);
   const [startTime, setStartTime] = useState(() => Date.now());
+  const [wasRemembered, setWasRemembered] = useState(false);
 
   const word = words[index];
   const question = useMemo(
@@ -60,6 +63,7 @@ export function Phrase({
   useEffect(() => {
     setSelected(null);
     setStartTime(Date.now());
+    setWasRemembered(false);
   }, [index]);
 
   // Garde-fou : si une phrase ne contient pas le verbe (ne devrait jamais
@@ -84,6 +88,7 @@ export function Phrase({
     setSelected(option);
     const correct = option === question.correctAnswer;
     if (!correct) speak(question.fullSentenceEn);
+    setWasRemembered(wasRecentlyMissed(progressMap.get(word.id)));
 
     const updated = await recordAttempt(
       {
@@ -153,6 +158,10 @@ export function Phrase({
         onExit={onExit}
       />
 
+      <div className="w-full max-w-md">
+        <MascotBubble mascotId={mascotId} text={pickPromptLine(progressMap.get(word.id), index)} />
+      </div>
+
       <motion.div
         key={word.id}
         initial={{ opacity: 0, y: 20 }}
@@ -205,7 +214,9 @@ export function Phrase({
               className={`font-semibold ${selected === question.correctAnswer ? "text-emerald-600" : "text-rose-500"}`}
             >
               {selected === question.correctAnswer
-                ? "Bravo ! 🎉"
+                ? wasRemembered
+                  ? pickCelebrationLine(index)
+                  : "Bravo ! 🎉"
                 : `C'était "${question.correctAnswer}"`}
             </p>
           </motion.div>

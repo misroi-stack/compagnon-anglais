@@ -36,12 +36,12 @@ Ces trois points se greffent l'un sur l'autre et devraient être pensés ensembl
 
 ## Priorité 2 — Plaisir immédiat (surtout pour le plus jeune)
 
-- [ ] **8. Mode « Fais l'action » pour les verbes de mouvement** — le groupe *Bouger* existe déjà (`verbes-bouger.json` : run, jump, swim, dance, climb…). L'app dit « Jump! », l'enfant saute, la mascotte valide. C'est du **Total Physical Response**, méthode reconnue et particulièrement efficace chez les jeunes enfants. Contenu déjà en place, il ne manque que l'écran. Probablement le mode le plus amusant possible à 6 ans.
+- [x] **8. Mode « Fais l'action » pour les verbes de mouvement** — le groupe *Bouger* existe déjà (`verbes-bouger.json` : run, jump, swim, dance, climb…). L'app dit « Jump! », l'enfant saute, la mascotte valide. C'est du **Total Physical Response**, méthode reconnue et particulièrement efficace chez les jeunes enfants. Contenu déjà en place, il ne manque que l'écran. Probablement le mode le plus amusant possible à 6 ans. *Livré le 2026-08-07 — auto-validé, sans tentative enregistrée (comme Flashcards).*
 
-- [ ] **7. Exploiter le mot « Compagnon » du titre** — la mascotte a 4 poses mais reste décorative : elle réagit, elle ne *participe* pas. Trois pistes cumulables :
-  - l'enfant la **nomme** à la création du profil (appropriation)
-  - c'est **elle** qui pose la question plutôt que l'UI : « J'ai faim ! Lequel je mange ? » — le jeu de rôle porte beaucoup mieux à cet âge qu'une consigne abstraite
-  - elle **se souvient** : « Ça, tu l'avais raté la dernière fois. Tu l'as eu ! » — le retour qualitatif le plus puissant possible, et zéro extrinsèque (compatible avec la règle « pas de points »)
+- [x] **7. Exploiter le mot « Compagnon » du titre** — la mascotte a 4 poses mais reste décorative : elle réagit, elle ne *participe* pas. Trois pistes cumulables :
+  - l'enfant la **nomme** à la création du profil (appropriation) — *non fait, reporté.*
+  - c'est **elle** qui pose la question plutôt que l'UI : « J'ai faim ! Lequel je mange ? » — le jeu de rôle porte beaucoup mieux à cet âge qu'une consigne abstraite. *Livré le 2026-08-07 — bulle de dialogue additive dans Quiz/Phrase/Répète/Associe, `src/components/games/MascotBubble.tsx`.*
+  - elle **se souvient** : « Ça, tu l'avais raté la dernière fois. Tu l'as eu ! » — le retour qualitatif le plus puissant possible, et zéro extrinsèque (compatible avec la règle « pas de points »). *Livré le 2026-08-07 — dérivé de `WordProgress` existant (boîte Leitner), aucune migration.*
 
 - [ ] **9. Mode à deux, pour les deux enfants** — l'app les traite comme deux utilisateurs isolés alors qu'ils vivent sous le même toit. Un mode « à tour de rôle » sur la même tablette, **coopératif et non compétitif** (objectif commun, on s'aide), découle directement de la situation réelle et respecte le principe de non-compétition.
 

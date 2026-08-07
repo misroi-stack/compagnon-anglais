@@ -3,6 +3,7 @@
   "name": "Bouger",
   "icon": "🏃",
   "kind": "verbes",
+  "tpr": true,
   "words": [
     { "id": "v-run", "en": "run", "fr": "courir", "image": "/images/vocabulary/verbes-bouger/run.svg", "emoji": "🏃", "level": 1, "phrases": [{ "en": "I run in the park.", "fr": "Je cours dans le parc." }, { "en": "We run every morning.", "fr": "Nous courons tous les matins." }] },
     { "id": "v-walk", "en": "walk", "fr": "marcher", "image": "/images/vocabulary/verbes-bouger/walk.svg", "emoji": "🚶", "level": 1, "phrases": [{ "en": "I walk to school.", "fr": "Je marche jusqu'à l'école." }, { "en": "We walk in the garden.", "fr": "Nous marchons dans le jardin." }] },

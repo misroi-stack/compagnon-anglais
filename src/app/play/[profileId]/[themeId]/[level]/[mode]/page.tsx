@@ -9,12 +9,13 @@ import { Quiz } from "@/components/games/Quiz";
 import { Associe } from "@/components/games/Associe";
 import { Phrase } from "@/components/games/Phrase";
 import { RepeatCheck } from "@/components/games/RepeatCheck";
+import { TPR } from "@/components/games/TPR";
 import { getProfile } from "@/lib/profiles";
 import type { Level, Theme, Word } from "@/types/content";
 import type { Profile } from "@/types/profile";
 import type { GameMode } from "@/types/progress";
 
-const VALID_MODES: GameMode[] = ["flashcards", "quiz", "associe", "repete", "phrase"];
+const VALID_MODES: GameMode[] = ["flashcards", "quiz", "associe", "repete", "phrase", "tpr"];
 
 interface RouteParams {
   profileId: string;
@@ -123,6 +124,8 @@ export default function GamePage({ params }: { params: Promise<RouteParams> }) {
           onExit={exitToModeHub}
         />
       );
+    case "tpr":
+      return <TPR mascotId={profile.mascot} theme={theme} words={words} onExit={exitToModeHub} />;
     default:
       return (
         <main className="flex min-h-screen flex-col items-center justify-center gap-4 bg-gradient-to-b from-violet-100 via-fuchsia-50 to-amber-50">

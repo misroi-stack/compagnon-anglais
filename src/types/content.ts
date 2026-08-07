@@ -33,5 +33,7 @@ export interface Theme {
   icon: string;
   /** Absent = "mots" (tous les thèmes existants avant l'ajout des verbes). */
   kind?: ThemeKind;
+  /** Active le mode TPR ("Fais l'action") — réservé aux thèmes de verbes physiquement mimables. */
+  tpr?: boolean;
   words: Word[];
 }

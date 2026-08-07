@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { GameHeader } from "./GameHeader";
+import { MascotBubble } from "./MascotBubble";
 import { speak } from "@/lib/speech";
 import {
   isSpeechRecognitionSupported,
@@ -14,6 +15,7 @@ import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
 import { getMascotImage, type MascotPose } from "@/lib/mascots";
 import { playSuccessSound } from "@/lib/sound";
+import { pickCelebrationLine, pickPromptLine, wasRecentlyMissed } from "@/lib/mascot-lines";
 import type { Theme, Word } from "@/types/content";
 import type { MascotId } from "@/types/profile";
 import type { WordProgress } from "@/types/progress";
@@ -50,6 +52,7 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit, onItemC
   const [attemptCount, setAttemptCount] = useState(0);
   const [progressMap, setProgressMap] = useState<Map<string, WordProgress>>(new Map());
   const [startTime, setStartTime] = useState(() => Date.now());
+  const [wasRemembered, setWasRemembered] = useState(false);
 
   const word = words[index];
   const isLast = index === words.length - 1;
@@ -67,6 +70,7 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit, onItemC
     setHeard(null);
     setAttemptCount(0);
     setStartTime(Date.now());
+    setWasRemembered(false);
   }, [index]);
 
   async function handleListen() {
@@ -104,6 +108,7 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit, onItemC
 
     setStatus(correct ? "correct" : "incorrect");
     if (!correct) speak(word.en);
+    setWasRemembered(wasRecentlyMissed(progressMap.get(word.id)));
 
     const updated = await recordAttempt(
       {
@@ -172,13 +177,17 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit, onItemC
         onExit={onExit}
       />
 
-      <div className="relative w-full max-w-md">
-        <Image
-          src={getMascotImage(mascotId, mascotPose)}
-          alt=""
-          width={80}
-          height={80}
-          className="absolute -top-6 -right-4 z-10 h-16 w-16 object-contain sm:-right-14"
+      <div className="w-full max-w-md">
+        <MascotBubble
+          mascotId={mascotId}
+          pose={mascotPose}
+          text={
+            status === "listening"
+              ? "Je t'écoute, vas-y !"
+              : status === "correct" && wasRemembered
+                ? pickCelebrationLine(index)
+                : pickPromptLine(progressMap.get(word.id), index)
+          }
         />
 
         <motion.div
