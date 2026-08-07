@@ -18,10 +18,15 @@ function pickDistractors(pool: string[], correct: string, count: number): string
   return shuffle(candidates).slice(0, count);
 }
 
-/** Alterne entre "mot -> traduction" et "écoute -> choix" (voir PLAN.md, mode Quiz). */
-export function buildQuestion(word: Word, allWords: Word[], index: number): Question {
+/**
+ * Alterne entre "mot -> traduction" et "écoute -> choix" (voir PLAN.md, mode Quiz).
+ * `distractorPool` permet de piocher les mauvaises réponses ailleurs que dans
+ * `allWords` — nécessaire quand `allWords` ne contient qu'un seul mot (usage
+ * "item unique" par SessionRunner, voir PLAN-SESSION.md).
+ */
+export function buildQuestion(word: Word, allWords: Word[], index: number, distractorPool?: Word[]): Question {
   const type: QuestionType = index % 2 === 0 ? "translation" : "listen";
-  const pool = allWords.length > 4 ? allWords : allWords;
+  const pool = distractorPool ?? allWords;
 
   if (type === "translation") {
     const correctAnswer = word.fr;

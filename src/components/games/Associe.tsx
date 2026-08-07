@@ -17,7 +17,10 @@ interface AssocieProps {
   mascotId: MascotId;
   theme: Theme;
   words: Word[];
+  /** Bouton "← Retour" du header — abandonner en cours de bloc (session ou non). */
   onExit: () => void;
+  /** Bouton "Terminé" une fois le bloc complété — si fourni, remplace `onExit` pour enchaîner directement au step suivant (SessionRunner). Sans effet sur "← Retour", qui appelle toujours `onExit`. */
+  onItemComplete?: () => void;
 }
 
 const MAX_PAIRS = 6;
@@ -26,7 +29,7 @@ function shuffle<T>(items: T[]): T[] {
   return [...items].sort(() => Math.random() - 0.5);
 }
 
-export function Associe({ profileId, mascotId, theme, words, onExit }: AssocieProps) {
+export function Associe({ profileId, mascotId, theme, words, onExit, onItemComplete }: AssocieProps) {
   const pool = useMemo(() => shuffle(words).slice(0, Math.min(MAX_PAIRS, words.length)), [words]);
   const emojiColumn = useMemo(() => shuffle(pool), [pool]);
   const wordColumn = useMemo(() => shuffle(pool), [pool]);
@@ -122,7 +125,7 @@ export function Associe({ profileId, mascotId, theme, words, onExit }: AssociePr
           <p className="text-xl font-bold text-violet-700">Bien joué !</p>
           <button
             type="button"
-            onClick={onExit}
+            onClick={onItemComplete ?? onExit}
             className="rounded-full bg-violet-600 px-8 py-3 font-bold text-white shadow"
           >
             Terminé

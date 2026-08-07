@@ -20,9 +20,21 @@ interface PhraseProps {
   theme: Theme;
   words: Word[];
   onExit: () => void;
+  /** Si fourni, remplace l'écran de fin habituel — utilisé par SessionRunner pour enchaîner directement au step suivant. Reçoit si la dernière réponse était correcte, pour le résumé de session. */
+  onItemComplete?: (correct: boolean) => void;
+  /** Pioche les distracteurs ici plutôt que dans `words` — nécessaire quand `words` ne contient qu'un seul mot (usage session). */
+  distractorPool?: Word[];
 }
 
-export function Phrase({ profileId, mascotId, theme, words, onExit }: PhraseProps) {
+export function Phrase({
+  profileId,
+  mascotId,
+  theme,
+  words,
+  onExit,
+  onItemComplete,
+  distractorPool,
+}: PhraseProps) {
   const [index, setIndex] = useState(0);
   const [finished, setFinished] = useState(false);
   const [progressMap, setProgressMap] = useState<Map<string, WordProgress>>(new Map());
@@ -30,7 +42,10 @@ export function Phrase({ profileId, mascotId, theme, words, onExit }: PhraseProp
   const [startTime, setStartTime] = useState(() => Date.now());
 
   const word = words[index];
-  const question = useMemo(() => buildPhraseQuestion(word, words), [word, words]);
+  const question = useMemo(
+    () => buildPhraseQuestion(word, words, distractorPool),
+    [word, words, distractorPool]
+  );
   const isLast = index === words.length - 1;
   const answered = selected !== null;
 
@@ -51,10 +66,14 @@ export function Phrase({ profileId, mascotId, theme, words, onExit }: PhraseProp
   // arriver, voir scripts/verify-content.mjs), on saute le mot sans planter.
   useEffect(() => {
     if (!question && !finished) {
-      if (isLast) setFinished(true);
-      else setIndex((i) => i + 1);
+      if (isLast) {
+        if (onItemComplete) onItemComplete(false);
+        else setFinished(true);
+      } else {
+        setIndex((i) => i + 1);
+      }
     }
-  }, [question, isLast, finished]);
+  }, [question, isLast, finished, onItemComplete]);
 
   if (!question) {
     return finished ? renderFinished() : null;
@@ -83,6 +102,10 @@ export function Phrase({ profileId, mascotId, theme, words, onExit }: PhraseProp
 
   function next() {
     if (isLast) {
+      if (onItemComplete) {
+        onItemComplete(!!question && selected === question.correctAnswer);
+        return;
+      }
       setFinished(true);
       return;
     }

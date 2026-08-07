@@ -26,11 +26,11 @@ Conséquences concrètes :
 
 Ces trois points se greffent l'un sur l'autre et devraient être pensés ensemble.
 
-- [ ] **1. Mode « Session du jour »** — nouvelle entrée sur l'écran de catégorie, à côté de Mots/Verbes. Compose ~10 min à partir de **toute** la base (toutes catégories, tous thèmes) : les mots dus pour révision selon `isDueForReview()` + quelques nouveaux. Toute l'infrastructure existe déjà (boîtes, dates, historique par mot) — il ne manque que le sélecteur de mots.
+- [x] **1. Mode « Session du jour »** — nouvelle entrée sur l'écran de catégorie, à côté de Mots/Verbes. Compose ~10 min à partir de **toute** la base (toutes catégories, tous thèmes) : les mots dus pour révision selon `isDueForReview()` + quelques nouveaux. Toute l'infrastructure existe déjà (boîtes, dates, historique par mot) — il ne manque que le sélecteur de mots. *Livré le 2026-08-07, voir [PLAN-SESSION.md](PLAN-SESSION.md).*
 
-- [ ] **2. Alterner les modes dans une session (interleaving)** — aujourd'hui c'est de la pratique en bloc : 5 Quiz d'affilée → retour au hub → 5 Associe → retour au hub. L'interleaving est l'un des résultats les plus solides en sciences de l'apprentissage : plus dur sur le moment, bien meilleure rétention. Bonus : plus varié donc plus amusant, et ça supprime les allers-retours de navigation pour des sessions de 90 secondes.
+- [x] **2. Alterner les modes dans une session (interleaving)** — aujourd'hui c'est de la pratique en bloc : 5 Quiz d'affilée → retour au hub → 5 Associe → retour au hub. L'interleaving est l'un des résultats les plus solides en sciences de l'apprentissage : plus dur sur le moment, bien meilleure rétention. Bonus : plus varié donc plus amusant, et ça supprime les allers-retours de navigation pour des sessions de 90 secondes. *Livré le 2026-08-07 avec le point 1 — même refonte.*
 
-- [ ] **10. Donner une forme à la session** — écran d'ouverture (« Aujourd'hui : 4 nouveaux mots + 6 à revoir ») et de clôture (« Tu as revu 10 mots, *whale* progresse ! »). Sans début ni fin, une session ne procure aucun sentiment d'accomplissement. L'objectif affiché en début de session était déjà au plan.
+- [x] **10. Donner une forme à la session** — écran d'ouverture (« Aujourd'hui : 4 nouveaux mots + 6 à revoir ») et de clôture (« Tu as revu 10 mots, *whale* progresse ! »). Sans début ni fin, une session ne procure aucun sentiment d'accomplissement. L'objectif affiché en début de session était déjà au plan. *Livré le 2026-08-07 — carte héros + écran de résumé.*
 
 ---
 
@@ -64,7 +64,7 @@ Ces trois points se greffent l'un sur l'autre et devraient être pensés ensembl
 - [ ] **5. Une modalité écrite** — rien ne fait produire l'orthographe. L'anglais écrit est un vrai obstacle pour un francophone (*through, enough, colour*). Lettres mélangées à remettre en ordre pour le petit, saisie libre pour l'aîné : comblerait le seul trou dans les quatre modalités (écouter / parler / lire / **écrire**).
 
 - [ ] **6. Distracteurs plus intelligents** — le dashboard parent *sait* quels mots l'enfant confond ; le Quiz l'ignore et tire ses distracteurs au hasard dans le même thème/niveau. Proposer *tree* comme distracteur de *three* **quand l'enfant a déjà confondu les deux** transforme un QCM générique en travail ciblé.
-  - ⚠️ À corriger au passage : `src/lib/quiz.ts` → `const pool = allWords.length > 4 ? allWords : allWords;` — les deux branches sont identiques, une intention a été perdue là.
+  - ✅ Corrigé le 2026-08-07 (en construisant la Session du jour) : `src/lib/quiz.ts` avait `const pool = allWords.length > 4 ? allWords : allWords;` — les deux branches identiques, une intention perdue. Remplacé par un vrai `distractorPool` optionnel. Le ciblage "mots confondus" ci-dessus reste à faire.
 
 ---
 

@@ -24,6 +24,8 @@ interface RepeatCheckProps {
   theme: Theme;
   words: Word[];
   onExit: () => void;
+  /** Si fourni, remplace l'écran de fin habituel — utilisé par SessionRunner pour enchaîner directement au step suivant. Reçoit si la dernière réponse était correcte, pour le résumé de session. */
+  onItemComplete?: (correct: boolean) => void;
 }
 
 type Status =
@@ -40,7 +42,7 @@ type Status =
  *  et ça ne doit pas décourager un enfant qui prononce correctement. */
 const MAX_ATTEMPTS_BEFORE_AUTO_SUCCESS = 3;
 
-export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: RepeatCheckProps) {
+export function RepeatCheck({ profileId, mascotId, theme, words, onExit, onItemComplete }: RepeatCheckProps) {
   const [index, setIndex] = useState(0);
   const [finished, setFinished] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
@@ -120,6 +122,10 @@ export function RepeatCheck({ profileId, mascotId, theme, words, onExit }: Repea
 
   function next() {
     if (isLast) {
+      if (onItemComplete) {
+        onItemComplete(status === "correct");
+        return;
+      }
       setFinished(true);
       return;
     }

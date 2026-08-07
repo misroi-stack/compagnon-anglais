@@ -20,9 +20,13 @@ interface QuizProps {
   theme: Theme;
   words: Word[];
   onExit: () => void;
+  /** Si fourni, remplace l'écran de fin habituel — utilisé par SessionRunner pour enchaîner directement au step suivant. Reçoit si la dernière réponse était correcte, pour le résumé de session. */
+  onItemComplete?: (correct: boolean) => void;
+  /** Pioche les distracteurs ici plutôt que dans `words` — nécessaire quand `words` ne contient qu'un seul mot (usage session). */
+  distractorPool?: Word[];
 }
 
-export function Quiz({ profileId, mascotId, theme, words, onExit }: QuizProps) {
+export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete, distractorPool }: QuizProps) {
   const [index, setIndex] = useState(0);
   const [finished, setFinished] = useState(false);
   const [progressMap, setProgressMap] = useState<Map<string, WordProgress>>(new Map());
@@ -30,7 +34,10 @@ export function Quiz({ profileId, mascotId, theme, words, onExit }: QuizProps) {
   const [startTime, setStartTime] = useState(() => Date.now());
 
   const word = words[index];
-  const question = useMemo(() => buildQuestion(word, words, index), [word, words, index]);
+  const question = useMemo(
+    () => buildQuestion(word, words, index, distractorPool),
+    [word, words, index, distractorPool]
+  );
   const isLast = index === words.length - 1;
   const answered = selected !== null;
 
@@ -71,6 +78,10 @@ export function Quiz({ profileId, mascotId, theme, words, onExit }: QuizProps) {
 
   function next() {
     if (isLast) {
+      if (onItemComplete) {
+        onItemComplete(selected === question.correctAnswer);
+        return;
+      }
       setFinished(true);
       return;
     }

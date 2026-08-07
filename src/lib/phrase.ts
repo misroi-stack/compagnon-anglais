@@ -32,8 +32,11 @@ function escapeRegex(value: string): string {
  * ne contient le verbe — le composant doit alors sauter ce mot plutôt que
  * de planter (ne devrait jamais arriver si le contenu passe
  * scripts/verify-content.mjs, mais défensif au cas où).
+ *
+ * `distractorPool` permet de piocher les mauvaises réponses ailleurs que
+ * dans `allWords` — nécessaire en usage "item unique" par SessionRunner.
  */
-export function buildPhraseQuestion(word: Word, allWords: Word[]): PhraseQuestion | null {
+export function buildPhraseQuestion(word: Word, allWords: Word[], distractorPool?: Word[]): PhraseQuestion | null {
   const phrases = word.phrases;
   if (!phrases || phrases.length === 0) return null;
 
@@ -43,7 +46,7 @@ export function buildPhraseQuestion(word: Word, allWords: Word[]): PhraseQuestio
 
   const phrase = candidates[Math.floor(Math.random() * candidates.length)];
   const distractors = pickDistractors(
-    allWords.map((w) => w.en),
+    (distractorPool ?? allWords).map((w) => w.en),
     word.en,
     2
   );

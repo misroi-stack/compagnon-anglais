@@ -4,11 +4,12 @@ import { Suspense, use, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { themesByKind } from "@/content";
+import { themes, themesByKind } from "@/content";
 import { getMascotImage } from "@/lib/mascots";
 import { getProfile, updateProfileMascot } from "@/lib/profiles";
 import { getProgressForProfile } from "@/lib/progress";
 import { getThemeStats, type ThemeStats } from "@/lib/theme-suggestion";
+import { buildSessionPlan, type SessionPlan } from "@/lib/session";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { MascotPicker } from "@/components/MascotPicker";
 import type { MascotId, Profile } from "@/types/profile";
@@ -32,6 +33,7 @@ function PlayPageContent({ params }: { params: Promise<{ profileId: string }> })
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [themeStats, setThemeStats] = useState<ThemeStats[]>([]);
+  const [sessionPlan, setSessionPlan] = useState<SessionPlan | null>(null);
   const [isChangingMascot, setIsChangingMascot] = useState(false);
 
   useEffect(() => {
@@ -45,15 +47,14 @@ function PlayPageContent({ params }: { params: Promise<{ profileId: string }> })
         return;
       }
 
-      let stats: ThemeStats[] = [];
-      if (cat) {
-        const progressMap = await getProgressForProfile(profileId);
-        stats = getThemeStats(themesByKind(cat), progressMap);
-      }
+      const progressMap = await getProgressForProfile(profileId);
+      const stats = cat ? getThemeStats(themesByKind(cat), progressMap) : [];
+      const plan = buildSessionPlan(themes, progressMap);
 
       if (!cancelled) {
         setProfile(p);
         setThemeStats(stats);
+        setSessionPlan(plan);
         setLoading(false);
       }
     }
@@ -70,7 +71,7 @@ function PlayPageContent({ params }: { params: Promise<{ profileId: string }> })
     return <LoadingIndicator fullScreen error={error} />;
   }
 
-  if (loading || !profile) {
+  if (loading || !profile || !sessionPlan) {
     return <LoadingIndicator fullScreen />;
   }
 
@@ -137,20 +138,39 @@ function PlayPageContent({ params }: { params: Promise<{ profileId: string }> })
         {header}
         {mascotModal}
 
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="w-full max-w-md rounded-3xl bg-gradient-to-br from-amber-300 to-amber-400 p-6 text-center text-white shadow-lg"
+        >
+          <p className="text-lg font-extrabold">⭐ Ma session du jour</p>
+          <p className="mt-1 text-sm text-amber-50">
+            {sessionPlan.isFallbackReview
+              ? "Révision libre"
+              : `${sessionPlan.newCount} nouveau${sessionPlan.newCount > 1 ? "x" : ""} · ${sessionPlan.dueCount} à revoir`}
+          </p>
+          <button
+            type="button"
+            onClick={() => router.push(`/play/${profileId}/session`)}
+            className="mt-4 rounded-full bg-white px-8 py-3 font-bold text-amber-600 shadow"
+          >
+            C&apos;est parti !
+          </button>
+        </motion.div>
+
+        <p className="text-xs font-semibold text-violet-400">— ou choisis toi-même —</p>
+
         <section className="flex w-full max-w-md flex-col items-center gap-2">
-          <h2 className="mb-2 text-center text-lg font-bold text-violet-600">
-            Qu&apos;est-ce qu&apos;on apprend aujourd&apos;hui ?
-          </h2>
           <div className="grid w-full grid-cols-2 gap-4">
             <motion.button
               type="button"
               onClick={() => router.push(`/play/${profileId}?cat=mots`)}
               whileTap={{ scale: 0.95 }}
               whileHover={{ scale: 1.05 }}
-              className="flex flex-col items-center gap-2 rounded-3xl bg-white px-4 py-8 text-violet-600 shadow-md"
+              className="flex flex-col items-center gap-2 rounded-3xl bg-white px-4 py-6 text-violet-600 shadow-md"
             >
-              <span className="text-5xl">📚</span>
-              <span className="text-base font-bold">Les mots</span>
+              <span className="text-4xl">📚</span>
+              <span className="text-sm font-bold">Les mots</span>
             </motion.button>
 
             <motion.button
@@ -158,10 +178,10 @@ function PlayPageContent({ params }: { params: Promise<{ profileId: string }> })
               onClick={() => router.push(`/play/${profileId}?cat=verbes`)}
               whileTap={{ scale: 0.95 }}
               whileHover={{ scale: 1.05 }}
-              className="flex flex-col items-center gap-2 rounded-3xl bg-white px-4 py-8 text-violet-600 shadow-md"
+              className="flex flex-col items-center gap-2 rounded-3xl bg-white px-4 py-6 text-violet-600 shadow-md"
             >
-              <span className="text-5xl">🏃</span>
-              <span className="text-base font-bold">Les verbes</span>
+              <span className="text-4xl">🏃</span>
+              <span className="text-sm font-bold">Les verbes</span>
             </motion.button>
           </div>
         </section>
