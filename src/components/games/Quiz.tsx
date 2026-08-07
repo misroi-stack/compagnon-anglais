@@ -9,6 +9,7 @@ import { buildQuestion } from "@/lib/quiz";
 import { speak } from "@/lib/speech";
 import { recordAttempt } from "@/lib/attempts";
 import { getProgressForProfile } from "@/lib/progress";
+import { getConfusionMap } from "@/lib/confusion";
 import { getMascotImage } from "@/lib/mascots";
 import { playSuccessSound } from "@/lib/sound";
 import { pickCelebrationLine, pickPromptLine, wasRecentlyMissed } from "@/lib/mascot-lines";
@@ -36,17 +37,19 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
   const [startTime, setStartTime] = useState(() => Date.now());
   const [wasRemembered, setWasRemembered] = useState(false);
   const [retried, setRetried] = useState(false);
+  const [confusionMap, setConfusionMap] = useState<Map<string, string[]>>(new Map());
 
   const word = words[index];
   const question = useMemo(
-    () => buildQuestion(word, words, index, distractorPool),
-    [word, words, index, distractorPool]
+    () => buildQuestion(word, words, index, distractorPool, confusionMap),
+    [word, words, index, distractorPool, confusionMap]
   );
   const isLast = index === words.length - 1;
   const answered = selected !== null;
 
   useEffect(() => {
     getProgressForProfile(profileId).then(setProgressMap);
+    getConfusionMap(profileId).then(setConfusionMap);
   }, [profileId]);
 
   useEffect(() => {
@@ -87,6 +90,7 @@ export function Quiz({ profileId, mascotId, theme, words, onExit, onItemComplete
         correct,
         responseTimeMs: Date.now() - startTime,
         timestamp: new Date().toISOString(),
+        selectedAnswer: option,
       },
       progressMap.get(word.id)
     );

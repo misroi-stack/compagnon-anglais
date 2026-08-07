@@ -14,6 +14,7 @@ export async function recordAttempt(
     mode: attempt.mode,
     correct: attempt.correct,
     response_time_ms: attempt.responseTimeMs,
+    selected_answer: attempt.selectedAnswer ?? null,
   });
   if (error) throw error;
 

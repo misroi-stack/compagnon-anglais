@@ -8,6 +8,8 @@ export interface Attempt {
   correct: boolean;
   responseTimeMs: number;
   timestamp: string;
+  /** Réponse choisie (Quiz uniquement pour l'instant) — sert à cibler les distracteurs sur les mots réellement confondus. */
+  selectedAnswer?: string;
 }
 
 /** Progression d'un mot pour un profil donné (système à boîtes type Leitner). */

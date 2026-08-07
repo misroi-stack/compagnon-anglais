@@ -50,7 +50,8 @@ create table if not exists attempts (
   mode text not null check (mode in ('flashcards', 'quiz', 'associe', 'repete', 'phrase')),
   correct boolean not null,
   response_time_ms integer not null,
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  selected_answer text
 );
 
 -- Bloque la création d'un compte parent si le code n'est pas actif, même si le

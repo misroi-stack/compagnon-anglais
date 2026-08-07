@@ -15,9 +15,19 @@ function shuffle<T>(items: T[]): T[] {
   return [...items].sort(() => Math.random() - 0.5);
 }
 
-function pickDistractors(pool: string[], correct: string, count: number): string[] {
+/**
+ * `preferred` : distracteurs à privilégier s'ils sont disponibles dans `pool` —
+ * typiquement des réponses que l'enfant a déjà choisies à tort pour ce mot par
+ * le passé (voir IDEAS.md priorité 4, point 6). Complété au hasard sinon.
+ */
+function pickDistractors(pool: string[], correct: string, count: number, preferred?: string[]): string[] {
   const candidates = pool.filter((value) => value !== correct);
-  return shuffle(candidates).slice(0, count);
+  if (!preferred?.length) return shuffle(candidates).slice(0, count);
+
+  const preferredSet = new Set(preferred);
+  const targeted = shuffle(candidates.filter((value) => preferredSet.has(value)));
+  const rest = shuffle(candidates.filter((value) => !preferredSet.has(value)));
+  return [...targeted, ...rest].slice(0, count);
 }
 
 /**
@@ -31,11 +41,22 @@ function pickDistractors(pool: string[], correct: string, count: number): string
  * phrase entière plutôt que d'un mot isolé) — voir IDEAS.md priorité 4,
  * point 4. Réservé au niveau 3 plutôt qu'à un âge, l'app n'a plus de notion
  * d'âge dans son modèle de données.
+ *
+ * `confusionMap` (mot -> réponses déjà choisies à tort pour ce mot) permet de
+ * cibler les distracteurs sur ce que l'enfant confond réellement plutôt qu'un
+ * tirage purement aléatoire dans le thème/niveau.
  */
-export function buildQuestion(word: Word, allWords: Word[], index: number, distractorPool?: Word[]): Question {
+export function buildQuestion(
+  word: Word,
+  allWords: Word[],
+  index: number,
+  distractorPool?: Word[],
+  confusionMap?: Map<string, string[]>
+): Question {
   const pool = distractorPool ?? allWords;
   const phrasePool = pool.flatMap((w) => (w.phrases ?? []).map((p) => p.fr));
   const sentenceEligible = word.level === 3 && !!word.phrases?.length && phrasePool.length >= 4;
+  const preferred = confusionMap?.get(word.id);
 
   const type: QuestionType = sentenceEligible
     ? (["translation", "listen", "sentence"] as const)[index % 3]
@@ -47,7 +68,7 @@ export function buildQuestion(word: Word, allWords: Word[], index: number, distr
     const phrases = word.phrases!;
     const phrase = phrases[index % phrases.length];
     const correctAnswer = phrase.fr;
-    const distractors = pickDistractors(phrasePool, correctAnswer, 3);
+    const distractors = pickDistractors(phrasePool, correctAnswer, 3, preferred);
     return { type, word, correctAnswer, options: shuffle([correctAnswer, ...distractors]), promptEn: phrase.en };
   }
 
@@ -56,7 +77,8 @@ export function buildQuestion(word: Word, allWords: Word[], index: number, distr
     const distractors = pickDistractors(
       pool.map((w) => w.fr),
       correctAnswer,
-      3
+      3,
+      preferred
     );
     return { type, word, correctAnswer, options: shuffle([correctAnswer, ...distractors]) };
   }
@@ -65,7 +87,8 @@ export function buildQuestion(word: Word, allWords: Word[], index: number, distr
   const distractors = pickDistractors(
     pool.map((w) => w.en),
     correctAnswer,
-    3
+    3,
+    preferred
   );
   return { type, word, correctAnswer, options: shuffle([correctAnswer, ...distractors]) };
 }
